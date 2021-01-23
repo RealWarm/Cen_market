@@ -8,11 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 	
 	@GetMapping("/")
-	public String Main() throws Exception {	
-		
+	public String Main() throws Exception {			
 		return "login";
-	}
+	}//main	
 	
-	
-	
-}
+}//end class
