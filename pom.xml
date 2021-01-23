@@ -189,12 +189,26 @@
 		</dependency>
 				
 		<!-- mysql -->
+		
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-		<dependency>
+		<!-- <dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
 		    <version>5.1.48</version>
+		</dependency> -->
+		
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<!-- 1.23 change -->
+		<!-- <property name="url"
+					  value="jdbc:mysql://127.0.0.1:3306/cen_market?serverTimezone=UTC"/> -->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>8.0.16</version>
 		</dependency>
+		
+		
+		
 		
 		<!-- Driver SPY --> 
 		<!-- https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4 -->
