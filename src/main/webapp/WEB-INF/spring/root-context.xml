@@ -47,8 +47,8 @@
 	                   value="classpath:mappers/**/*Mapper.xml"/>
 	   </bean>
 	   
-	           <!-- DAO 구현객체가 MyBatis framework에 의존하고 있고,
-	       DAO 구현객체를 생성하려면, 의존하고있는 MyBatis의 SqlSessionTemplate
+	     <!-- DAO 구현객체가 MyBatis framework에 의존하고 있고,
+	     DAO 구현객체를 생성하려면, 의존하고있는 MyBatis의 SqlSessionTemplate
 	            타입의 구체를 주입받아서 DAO 구현 클래스를 만들수 있음 -->
 	   
 	     <bean id="sqlSession"
@@ -61,8 +61,8 @@
 	     </bean>
 	
 		<context:component-scan base-package="com.cen.persistence"/>
-	 	<context:component-scan base-package="com.cen.service"/>
-	 	<context:component-scan base-package="com.cen.controller"/>
+	 	<context:component-scan base-package="com.cen.service"/>	 	
 		<context:component-scan base-package="com.cen.model"/>
+		<context:component-scan base-package="com.cen.domain"/>
 	
 </beans>

@@ -8,20 +8,29 @@
  <mapper namespace = "com.cen.mapper.MemberMapper">
  
  
- 	<!-- <select id="getTime" resultType="string">
+ 	<select id="login"
+ 			parameterType="com.cen.model.LoginDTO"
+ 			resultType="com.cen.domain.MemberVO">
  		select
- 			now()
+ 			*
+ 		from
+ 			tbl_member
+ 		where
+ 			id=#{userid} AND
+ 			password=#{userpw};			
  	</select>
  	
- 	<insert id="insertMember">
- 		insert into tbl_member (userid, userpw, username, email) values
- 		(#{userid}, #{userpw}, #{username}, #{email})
- 	</insert> -->
+ 
+	<select id="registerMember"
+			parameterType="com.cen.domain.MemberVO">
+		insert into tbl_member 
+			(id, password, name, nickname, email, phnum, org_code, recent_address)
+		value
+			(#{id}, #{password}, #{name}, #{nickname}, #{email}, #{phnum}, #{org_code}, #{recent_address});	
+	</select>
+ 
  	
- 	<!-- <insert id="insertMember">
-		insert into tbl_member(userid, userpw, username, email) values
-		(#{userid}, #{userpw}, #{username}, #{email})
-	</insert> -->
+ 	
  	
  
  </mapper>
