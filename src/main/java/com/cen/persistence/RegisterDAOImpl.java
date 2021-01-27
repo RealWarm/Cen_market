@@ -1,4 +1,4 @@
-package com.cen.persistence.member;
+package com.cen.persistence;
 
 import javax.inject.Inject;
 

@@ -9,8 +9,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.cen.domain.MemberVO;
 import com.cen.model.LoginDTO;
-import com.cen.persistence.member.LoginDAO;
-import com.cen.persistence.member.RegisterDAO;
+import com.cen.persistence.LoginDAO;
+import com.cen.persistence.RegisterDAO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -34,10 +34,12 @@ public class MemberDAOTest {
 	
 	@Test
 	public void testLogin() throws Exception{
-		LoginDTO dto = new LoginDTO("testid", "test");
-		Boolean bool = logindao.login(dto);		
-		log.info("MemberDAOTest :: public void testLogin() invoked!!!"+" >>>>> ");
-		if(bool==true) {
+		LoginDTO dto = new LoginDTO("testid1", "test");
+		MemberVO vo = logindao.login(dto);		
+		log.info("MemberDAOTest :: public void testLogin() invoked!!!");
+		System.out.println(vo);
+		
+		if(vo!=null) {
 			log.info("login ok!!!!!");
 		}else {
 			log.info("login fail!!");

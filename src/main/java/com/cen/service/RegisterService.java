@@ -1,10 +1,11 @@
-package com.cen.persistence.member;
+package com.cen.service;
 
 import com.cen.domain.MemberVO;
 
-public interface RegisterDAO {
+
+public interface RegisterService {
 	
-	// 회원가입
+	// 회원등록
 	public void register(MemberVO vo) throws Exception;
 
 }//end interface

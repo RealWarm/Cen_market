@@ -1,4 +1,4 @@
-package com.cen.persistence.member;
+package com.cen.persistence;
 
 import javax.inject.Inject;
 
@@ -21,24 +21,18 @@ public class LoginDAOImpl implements LoginDAO{
 	private SqlSession sqlSession;
 	
 	private final String namespace="com.cen.mapper.MemberMapper";
-	
-	
+		
 	@Override
-	public Boolean login(LoginDTO dto) throws Exception {		
+	public MemberVO login(LoginDTO dto) throws Exception {		
 		log.info("LoginDAOImpl::public Boolean login(LoginDTO dto) invoked!!");
 		MemberVO vo = sqlSession.selectOne(namespace + ".login", dto);
-		
+		System.out.println(vo);
 		if(vo==null) {
-			return false;
+			return null;
 		}else {
-			return true;
+			return vo;
 		}//if
 		
 	}//login
-
-	@Override
-	public void logout() throws Exception {		
-		
-	}//logout
 
 }//endclass
