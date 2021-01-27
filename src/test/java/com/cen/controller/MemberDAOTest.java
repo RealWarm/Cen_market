@@ -28,7 +28,7 @@ public class MemberDAOTest {
 	@Test
 	public void testRegister() throws Exception{
 		MemberVO vo = new MemberVO("testid2", "test2", "testname2", "testnick2", 
-								   "test2@naver.com", "010-9999-9199", 1 , "관악구신림동");
+								   "test2@naver.com", "010-9999-9199", 1 , "관악구신림동");		
 		registerdao.register(vo);
 	}//testCreate
 	
@@ -47,13 +47,18 @@ public class MemberDAOTest {
 	}//testRead
 	
 	@Test
-	public void testUpdate() throws Exception{
-		
+	public void testgetOrgCodeNum() throws Exception{
+		log.info("MemberDAOTest :: public void testgetOrgCodeNum() invoked!!!");
+		String str = new String("신림동 동사무서");
+		int res=registerdao.find_OrgCode(str);
+		log.info("코드넘버는 " + res + " 입니다.");
 	}//testUpdate
 	
 	@Test
-	public void testDelete() throws Exception{
-		
+	public void testfind_OrgAddress() throws Exception{
+		log.info("MemberDAOTest :: public void testfind_OrgAddress() invoked!!!");
+		String str = registerdao.find_OrgAddress(1);
+		System.out.println("주소는 " + str + " 입니다.");
 	}//testDelete
 
 }//end

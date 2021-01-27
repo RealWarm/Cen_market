@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.cen.domain.MemberVO;
 import com.cen.model.LoginDTO;
 import com.cen.service.LoginService;
+import com.cen.service.RegisterService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -23,8 +24,7 @@ public class MainController {
 
 	@Inject
 	LoginService loginService;	
-	
-	
+		
 	@GetMapping("/login")
 	public String main() throws Exception {		
 		log.info("MainController :: public String main() invoked!!!!");		
@@ -32,13 +32,13 @@ public class MainController {
 	}//main
 	
 	@PostMapping("/login_Post")
-	public String login(HttpServletRequest request, LoginDTO dto) throws Exception{
-		
+	public String login(HttpServletRequest request, LoginDTO dto) throws Exception{		
 		log.info("MainController :: public String login_Post() invoked!!!!");
 		
 		System.out.println("+++++++" + dto);
 		MemberVO vo= loginService.login(dto);
 		System.out.println("+++++++" + vo);
+		
 		if(vo==null) {
 			log.info("login fail!!!!!!!!");
 			return "redirect:/";
@@ -50,34 +50,6 @@ public class MainController {
 		}//if
 		
 	}//login
-	
-	@GetMapping("/join")
-	public String joinGet() throws Exception{
-		log.info("MainController :: public String joinGet() invoked!!!!");		
-		return "join";		
-	}//joinGet
-	
-	
-	@PostMapping("/join")
-	public String joinPost() throws Exception{
-		log.info("MainController :: public String joinPost() invoked!!!!");
-		
-		return "join";		
-	}//joinGet
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

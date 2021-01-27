@@ -20,23 +20,23 @@
 <body>
 	<div id="header">
         <div class="header-inner">
-            <h1 class="header-logo"><a href="/"><img src="/resources/img/kor_used1.PNG" alt="콘시네마" width="300px" height="80"></a></h1>
+            <h1 class="header-logo"><a href="/"><img src="/resources/img/kor_used1.PNG" alt="콘시네마" width="400px" height="80"></a></h1>
             <div id="gnb">
                 <h2 class="blind">대표메뉴</h2>
                     <ul class="nav">
-                        <li><a href="javascript:void(0)">로그인</a></li>
+                        <li><a href="/">로그인</a></li>
                         <li><a href="javascript:void(0)">아이디 찾기</a></li>
                         <li><a href="javascript:void(0)">비밀번호 찾기</a></li>
                     </ul>
             </div>
-            <ul class="user-menu">
+           <!--  <ul class="user-menu">
                 <li><a href="">로그인</a></li>
                 <li><a href="">회원가입</a></li>
-            </ul>
+            </ul> -->
         </div>
     </div>
     <div class="main-join-wrap">
-        <form class="join-form" action="#" method="POST">
+        <form class="join-form" action="/member/register" method="POST">
             <div class="join-title-main">
                 <h2 class="join-title">회원가입</h2>
             </div>
@@ -49,40 +49,53 @@
                     <tbody>
                         <tr>
                             <th scope="row">
-                                <label for="user_id">*아이디</label>
+                                <label for="id">*아이디</label>
                             </th>
                             <td>
-                                <input type="text" title="아이디" id="user_id" name="" maxlength="12" required="">
+                                <input type="text" title="아이디" id="id" name="id" maxlength="12" required="">
                                 <button class="check-bt">중복확인</button>
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row"><label for="user_pw">*비밀번호</label></th>
+                            <th scope="row"><label for="password">*비밀번호</label></th>
                             <td>
-                                <input type="password" title="아이디" id="user_pw" name="" required="">
+                                <input type="password" title="아이디" id="password" name="password" required="">
                             </td>
                         </tr>
                         <tr>
                             <th scope="row"><label for="user_check_pw">*비밀번호 확인</label></th>
                             <td>
-                                <input type="password" title="비밀번호 확인" id="user_check_pw" name="" required="">
+                                <input type="password" title="비밀번호 확인" id="user_check_pw" name="user_check_pw" required="">
                             </td>
                         </tr>
                         <tr>
-                            <th><label for="user_name">*이름</label></th>
+                            <th><label for="name">*이름</label></th>
                             <td>
-                                <input type="text" title="이름" id="user_name" name="" required="">
+                                <input type="text" title="이름" id="name" name="name" required="">
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row"><label for="user_phone">*휴대폰</label></th>
+                            <th><label for="nickname">*닉네임</label></th>
                             <td>
-                                <input type="phone" title="휴대폰" id="user_phone" name="" required="">
+                                <input type="text" title="닉네임" id="nickname" name="nickname" required="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="phnum">*휴대폰</label></th>
+                            <td>
+                                <input type="phone" title="휴대폰" id="phnum" name="phnum" required="">
                             </td>                        
                         <tr>
-                            <th scope="row"><label for="user_email">*이메일</label></th>
+                            <th scope="row"><label for="email">*이메일</label></th>
                             <td>
-                                <input type="email" id="user_email" name="" required="" placeholder='joe@example.com'>
+                                <input type="email" id="email" name="email" required="" placeholder='joe@example.com'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="org_name">*기관명(주소 + 기관)</label></th>
+                            <td>
+                            	<input type="hidden" id="org_code" name="org_code" value="0">
+                                <input type="text" id="org_name" name="org_name" placeholder='신림동 동사무서'>
                             </td>
                         </tr>
                     </tbody>

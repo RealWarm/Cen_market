@@ -21,6 +21,20 @@ public class RegisterServiceImpl implements RegisterService {
 		log.info("RegisterServiceImpl:: public void register(MemberVO vo) invoked!!!");
 		dao.register(vo);
 	}//register
+
+	@Override
+	public int find_OrgCode(String org_name) throws Exception {
+		log.info("RegisterServiceImpl:: public int find_OrgCode(String org_name) invoked!!!");
+		int code=dao.find_OrgCode(org_name);		
+		return code;
+	}//find_OrgCode
+
+	@Override
+	public String find_OrgAddress(int org_code) throws Exception {
+		log.info("RegisterServiceImpl:: public String find_OrgAddress(int org_code) invoked!!!");
+		String recent=dao.find_OrgAddress(org_code);
+		return recent;
+	}//find_OrgAddress
 	
 	
 
