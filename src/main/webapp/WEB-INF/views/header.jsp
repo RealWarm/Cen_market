@@ -4,12 +4,23 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+	<meta charset="UTF-8">
+	<title>나라중고장터</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/jpg" href="/resources/img/shopping.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="stylesheet" href="/resources/css/style2.css">
+</head>
+
 <body>
-  	<<!-- header -->
+  	<!-- header -->
     <header id="headerbar">
         <div class="header__logo">            
             <a href="/main"></a>
-            <img src="img/kor_userd1.PNG" alt="나라중고장터" width="320px" height="80">            
+            <img src="/resources/img/kor_used1.PNG" alt="나라중고장터" width="320px" height="80">            
         </div>
 
         <div class="header__menu_box">

@@ -50,9 +50,5 @@ public class MainController {
 		}//if
 		
 	}//login
-	
-	
-	
-	
-	
+		
 }//main
