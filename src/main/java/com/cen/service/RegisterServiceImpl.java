@@ -35,6 +35,24 @@ public class RegisterServiceImpl implements RegisterService {
 		String recent=dao.find_OrgAddress(org_code);
 		return recent;
 	}//find_OrgAddress
+
+	@Override
+	public int idCheck(String user_id) throws Exception {
+		log.info("RegisterServiceImpl:: idCheck() invoked!!!");
+		return dao.idCheck(user_id);
+	}//idCheck
+
+	@Override
+	public int nickCheck(String nick_id) throws Exception {
+		log.info("RegisterServiceImpl:: nickCheck() invoked!!!");
+		return dao.nickCheck(nick_id);
+	}//nickCheck
+
+	@Override
+	public int emailCheck(String user_email) throws Exception {
+		log.info("RegisterServiceImpl:: emailCheck() invoked!!!");
+		return dao.emailCheck(user_email);
+	}//emailCheck
 	
 	
 

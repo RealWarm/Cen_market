@@ -60,5 +60,44 @@ public class MemberDAOTest {
 		String str = registerdao.find_OrgAddress(1);
 		System.out.println("주소는 " + str + " 입니다.");
 	}//testDelete
+	
+	@Test
+	public void testfind_id() throws Exception{
+		log.info("MemberDAOTest :: public void testfind_id() invoked!!!");
+		int res = registerdao.idCheck("testid2");
+		if(res==1) {
+			System.out.println("아이디가 있습니다.");
+		}else if(res==0) {
+			System.out.println("아이디가 없습니다.");
+		}//if
+	}//testfind_id
+	
+	
+	@Test
+	public void testfind_nick() throws Exception{
+		log.info("MemberDAOTest :: public void testfind_nick() invoked!!!");
+		int res = registerdao.nickCheck("testnick2");
+		if(res==1) {
+			System.out.println("아이디가 있습니다.");
+		}else if(res==0) {
+			System.out.println("아이디가 없습니다.");
+		}//if
+	}//testDelete
+	
+	
+	@Test
+	public void testfind_email() throws Exception{
+		log.info("MemberDAOTest :: public void testfind_email() invoked!!!");
+		int res = registerdao.emailCheck("test2@naver.com");
+		if(res==1) {
+			System.out.println("아이디가 있습니다.");
+		}else if(res==0) {
+			System.out.println("아이디가 없습니다.");
+		}//if
+	}//testfind_email
+	
+	
+	
+	
 
 }//end

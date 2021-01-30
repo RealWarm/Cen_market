@@ -27,6 +27,7 @@ public class LoginDAOImpl implements LoginDAO{
 		log.info("LoginDAOImpl::public Boolean login(LoginDTO dto) invoked!!");
 		MemberVO vo = sqlSession.selectOne(namespace + ".login", dto);
 		System.out.println(vo);
+		
 		if(vo==null) {
 			return null;
 		}else {

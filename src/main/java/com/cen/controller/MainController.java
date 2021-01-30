@@ -8,11 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cen.domain.MemberVO;
 import com.cen.model.LoginDTO;
 import com.cen.service.LoginService;
-import com.cen.service.RegisterService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -30,6 +30,7 @@ public class MainController {
 		log.info("MainController :: public String main() invoked!!!!");		
 		return "login";		
 	}//main
+
 	
 	@PostMapping("/login_Post")
 	public String login(HttpServletRequest request, LoginDTO dto) throws Exception{		
@@ -50,5 +51,35 @@ public class MainController {
 		}//if
 		
 	}//login
+	
+	// 로그인 체크 확인
+	@PostMapping("/login_check")
+	@ResponseBody
+	public MemberVO loginCheck(LoginDTO dto) throws Exception{
+		log.info("MainController :: loginCheck() invoked!!!!");		
+		return loginService.login(dto);
+	}//loginCheck
+
+//	@PostMapping("/login_Post")
+//	public String login_result(HttpServletRequest request,
+//								LoginDTO dto, Model model) throws Exception {
+//		log.info("POST-Login");
+//
+//		String encryPassword = Sha256.encrypt(dto.getUserpw()); // 비번 암호화
+//		dto.setUserpw(encryPassword);
+//
+//		MemberVO vo = loginService.login(dto);
+//           
+//      	if(vo==null) {
+//			log.info("login fail!!!!!!!!");
+//			return "redirect:/login";
+//		}else {
+//			log.info("login success!!!!!!!!!");
+//			HttpSession session = request.getSession();
+//			session.setAttribute("login", vo);			
+//			return "main";
+//		}//if
+//      	
+//   }// login_POST
 		
 }//main

@@ -42,6 +42,28 @@ public class RegisterDAOImpl implements RegisterDAO {
 		String str = sqlSession.selectOne(namespace + ".getOrgAdderss", org_code);
 		return str;
 	}//find_OrgAddress
+
+
+	@Override
+	public int idCheck(String user_id) throws Exception {
+		log.info("RegisterDAOImpl:: public String find_OrgAddress(int org_code) invoked!!!");
+		return sqlSession.selectOne(namespace + ".idCheck", user_id);
+	}//idCheck
+
+	@Override
+	public int nickCheck(String user_nick) throws Exception {
+		log.info("RegisterDAOImpl:: public int nickCheck(String user_nick) invoked!!!");
+		return sqlSession.selectOne(namespace + ".nickCheck", user_nick);
+	}//nickCheck
+	
+
+	@Override
+	public int emailCheck(String user_email) throws Exception {
+		log.info("RegisterDAOImpl:: public int nickCheck(String user_nick) invoked!!!");		
+		return sqlSession.selectOne(namespace + ".emailCheck", user_email);
+	}//emailCheck
+
+
 	
 	
 

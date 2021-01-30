@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cen.domain.MemberVO;
 import com.cen.service.RegisterService;
@@ -51,6 +52,29 @@ public class MemberController {
 		registerService.register(vo);
 		return "redirect:/main";		
 	}//joinGet
+		
+	
+	// 회원 가입 형식 검사
+	@ResponseBody
+	@PostMapping("/idcheck")
+	public int idCheck(@RequestParam("id") String uid) throws Exception {
+		return registerService.idCheck(uid);
+	}//idCheck
+	
+	@ResponseBody
+	@PostMapping("/emailcheck")
+	public int emailCheck(@RequestParam("password") String upw) throws Exception {
+		return registerService.emailCheck(upw);
+	}//emailcheck
+	
+	@ResponseBody
+	@PostMapping("/nickcheck")
+	public int nickCheck(@RequestParam("nickname") String nick) throws Exception {
+		return registerService.emailCheck(nick);
+	}//nickCheck
+	
+	
+	
 	
 
 }//end class

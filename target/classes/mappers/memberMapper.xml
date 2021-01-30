@@ -26,7 +26,7 @@
  		select
 			org_code
 		from
-			tbl_org
+			tbl_org                  
 		where
 			org_name=#{org_name};
  	</select>
@@ -51,8 +51,35 @@
 			(#{id}, #{password}, #{name}, #{nickname}, #{email}, #{phnum}, #{org_code}, #{recent_address});	
 	</insert>
  
+ 	<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ id Ckeck(id 중복검사)ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ  -->    
+     <select id= "idCheck" parameterType="string" resultType="int">
+         SELECT 
+         	count(*) 
+         from 
+         	tbl_member 
+         where 
+         	id=#{id}
+     </select>
  	
- 	
+ 	<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ email Ckeck(email 중복검사)ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ  -->     
+     <select id= "emailCheck" parameterType="string" resultType="int">
+          SELECT 
+          	count(*) 
+          from 
+          	tbl_member 
+          where 
+          	email=#{email}
+     </select>
+     
+     <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ email Ckeck(email 중복검사)ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ  -->     
+     <select id= "nickCheck" parameterType="string" resultType="int">
+          SELECT 
+          	count(*) 
+          from 
+          	tbl_member 
+          where 
+          	nickname=#{nickname}
+     </select>
  	
  
  </mapper>

@@ -22,8 +22,8 @@
         <h2 class="login-logo"><img src="/resources/img/kor_used1.PNG" alt="korea" width="400px" height="80px"></h2>
         <form action="/login_Post" method="post" accept-charset="UTF-8">
             <div class="login-form">
-                <input type="text" name=userid placeholder="ID" title="아이디 입력">
-                <input type="password" name=userpw placeholder="PASSWORD" title="비밀번호 입력">
+                <input type="text" id="id" name="userid" placeholder="ID" title="아이디 입력">
+        		<input type="password" id="password" name="userpw" placeholder="PASSWORD" title="비밀번호 입력">
             </div>
             <div class="login-btn-area">
                 <input type="submit" class="login-btn" value="로그인" title="로그인버튼">
@@ -37,5 +37,7 @@
             </div>
         </form>
     </div>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    	<script src="/resources/js/login.js"></script>
 </body>
 </html>
