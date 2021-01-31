@@ -30,11 +30,12 @@ public class SaleController {
 	// @PostMapping("/saleregist")
 	@RequestMapping(value ="/saleregist",
 			method = RequestMethod.POST)
-	public String registPost(@RequestParam("uploadFiles") MultipartFile[] uploadFiles)						  
-							 throws Exception {
+	public String registPost(SaleRegisterDTO dto,			
+			@RequestParam("uploadFiles") MultipartFile[] uploadFiles) throws Exception {
+		
 		log.info("SaleController :: public String registPost() invoked!!!");
 		System.out.println("uploadFiles :: " + uploadFiles.length);
-		
+		System.out.println("SaleRegisterDTO :: " + dto);
 		for(MultipartFile file : uploadFiles) {
 			log.info("\t\t =================================");
 			log.info("\t\t* 1. contentType: "		+file.getContentType());
