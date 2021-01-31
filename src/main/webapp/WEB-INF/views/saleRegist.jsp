@@ -8,5 +8,7 @@
 </head>
 <body>
 	<jsp:include page="header.jsp" flush="false"/>
+	
+	
 </body>
 </html>
