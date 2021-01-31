@@ -1,5 +1,7 @@
 package com.cen.controller;
 
+import java.io.File;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,7 +30,7 @@ public class SaleController {
 	// @PostMapping("/saleregist")
 	@RequestMapping(value ="/saleregist",
 			method = RequestMethod.POST)
-	public String registPost(@RequestParam("uploadFile") MultipartFile[] uploadFiles)						  
+	public String registPost(@RequestParam("uploadFiles") MultipartFile[] uploadFiles)						  
 							 throws Exception {
 		log.info("SaleController :: public String registPost() invoked!!!");
 		System.out.println("uploadFiles :: " + uploadFiles.length);
@@ -43,7 +45,27 @@ public class SaleController {
 			log.info("\t\t* 6. resource: "			+file.getResource());
 			log.info("\t\t* 7. byte[]: "			+file.getBytes().length);
 			log.info("\t\t* 8. isEmpty: "			+file.isEmpty());
-		}//enhanced-for
+			
+			// 파일을 정해진 위치에 저장하기
+			String uploadTempPath = "C:\\App";
+			String uploadTaregtPath = "C:\\App\\eclipse-jee-2019-03-R-win32-x86_64";
+			
+			File f = new File(uploadTempPath, file.getOriginalFilename());
+			f.deleteOnExit();  // **** 중요2 ****
+			
+			// 지정된 임시경로에 수신한 파일저장
+			file.transferTo(f);
+			
+			// (**매우 중요 **)임시경로에 저장된 파일을 
+			// 최종 타겟 폴더에 저장
+			f.renameTo(
+				new File(
+						uploadTaregtPath, 
+						file.getOriginalFilename()
+					)
+			);//최종 타겟 폴더로 Move
+						
+		}//enhanced for
 		
 		
 		
