@@ -26,14 +26,14 @@ public class MainController {
 	LoginService loginService;	
 		
 	@GetMapping("/login")
-	public String main() throws Exception {		
+	public String loginGet() throws Exception {		
 		log.info("MainController :: public String main() invoked!!!!");		
 		return "login";		
 	}//main
 
 	
 	@PostMapping("/login_Post")
-	public String login(HttpServletRequest request, LoginDTO dto) throws Exception{		
+	public String loginPost(HttpServletRequest request, LoginDTO dto) throws Exception{		
 		log.info("MainController :: public String login_Post() invoked!!!!");
 		
 		System.out.println("+++++++" + dto);
@@ -47,18 +47,24 @@ public class MainController {
 			log.info("login success!!!!!!!!!");
 			HttpSession session = request.getSession();
 			session.setAttribute("login", vo);			
-			return "main";
+			return "/main";
 		}//if
 		
 	}//login
 	
 	// 로그인 체크 확인
-	@PostMapping("/login_check")
 	@ResponseBody
+	@PostMapping("/login_check")	
 	public MemberVO loginCheck(LoginDTO dto) throws Exception{
 		log.info("MainController :: loginCheck() invoked!!!!");		
 		return loginService.login(dto);
 	}//loginCheck
+	
+	@GetMapping("/main")
+	public String main() throws Exception {		
+		log.info("MainController :: public String main() invoked!!!!");		
+		return "/main";		
+	}//main
 
 //	@PostMapping("/login_Post")
 //	public String login_result(HttpServletRequest request,

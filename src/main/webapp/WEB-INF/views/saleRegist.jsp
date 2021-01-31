@@ -1,14 +1,73 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
+
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" 	prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" 	prefix="fmt"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
+<% request.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>나라중고장터</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/resources/css/saleRegist.css">
 </head>
 <body>
 	<jsp:include page="header.jsp" flush="false"/>
-	
+	<div class="info__container">
+
+        <!-- Top Title -->
+        <section class="top__title">
+            <div class="tag__name__top">
+                <h2 id="main__name">기본정보</h2><span class="tag__star__main"> *필수항목</span>
+            </div>
+        </section>
+
+        <hr class="main__hr">
+
+        <!-- Product Image -->
+        <form 
+			action="/sale/saleregist" 
+			method="post"
+			enctype="multipart/form-data">
+			
+            <section class="image__upload">
+                <div class="tag__name">
+                    	상품이미지<span class="tag__star">*</span>
+                </div>
+
+                <div class="upload__box">
+                    <!-- <form  action="/file/upload" method="post"  enctype="multipart/form-data">
+                <input type="file" name="file"/>            
+            </form> -->
+
+                    <input type="file" name="uploadFiles" multiple="multiple">
+
+                    <div class="how">
+                        <b>* 상품 이미지는 640x640에 최적화 되어 있습니다.</b>
+                        <p>
+                            - 이미지는 상품등록 시 정사각형으로 짤려서 등록됩니다. <br>
+                            - 이미지를 클릭 할 경우 원본이미지를 확인할 수 있습니다. <br>
+                            - 이미지를 클릭 후 이동하여 등록순서를 변경할 수 있습니다. <br>
+                            - 큰 이미지일경우 이미지가 깨지는 경우가 발생할 수 있습니다. <br>
+                            최대 지원 사이즈인 640 X 640 으로 리사이즈 해서 올려주세요.(개당 이미지 최대 10M)
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="sale__regist__btn">
+                <button type="submit" class="sale__regist__submit">등록!!!</button>
+                <input type="reset" class="register-reset-btn"></input>
+            </div>
+        </form>
+      
+    </div>
 	
 </body>
 </html>

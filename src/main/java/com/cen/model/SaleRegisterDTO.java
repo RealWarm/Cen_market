@@ -23,6 +23,7 @@ public class SaleRegisterDTO {
 //  trade_shape	varchar(50) not null,			/* 거래 형태 */
 //  trade_progress varchar(50) not null,		/* 거래 진행 상황 */
 //  uploadFiles
+	
 	private int sb_num;				/* 게시글 번호 해쉬를 이용한 인조키 */
 	private String sb_writer; 		/* 작성자의 아이디(FK) */
 	private String sb_name;  		/* 게시글의 제목 */
