@@ -21,21 +21,25 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/sale")
 public class SaleController {
 	
+	
+	
 	@GetMapping("/saleregist")
 	public String registGet() throws Exception {
 		log.info("SaleController :: public void registGet() invoked!!!");
 		return "/saleregist";
 	}//registGet
 	
-	// @PostMapping("/saleregist")
+	
 	@RequestMapping(value ="/saleregist",
 			method = RequestMethod.POST)
 	public String registPost(SaleRegisterDTO dto,			
 			@RequestParam("uploadFiles") MultipartFile[] uploadFiles) throws Exception {
 		
-		log.info("SaleController :: public String registPost() invoked!!!");
+		log.info("SaleController :: public String registPost() invoked!!!");		
 		System.out.println("uploadFiles :: " + uploadFiles.length);
 		System.out.println("SaleRegisterDTO :: " + dto);
+		
+		
 		for(MultipartFile file : uploadFiles) {
 			log.info("\t\t =================================");
 			log.info("\t\t* 1. contentType: "		+file.getContentType());
@@ -49,7 +53,7 @@ public class SaleController {
 			
 			// 파일을 정해진 위치에 저장하기
 			String uploadTempPath = "C:\\App";
-			String uploadTaregtPath = "C:\\App\\eclipse-jee-2019-03-R-win32-x86_64";
+			String uploadTaregtPath = "C:\\App\\eclipse-jee-2019-03-R-win32-x86_64\\eclipse\\workspace2\\cen_market\\src\\main\\webapp\\resources\\upload_data";
 			
 			File f = new File(uploadTempPath, file.getOriginalFilename());
 			f.deleteOnExit();  // **** 중요2 ****

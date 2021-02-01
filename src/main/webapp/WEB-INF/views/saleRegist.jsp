@@ -138,21 +138,20 @@
             <!-- Trade_Type -->
             <section class="trade__type">
                 <div class="tag__name">
-                    거래주소<span class="tag__star">*</span>
+                    	거래주소<span class="tag__star">*</span>
                 </div>
 
                 <div class="how">
-                    <input type="radio" id="meet" name="trade_shape">
+                    <input type="radio" id="meet" name="trade_shape" value="직거래">
                     <label for="meet">직거래</label>
-                    <input type="radio" id="mail" name="trade_shape">
+                    <input type="radio" id="mail" name="trade_shape" value="택배거래">
                     <label for="mail">택배거래</label>
                 </div>
 
             </section>
 
             <div class="sale__regist__btn">
-                <button type="submit" class="sale__regist__submit">등록!!!</button>
-                <input type="reset" class="register-reset-btn"></input>
+                <button type="submit" class="sale__regist__submit">게시글 등록하기</button>                
             </div>
 
         </form>

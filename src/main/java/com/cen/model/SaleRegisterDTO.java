@@ -24,12 +24,12 @@ public class SaleRegisterDTO {
 //  trade_progress varchar(50) not null,		/* 거래 진행 상황 */
 //  uploadFiles
 	
-	private int sb_num;				/* 게시글 번호 해쉬를 이용한 인조키 */
-	private String sb_writer; 		/* 작성자의 아이디(FK) */
-	private String sb_name;  		/* 게시글의 제목 */
-	private String sb_detail;		/* 판매상품의 설명 */
+	private int sb_num;				/* 게시글 번호 해쉬를 이용한 인조키 */ 	// 이미지를 저장하기위해서 게시글 번호가 필요하다. >> 해쉬함수로 변환하자. 
+	private String sb_writer; 		/* 작성자의 아이디(FK) */			//
+	private String sb_name;  		/* 게시글의 제목 */				// 
+	private String sb_detail;		/* 판매상품의 설명 */				// 
     
-    private int Total_price;		/* 총 판매 금액 */ 
+    private int Total_price;		/* 총 판매 금액 */
     private int Total_quantity;		/* 총 판매수량 */
 	private Timestamp sb_regdate;	/* 게시글 등록일 */
     private int ct_num;				/* 카테고리 번호(FK) */
