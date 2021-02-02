@@ -31,7 +31,7 @@ public class SaleRegisterDTO {
     
     private int Total_price;		/* 총 판매 금액 */
     private int Total_quantity;		/* 총 판매수량 */
-	private Timestamp sb_regdate;	/* 게시글 등록일 */
+	// private Timestamp sb_regdate;	/* 게시글 등록일 */
     private int ct_num;				/* 카테고리 번호(FK) */
     private String trade_shape;		/* 거래 형태 */
     private String trade_progress;	/* 거래 진행 상황 */

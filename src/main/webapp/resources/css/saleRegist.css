@@ -34,11 +34,61 @@
 
     /* Animation */
     --animation-duration: 300ms;
+
+    /* box-width */
+    --box-inputw-wide  : 80%;
+    --box-inputw-midle : 50%;
+    --box-inputw-small : 20%;
+
+    --box-inputh-wide  : 1500px;
+    --box-inputh-midle : 100px;
+    --box-inputh-small : 50%;
+
+}
+
+/* Universal */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    cursor: default;
+    margin-bottom: 500px;
+    /* 텍스트 커서가 기본 커서로 바뀐다. */
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
 }
 
 .info__container{
-    margin: 200px 100px;
+    position: relative;    
+    margin: auto;
+    width: 1000px;
 }
+
+/* Typhography */
+.tag__name{
+    margin: 0;
+    position: relative;    
+    box-sizing : border-box;
+    top: 5px;
+}
+
+.tag__star{
+    margin-top: 30px;
+    color: var(--color-red);
+    font-weight: var(--weight-semi-bold);
+}
+
 
 
 /* Top Title */
@@ -56,11 +106,9 @@
     font-weight: var(--weight-semi-bold);
     margin-left: 15px;
 }
-
-.tag__star{
-    margin-top: 30px;
-    color: var(--color-red);
-    font-weight: var(--weight-semi-bold);
+.main__hr{
+    height: 2px;
+    background-color: var(--color-black);
 }
 
 /* Product Image */
@@ -81,6 +129,90 @@
     display: flex;
 }
 
+.btn__upload{
+    opacity: 1;
+}
+
+/* Title */
+.title{
+    margin: 0px;
+    display: flex;    
+}
+
+.title_input{
+    width: var(--box-inputw-wide);
+    height: 50px;
+}
+
+/* details */
+.details{
+    display: flex;
+}
+
+.details>.tag__name>.tag__star{
+    display: none;
+}
+
+#tag__details{
+    
+}
+
+/* price */
+.price{
+    display: flex;
+    
+}
+
+#price{
+    width: var(--box-input-wsmall);
+    height: 40px;
+}
+
+/* quantity */
+.quantity{
+    display: flex;
+}
+
+#quantity{
+    width: var(--box-input-wsmall);
+    height: 40px;
+}
+
+/* Address */
+.address{
+    display: flex;
+}
+
+.address__detail{
+    width: var(--box-input-wsmall);
+}
+
+/* trade__type */
+.trade__type{
+    display: flex;
+}
+
+/* Trade_Type */
+.trade__type{
+    display: flex;
+}
+
+.how{
+}
+
+
+/* submit__btn */
+.sale__regist__btn{
+    margin-top: 100px;   
+     /* div 안에 버튼의 위치를 오른쪽으로  */
+    float: rigth;
+}
 
 
 
+
+
+
+
+/* 태그이름들 가운데 수직 정렬 */
+/* 박스들 수직정렬 */

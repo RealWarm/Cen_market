@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ 
+ <mapper namespace = "com.cen.mapper.saleMapper">
+ 	
+ 	<!-- 게시글의 갯수를 가져온다 -->
+ 	<select id="getBoardCnt"
+ 			resultType="int">
+ 		select
+ 			count(*)
+ 		from
+ 			tbl_sboard; 	
+ 	</select>
+ 	
+ 	<!-- 게시글을 삽입한다. -->
+ 	<insert id="insertBoard"
+ 			parameterType="com.cen.model.SaleRegisterDTO">
+ 		insert into tbl_sboard 
+			(sb_num, sb_writer, sb_name, sb_detail, Total_price, Total_quantity, 
+			 ct_num, trade_shape, trade_progress)
+		value
+			(#{sb_num}, #{sb_writer}, #{sb_name}, #{sb_detail}, #{Total_price}, 
+			 #{Total_quantity},#{ct_num}, #{trade_shape}, #{trade_progress} );
+ 	</insert>
+ 	
+ 	<!-- 이미지들을  테이블에 삽입한다.-->
+ 	<insert id="insertImage"
+ 			parameterType="com.cen.model.ViewDTO">
+ 		insert into 
+ 			tbl_view(sb_num, view_name)
+ 		value
+ 			(#{sb_num}, #{sb_num}); 			
+ 	</insert>
+ 	
+ 	
+ </mapper>
