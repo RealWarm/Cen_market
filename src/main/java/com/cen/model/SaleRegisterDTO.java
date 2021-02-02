@@ -35,5 +35,6 @@ public class SaleRegisterDTO {
     private int ct_num;				/* 카테고리 번호(FK) */
     private String trade_shape;		/* 거래 형태 */
     private String trade_progress;	/* 거래 진행 상황 */
+    // private String recent_address;	// 발송주소	
 
 }//end class

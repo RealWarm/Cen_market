@@ -129,7 +129,7 @@
                 <div class="address__info">
                     <button class="org__address">내 주소</button>
                     <button class="recent__address">최근지역</button>
-                    <input type="text" class="address__detail" name="">
+                    <input type="text" class="address__detail" name="recent_address">
                 </div>
 
             </section>
