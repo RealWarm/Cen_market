@@ -11,7 +11,7 @@
  	<select id="getBoardCnt"
  			resultType="int">
  		select
- 			count(*)
+ 			max(sb_num)
  		from
  			tbl_sboard; 	
  	</select>
@@ -33,7 +33,7 @@
  		insert into 
  			tbl_view(sb_num, view_name)
  		value
- 			(#{sb_num}, #{sb_num}); 			
+ 			(#{sb_num}, #{view_name}); 			
  	</insert>
  	
  	

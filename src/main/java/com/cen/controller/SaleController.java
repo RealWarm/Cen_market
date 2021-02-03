@@ -1,7 +1,8 @@
 package com.cen.controller;
 
 import java.io.File;
-import java.security.Timestamp;
+
+import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,8 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.cen.domain.ImageVO;
 import com.cen.model.SaleRegisterDTO;
+import com.cen.model.ViewDTO;
+import com.cen.service.SaleService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -22,6 +24,8 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/sale")
 public class SaleController {
 	
+	@Inject
+	SaleService saleservice;
 		
 	@GetMapping("/saleregist")
 	public String registGet() throws Exception {
@@ -52,14 +56,33 @@ public class SaleController {
 	
 	@RequestMapping(value ="/saleregist",
 			method = RequestMethod.POST)
-	public String registPost(SaleRegisterDTO dto,			
+	public String registPost(SaleRegisterDTO dto, ViewDTO viewdto,
 			@RequestParam("uploadFiles") MultipartFile[] uploadFiles) throws Exception {
-		
+				
 		log.info("SaleController :: public String registPost() invoked!!!");		
 		System.out.println("uploadFiles :: " + uploadFiles.length);
 		System.out.println("SaleRegisterDTO :: " + dto);
-		ImageVO imageVO = new ImageVO();
 		
+		// 게시글의 번호를 설정한다.
+		int bd_num=saleservice.boardCnt() + 1;  
+		dto.setSb_num(bd_num);
+		
+		// 세션에서 아이디를 추출해서 넣는다.
+		dto.setSb_writer("testid1");
+				
+		// 카테고리번호 임시지정
+		dto.setCt_num(110);		
+
+		// 거래진행 상황을 판매중으로 초기화 한다.
+		dto.setTrade_progress("판매중");
+		
+		// 게시글을 등록합니다. 
+		saleservice.insertBoard(dto);
+		///////////////////////////////////////////////////////////
+		// 이미지 데이터 등록
+		
+		// 게시글의 번호 설정
+		viewdto.setSb_num(bd_num);
 		for(MultipartFile file : uploadFiles) {
 			log.info("\t\t =================================");
 			log.info("\t\t* 1. contentType: "		+file.getContentType());
@@ -91,8 +114,8 @@ public class SaleController {
 			);//최종 타겟 폴더로 Move
 			
 			// 이미지의 이름을 저장함 >> 확장자가 다양할수 있으므로 확장자까지 모두 저장한다.
-			imageVO.addImage(file.getOriginalFilename());
-			
+			viewdto.setView_name(file.getOriginalFilename());			
+			saleservice.insertImage(viewdto);
 		}//enhanced for
 		
 		
