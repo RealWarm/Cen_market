@@ -72,16 +72,11 @@ public class SaleController {
 		dto.setSb_writer("testid1");
 				
 		// 카테고리번호 임시지정
-		dto.setCt_num(110);		
-
-		// 거래진행 상황을 판매중으로 초기화 한다.
-		dto.setTrade_progress("판매중");
-		
-		// 게시글을 등록합니다. 
-		saleservice.insertBoard(dto);
+		dto.setCt_num(110);
+				
 		///////////////////////////////////////////////////////////
 		// 이미지 데이터 등록
-		
+		int flag=0;
 		// 게시글의 번호 설정
 		viewdto.setSb_num(bd_num);
 		for(MultipartFile file : uploadFiles) {
@@ -115,9 +110,17 @@ public class SaleController {
 			);//최종 타겟 폴더로 Move
 			
 			// 이미지의 이름을 저장함 >> 확장자가 다양할수 있으므로 확장자까지 모두 저장한다.
+			// 게시글에 대표이미지 이름을 저장한다.
+			if(flag==0) {
+				flag=1;
+				dto.setSb_view(file.getOriginalFilename());
+			}//if
 			viewdto.setView_name(file.getOriginalFilename());			
 			saleservice.insertImage(viewdto);
 		}//enhanced for	
+		
+		// 게시글을 등록합니다. 
+		saleservice.insertBoard(dto);
 		
 		return "redirect:/main";
 	}//registPost

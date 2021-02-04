@@ -37,18 +37,16 @@
         <hr class="main__hr">
 
         <!-- Product Image -->
-        <form class="sale__regist__form" method="POST" action="/sale/saleregist" enctype="multipart/form-data">        
+        <form class="sale__regist__form" method="POST" action="/sale/saleregist" enctype="multipart/form-data">
             <section class="image__upload">
                 <div class="tag__name">
                     상품이미지<span class="tag__star">*</span>
                 </div>
 
                 <div class="upload__box">
-                    <!-- <form  action="/file/upload" method="post"  enctype="multipart/form-data">
-                <input type="file" name="file"/>            
-            </form> -->
 
-                    <input type="file" name="uploadFiles" multiple="multiple">
+                    <input type="file" class="btn__upload" name="uploadFiles" multiple="multiple">
+                    <img src="/resources/img/btn_upload.PNG" alt="선택버튼" class="btn__upload__img">
 
                     <div class="how">
                         <b>* 상품 이미지는 640x640에 최적화 되어 있습니다.</b>
@@ -67,25 +65,29 @@
             <hr class="inner__hr">
 
             <!-- Title -->
-            <section class="title">
+            <div class="title">
                 <div class="tag__name">
                     제목<span class="tag__star">*</span>
                 </div>
-
                 <input type="text" class="title_input" name="sb_name" placeholder="제목을 입력해주세요.">
 
-            </section>
+                <!-- <label class="tag__name" for="title_input">제목<span class="tag__star">*</span></label>
+                    <input type="text" class="title_input" name="sb_name" placeholder="제목을 입력해주세요."> -->
+
+
+            </div>
             <hr class="inner__hr">
 
 
             <!-- Details -->
             <section class="details">
                 <div class="tag__name">
-                    설명
+                    설명<span class="tag__star">*</span>
                 </div>
 
-                <textarea name="sb_detail" id="tag__details" cols="60" rows="10"></textarea>
+                <textarea name="sb_detail" id="tag__details" cols="107" rows="10"></textarea>
             </section>
+            <hr class="inner__hr">
 
             <!-- price -->
             <section class="price">
@@ -93,6 +95,7 @@
                     가격<span class="tag__star">*</span>
                 </div>
                 <input type="text" id="price" name="Total_price">
+                <h4 class="dan">원</h4>
 
             </section>
             <hr class="inner__hr">
@@ -103,12 +106,16 @@
                     총 수량<span class="tag__star">*</span>
                 </div>
                 <input type="text" id="quantity" name="Total_quantity">
+                <h4 class="dan">개</h4>
 
             </section>
             <hr class="inner__hr">
 
             <!-- Category -->
             <section class="Category">
+                <div class="tag__name">
+                    카테고리<span class="tag__star">*</span>
+                </div>
                 <div class="category__greate">
 
                 </div>
@@ -121,7 +128,6 @@
 
                 </div>
 
-                <h3>선택한 카테고리</h3>
             </section>
             <hr class="inner__hr">
 
@@ -135,7 +141,8 @@
                 <div class="address__info">
                     <button class="org__address">내 주소</button>
                     <button class="recent__address">최근지역</button>
-                    <input type="text" class="address__detail" name="recent_address">
+                    <br>
+                    <input type="text" class="address__detail" name="">
                 </div>
 
             </section>
@@ -144,7 +151,7 @@
             <!-- Trade_Type -->
             <section class="trade__type">
                 <div class="tag__name">
-                    	거래주소<span class="tag__star">*</span>
+                    거래주소<span class="tag__star">*</span>
                 </div>
 
                 <div class="how">
@@ -157,7 +164,7 @@
             </section>
 
             <div class="sale__regist__btn">
-                <button type="submit" class="sale__regist__submit">게시글 등록하기</button>                
+                <button type="submit" class="sale__regist__submit">게시글 등록하기</button>
             </div>
 
         </form>

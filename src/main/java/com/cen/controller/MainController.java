@@ -1,17 +1,22 @@
 package com.cen.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.cen.domain.MainVO;
 import com.cen.domain.MemberVO;
 import com.cen.model.LoginDTO;
+import com.cen.service.BringService;
 import com.cen.service.LoginService;
 
 import lombok.extern.log4j.Log4j;
@@ -24,6 +29,9 @@ public class MainController {
 
 	@Inject
 	LoginService loginService;	
+	
+	@Inject
+	BringService bringService;
 		
 	@GetMapping("/login")
 	public String loginGet() throws Exception {		
@@ -47,7 +55,7 @@ public class MainController {
 			log.info("login success!!!!!!!!!");
 			HttpSession session = request.getSession();
 			session.setAttribute("login", vo);			
-			return "/main";
+			return "redirect:/main";
 		}//if
 		
 	}//login
@@ -60,9 +68,15 @@ public class MainController {
 		return loginService.login(dto);
 	}//loginCheck
 	
+	// 메인페이지 호출
 	@GetMapping("/main")
-	public String main() throws Exception {		
+	public String main(Model model) throws Exception {		
 		log.info("MainController :: public String main() invoked!!!!");		
+		List<MainVO> mlist=bringService.mainListAll();
+		model.addAttribute("mlist", mlist);
+		
+		
+		
 		return "/main";		
 	}//main
 

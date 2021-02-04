@@ -20,11 +20,11 @@
  	<insert id="insertBoard"
  			parameterType="com.cen.model.SaleRegisterDTO">
  		insert into tbl_sboard 
-			(sb_num, sb_writer, sb_name, sb_detail, Total_price, Total_quantity, 
-			 ct_num, trade_shape, trade_progress)
+			(sb_num, sb_writer, sb_name, sb_detail, Total_price, 
+			 Total_quantity, ct_num, trade_shape, sb_view)
 		value
 			(#{sb_num}, #{sb_writer}, #{sb_name}, #{sb_detail}, #{Total_price}, 
-			 #{Total_quantity},#{ct_num}, #{trade_shape}, #{trade_progress} );
+			 #{Total_quantity}, #{ct_num}, #{trade_shape}, #{sb_view});
  	</insert>
  	
  	<!-- 이미지들을  테이블에 삽입한다.-->
