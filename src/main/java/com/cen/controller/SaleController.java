@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -116,12 +117,30 @@ public class SaleController {
 			// 이미지의 이름을 저장함 >> 확장자가 다양할수 있으므로 확장자까지 모두 저장한다.
 			viewdto.setView_name(file.getOriginalFilename());			
 			saleservice.insertImage(viewdto);
-		}//enhanced for
-		
-		
+		}//enhanced for	
 		
 		return "redirect:/main";
 	}//registPost
+	
+	@GetMapping("/category")
+	public String categoryGet() throws Exception {
+		log.info("SaleController :: public void registGet() invoked!!!");
+		return "/category_details";
+	}//registGet
+	
+	@PostMapping("/category")
+	public String categoryPost() throws Exception {
+		log.info("SaleController :: public void registGet() invoked!!!");
+		return "/category_details";
+	}//registGet
+	
+	@GetMapping("/detail")
+	public String pddetailGet() throws Exception {
+		log.info("SaleController :: public void registGet() invoked!!!");
+		return "/product_detail";
+	}//registGet
+	
+	
 	
 
 }//end class
