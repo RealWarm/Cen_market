@@ -34,11 +34,11 @@
     <div class="row">
 
       <div class="col-lg-3">
-        <h1 class="my-4">Shop Name</h1>
+        <h1 class="my-4">카테고리</h1>
         <div class="list-group">
-          <a href="#" class="list-group-item active">Category 1</a>
-          <a href="#" class="list-group-item">Category 2</a>
-          <a href="#" class="list-group-item">Category 3</a>
+          <a href="#" class="list-group-item active">시설기관 카테고리</a>
+          <a href="#" class="list-group-item">제품종류 카테고리</a>
+          <a href="#" class="list-group-item">등록시간 카테고리</a>
         </div>
       </div>
       <!-- /.col-lg-3 -->
@@ -75,8 +75,8 @@
         <div class="card mt-4">          
           <div class="card-body">
             <h3 class="card-title">${detail.sb_name}</h3>
-            <h4>${detail.Total_price}</h4>
-            <p class="card-text">${detail.Total_quantity}</p>
+            <h4>${detail.total_price}</h4>
+            <p class="card-text">${detail.total_quantity}</p>
             <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
             4.0 stars
           </div>

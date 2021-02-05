@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.cen.domain.SboardVO;
@@ -124,6 +125,7 @@ public class SaleController {
 		return "/category_details";
 	}//registGet
 	
+	
 	@GetMapping("/detail")
 	public String pddetailGet(@RequestParam("num") Integer num, Model model) throws Exception {
 		log.info("SaleController :: public void pddetailGet() invoked!!!");
@@ -133,6 +135,9 @@ public class SaleController {
 		List<ViewVO> imglist=bringService.viewAll(num);
 		// 대표이미지 가져오기
 		String topPic=bringService.topPicture(num);
+		//닉네임 가져오기
+		
+		
 		System.out.println("SboardVO :: " + bvo);
 		System.out.println("imglist :: ===================== ");
 		for(ViewVO vv : imglist) {
@@ -144,8 +149,43 @@ public class SaleController {
 		model.addAttribute("top", topPic);
 		return "/product_detail";
 	}//registGet
+		
+
 	
-	//대표이미지 하나를 가져와야한다.
+	
 	
 
 }//end class
+
+
+
+
+
+
+
+
+
+
+//@GetMapping("/detail")
+//public @ResponseBody SboardVO pddetailGet(@RequestParam("num") Integer num, Model model) throws Exception {
+//	log.info("SaleController :: public void pddetailGet() invoked!!!");
+//	// 게시글 상세내용 가져오기
+//	SboardVO bvo = bringService.detail(num);
+//	// 게시글 이미지 모두 가져오기
+//	List<ViewVO> imglist=bringService.viewAll(num);
+//	// 대표이미지 가져오기
+//	String topPic=bringService.topPicture(num);
+//	//닉네임 가져오기
+//	
+//	
+//	System.out.println("SboardVO :: " + bvo);
+//	System.out.println("imglist :: ===================== ");
+//	for(ViewVO vv : imglist) {
+//		System.out.println("==================================");
+//		System.out.println(vv);
+//	}//enhanced-for
+//	model.addAttribute("detail", bvo);
+//	model.addAttribute("imglist", imglist);	
+//	model.addAttribute("top", topPic);
+//	return bvo;
+//}//registGet
