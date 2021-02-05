@@ -24,7 +24,7 @@
 </head>
 <body>
 
-	<jsp:include page="navbar.jsp" flush="false"/>
+	<%-- <jsp:include page="navbar.jsp" flush="false"/> --%>
 	<div class="membership-login-form">
         <h2 class="login-logo"><img src="/resources/img/kor_used1.PNG" alt="korea" width="400px" height="80px"></h2>
         <form action="/login_Post" method="post" accept-charset="UTF-8">
@@ -47,6 +47,6 @@
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     	<script src="/resources/js/login.js"></script>
     	
-    <jsp:include page="footer.jsp" flush="false"/>
+    <%-- <jsp:include page="footer.jsp" flush="false"/> --%>
 </body>
 </html>
