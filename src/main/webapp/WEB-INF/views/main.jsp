@@ -28,38 +28,7 @@
 </head>
 <body>
 
-	<jsp:include page="navbar.jsp" flush="false"/>
-  
-
-  <body>
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">나라중고장터</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+	<jsp:include page="navbar.jsp" flush="false"/>  
 
   <!-- Page Content -->
   <div class="container">
@@ -97,20 +66,24 @@
 
     <!-- Page Features -->
     <div class="row text-center">
-
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="/resources/img/Cat_cheeze.jpg" alt="">          
-          <div class="card-body">
-            <h4 class="card-title">고양이 분양합니다.</h4>
-            <hr>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">구 매 하 기</a>
-          </div>
-        </div>
-      </div>
+    
+		<c:forEach items="${mlist}" var="list" begin="0" end="10">
+			<div class="col-lg-3 col-md-6 mb-4">
+		        <div class="card h-100">
+		          <img class="card-img-top" src="<spring:url value='/resources/upload_data/${list.sb_view}'/>" alt="${list.sb_view}">
+		          <%-- <img class="card-img-top" src="/resources/upload_data/${list.sb_view}" alt="${list.sb_view}"> --%>  
+		          <div class="card-body">
+		            <h4 class="card-title">${list.sb_name}</h4>
+		            <hr>
+		            <p class="card-text">${list.sb_detail}</p>
+		          </div>
+		          <div class="card-footer">
+		            <a href="#" class="btn btn-primary">구 매 하 기</a>
+		          </div>
+		        </div>
+		      </div>
+		</c:forEach>
+      
 
     </div>
     <!-- /.row -->

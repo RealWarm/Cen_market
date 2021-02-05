@@ -13,5 +13,6 @@ public class MainVO {
 	private String sb_name;
 	private String sb_detail;
 	private String sb_view;
+	//가격 들고오기
 
 }//end class
