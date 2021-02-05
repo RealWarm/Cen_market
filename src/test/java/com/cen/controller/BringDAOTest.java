@@ -28,10 +28,10 @@ public class BringDAOTest {
 		List<MainVO> list=dao.mainListAll();
 		
 		for(MainVO vv : list) {
-			log.info("게시글번호 : "+vv.getSb_num());
-			log.info("게시글제목 : "+vv.getSb_name());
-			log.info("게시글상세 : "+vv.getSb_detail());
-			log.info("게시글사진 : "+vv.getSb_view());
+			log.info("게시글번호 : "+ vv.getSb_num());
+			log.info("게시글제목 : "+ vv.getSb_name());
+			log.info("게시글상세 : "+ vv.getSb_detail());
+			log.info("게시글사진 : "+ vv.getSb_view());
 			log.info("=====================================");
 		}//for-vv
 		
