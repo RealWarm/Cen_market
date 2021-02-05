@@ -10,6 +10,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.cen.domain.MainVO;
+import com.cen.domain.SboardVO;
+import com.cen.domain.ViewVO;
 import com.cen.persistence.BringDAO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -37,6 +39,26 @@ public class BringDAOTest {
 		
 	}//test
 	
+	
+	@Test
+	public void testSdetail() throws Exception {
+		log.info("BringDAOTest::testSdetail invoked!!");
+		SboardVO vv = dao.detail(1);
+		System.out.println(vv);		
+	}//test
+	
+	@Test
+	public void testViewAll() throws Exception{
+		log.info("BringDAOTest::testViewAll() invoked!!");
+		List<ViewVO> list=dao.viewAll(3);
+		
+		for(ViewVO vv:list) {
+			System.out.println("==============");
+			System.out.println(vv);
+			System.out.println("==============");
+		}//enhanced-for
+		
+	}//test
 	
 	
 

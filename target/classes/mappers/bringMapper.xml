@@ -17,5 +17,27 @@
 		limit
 			8;
     </select>
+    
+    <select id="sdetail"    		
+    		resultType="com.cen.domain.SboardVO">
+    	select
+    		*
+    	from
+    		tbl_sboard
+    	where
+    		sb_num=${num}    
+    </select>
+    
+    <select id="bringViewAll"
+    		resultType="com.cen.domain.ViewVO">
+    	select 
+			* 
+		from 
+			tbl_view
+		where
+			sb_num=${num};
+    </select>
+    
+    
   
   </mapper>

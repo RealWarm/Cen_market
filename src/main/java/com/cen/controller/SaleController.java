@@ -1,10 +1,12 @@
 package com.cen.controller;
 
 import java.io.File;
+import java.util.List;
 
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.cen.domain.SboardVO;
+import com.cen.domain.ViewVO;
 import com.cen.model.SaleRegisterDTO;
 import com.cen.model.ViewDTO;
+import com.cen.service.BringService;
 import com.cen.service.SaleService;
 
 import lombok.extern.log4j.Log4j;
@@ -27,34 +32,16 @@ public class SaleController {
 	
 	@Inject
 	SaleService saleservice;
+	
+	@Inject
+	BringService bringService;
 		
 	@GetMapping("/saleregist")
 	public String registGet() throws Exception {
 		log.info("SaleController :: public void registGet() invoked!!!");
 		return "/saleregist";
 	}//registGet
-	
-	
-//		sboard 테이블에 데이터를 집어넣고, 해당 게시글번호에 맞는 이지 이름들을 저장한다.
-//		private int sb_num;					/* 게시글 번호 해쉬를 이용한 인조키 */ 	>> 데이터베이스에서 번호를 가져온다은 넣는다.
-//		private String sb_writer; 			/* 작성자의 아이디(FK) */			>> 세션에서 추출한다.
-//		private String sb_name;  			/* 게시글의 제목 */				
-//		private String sb_detail;			/* 판매상품의 설명 */				 
-//    
-//    	private int Total_price;			/* 총 판매 금액 */
-//   	private int Total_quantity;			/* 총 판매수량 */
-		// private Timestamp sb_regdate;	/* 게시글 등록일 */				>> sysdate써서 지금의
-//    	private int ct_num;					/* 카테고리 번호(FK) */
-//    	private String trade_shape;			/* 거래 형태 */
-//    	private String trade_progress;		/* 거래 진행 상황 */				>> "판매중"으로 초기화
-		// private String recent_address;	// 발송주소					>>
-	
-	// 이미지 이름을 데이터베이스에 넣는다.
-	// 서비스 만들기 
-	// 1. 데이터베이스 게시글 갯수 세는 서비스 >> 추후에 암호화도 가능할거같음 
-	// 2. 게시글을 데이터베이스에 넣는다.
-	// 3. 이미지들을 데이터베이스에 넣는다.
-	
+		
 	@RequestMapping(value ="/saleregist",
 			method = RequestMethod.POST)
 	public String registPost(SaleRegisterDTO dto, ViewDTO viewdto,
@@ -138,8 +125,18 @@ public class SaleController {
 	}//registGet
 	
 	@GetMapping("/detail")
-	public String pddetailGet() throws Exception {
+	public String pddetailGet(@RequestParam("num") Integer num, Model model) throws Exception {
 		log.info("SaleController :: public void registGet() invoked!!!");
+		SboardVO bvo = bringService.detail(num);
+		List<ViewVO> imglist=bringService.viewAll(num);
+//		System.out.println("SboardVO :: " + bvo);
+//		System.out.println("imglist :: ===================== ");
+//		for(ViewVO vv : imglist) {
+//			System.out.println("==================================");
+//			System.out.println(vv);
+//		}//enhanced-for
+		model.addAttribute("detail", bvo);
+		model.addAttribute("imglist", imglist);		
 		return "/product_detail";
 	}//registGet
 	

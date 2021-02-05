@@ -20,8 +20,7 @@
 	<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   	<!-- Bootstrap core JavaScript -->
   	<script src="/resources/vendor/jquery/jquery.min.js"></script>
-  	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>  	
-  	
+  	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>   	
   	<!-- Custom styles for this template -->
   	<link href="/resources/css/heroic-features.css" rel="stylesheet">
   	
@@ -77,8 +76,8 @@
 		            <hr>
 		            <p class="card-text">${list.sb_detail}</p>
 		          </div>
-		          <div class="card-footer">
-		            <a href="#" class="btn btn-primary">구 매 하 기</a>
+		          <div class="card-footer">		          
+		            <a href="/sale/detail?num=${list.sb_num}" class="btn btn-primary">구 매 하 기</a>
 		          </div>
 		        </div>
 		      </div>

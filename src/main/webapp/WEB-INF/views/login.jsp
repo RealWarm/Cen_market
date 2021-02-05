@@ -15,12 +15,7 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/resources/css/style1.css">
-    <!-- Bootstrap core CSS -->
-	<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  	<!-- Bootstrap core JavaScript -->
-  	<script src="/resources/vendor/jquery/jquery.min.js"></script>
-  	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/resources/css/style1.css">    
 </head>
 <body>
 

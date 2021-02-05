@@ -73,10 +73,7 @@ public class MainController {
 	public String main(Model model) throws Exception {		
 		log.info("MainController :: public String main() invoked!!!!");		
 		List<MainVO> mlist=bringService.mainListAll();
-		model.addAttribute("mlist", mlist);
-		
-		
-		
+		model.addAttribute("mlist", mlist);		
 		return "/main";		
 	}//main
 
