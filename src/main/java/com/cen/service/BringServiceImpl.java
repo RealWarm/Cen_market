@@ -32,11 +32,19 @@ public class BringServiceImpl implements BringService{
 		log.info("BringServiceImpl::detail invoked!!");
 		return dao.detail(num);
 	}//detail
+	
+	@Override
+	public String topPicture(Integer num) throws Exception {
+		log.info("BringServiceImpl::topPicture(Integer num) invoked!!");
+		return dao.topPicture(num);
+	}//topPicture
 
 	@Override
 	public List<ViewVO> viewAll(Integer num) throws Exception {
 		log.info("BringServiceImpl::viewAll invoked!!");
 		return dao.viewAll(num);
 	}//viewAll
+
+	
 
 }//end class

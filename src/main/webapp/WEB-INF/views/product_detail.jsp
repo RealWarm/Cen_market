@@ -47,25 +47,17 @@
         
 
         <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-          </ol>
+          
           <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-              <img class="d-block img-fluid" src="/resources/img/main_banner2_1200x350.png" alt="First slide">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block img-fluid" src="/resources/img/main_banner3_1200x350.png" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block img-fluid" src="/resources/img/main_banner4_1200x350.png" alt="Third slide">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block img-fluid" src="/resources/img/main_banner11_1200x350.png" alt="Third slide">
-            </div>
+          		<div class="carousel-item active">
+	              <img class="d-block img-fluid" src="/resources/upload_data/${top}" alt="First slide">
+	            </div>
+          	<c:forEach items="${imglist}" var="list" begin="1" end="3">
+	            <div class="carousel-item">
+	              <img class="d-block img-fluid" src="/resources/upload_data/${list.view_name}" alt="slide">
+	            </div>
+            </c:forEach>
+            
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -82,9 +74,9 @@
 
         <div class="card mt-4">          
           <div class="card-body">
-            <h3 class="card-title">Product Name</h3>
-            <h4>$24.99</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente dicta fugit fugiat hic aliquam itaque facere, soluta. Totam id dolores, sint aperiam sequi pariatur praesentium animi perspiciatis molestias iure, ducimus!</p>
+            <h3 class="card-title">${detail.sb_name}</h3>
+            <h4>${detail.Total_price}</h4>
+            <p class="card-text">${detail.Total_quantity}</p>
             <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
             4.0 stars
           </div>

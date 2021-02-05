@@ -36,6 +36,6 @@ public class SaleRegisterDTO {
     private String trade_shape;		/* 거래 형태 */
     // private String trade_progress;	/* 거래 진행 상황 */
     // private String recent_address;	// 발송주소	
-    private String sb_view; 
+    private String sb_view;			//
 
 }//end class

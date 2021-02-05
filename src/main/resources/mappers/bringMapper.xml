@@ -38,6 +38,18 @@
 			sb_num=${num};
     </select>
     
+    <select id="bringTop"
+    		resultType="java.lang.String">
+    	select 
+			view_name
+		from 
+			tbl_view
+		where
+			sb_num=${num}
+		limit
+			1;
+    </select>
+    
     
   
   </mapper>

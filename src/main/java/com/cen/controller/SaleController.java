@@ -126,21 +126,26 @@ public class SaleController {
 	
 	@GetMapping("/detail")
 	public String pddetailGet(@RequestParam("num") Integer num, Model model) throws Exception {
-		log.info("SaleController :: public void registGet() invoked!!!");
+		log.info("SaleController :: public void pddetailGet() invoked!!!");
+		// 게시글 상세내용 가져오기
 		SboardVO bvo = bringService.detail(num);
+		// 게시글 이미지 모두 가져오기
 		List<ViewVO> imglist=bringService.viewAll(num);
-//		System.out.println("SboardVO :: " + bvo);
-//		System.out.println("imglist :: ===================== ");
-//		for(ViewVO vv : imglist) {
-//			System.out.println("==================================");
-//			System.out.println(vv);
-//		}//enhanced-for
+		// 대표이미지 가져오기
+		String topPic=bringService.topPicture(num);
+		System.out.println("SboardVO :: " + bvo);
+		System.out.println("imglist :: ===================== ");
+		for(ViewVO vv : imglist) {
+			System.out.println("==================================");
+			System.out.println(vv);
+		}//enhanced-for
 		model.addAttribute("detail", bvo);
-		model.addAttribute("imglist", imglist);		
+		model.addAttribute("imglist", imglist);	
+		model.addAttribute("top", topPic);
 		return "/product_detail";
 	}//registGet
 	
-	
+	//대표이미지 하나를 가져와야한다.
 	
 
 }//end class

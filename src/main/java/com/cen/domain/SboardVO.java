@@ -27,15 +27,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SboardVO {
 	
-		private int sb_num; 			/* 게시글 번호를 정수로 */
+		private Integer sb_num; 			/* 게시글 번호를 정수로 */
 		private String sb_writer;   	/* 작성자의 아이디(FK) */
 		private String sb_nickname; 	/* 작성자의 닉네임 */
 		private String sb_name;			/* 게시글의 제목 */
 		private String sb_detail;  		/* 판매상품의 설명 */		
-		private int Total_price; 		/* 총 판매 금액 */ 
-		private int Total_quantity; 	/* 총 판매수량 */
+		private Integer Total_price; 		/* 총 판매 금액 */ 
+		private Integer Total_quantity; 	/* 총 판매수량 */
 		private Timestamp sb_regdate; 	/* 게시글 등록일 */
-		private int ct_num; 			/* 카테고리 번호(FK) */
+		private Integer ct_num; 			/* 카테고리 번호(FK) */
 		private String trade_shape;		/* 거래 형태 */
 		private String trade_progress; 	/* 거래 진행 상황 */
 			

@@ -34,6 +34,12 @@ public class BringDAOImpl implements BringDAO{
 		log.info("BringDAOImpl:: detail(Integer num) invoked!!!");
 		return session.selectOne(namespace + ".sdetail", num);
 	}//detail
+	
+	@Override
+	public String topPicture(Integer num) throws Exception {
+		log.info("BringDAOImpl:: topPicture(Integer num) invoked!!!");
+		return session.selectOne(namespace + ".bringTop", num);
+	}//topPicture
 
 	@Override
 	public List<ViewVO> viewAll(Integer num) throws Exception {		
@@ -41,4 +47,5 @@ public class BringDAOImpl implements BringDAO{
 		return session.selectList(namespace+".bringViewAll", num);
 	}//viewAll
 
+	
 }//endclass

@@ -60,6 +60,13 @@ public class BringDAOTest {
 		
 	}//test
 	
+	@Test
+	public void testBringTop() throws Exception{
+		log.info("BringDAOTest::testBringTop() invoked!!");
+		String top=dao.topPicture(3);
+		System.out.println(top);		
+	}//test
+	
 	
 
 }//endclass
