@@ -75,29 +75,27 @@
         <div class="card mt-4">          
           <div class="card-body">
             <h3 class="card-title">${detail.sb_name}</h3>
-            <h4>${detail.total_price}</h4>
-            <p class="card-text">${detail.total_quantity}</p>
-            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-            4.0 stars
+            <h4>${detail.total_price} 원 </h4>
+            <p class="card-text">수량 : ${detail.total_quantity} 개</p>
           </div>
         </div>
         <!-- /.card -->
 
         <div class="card card-outline-secondary my-4">
           <div class="card-header">
-            Product Reviews
+            상품문의 댓글
           </div>
           <div class="card-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+            <p>생각보다 너무좋아요 가격이 저렵해서 걱정이 많았지만 사길 잘한거같아요 그리고 판매자분도 연락을 잘해주시고 너무 좋았어요. </p>
             <small class="text-muted">Posted by Anonymous on 3/1/17</small>
             <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+            <p>구매하길 잘했어요. 또 사고 싶어요</p>
             <small class="text-muted">Posted by Anonymous on 3/1/17</small>
             <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+            <p>믿고사길 잘했어요 혹시나 또파신다면 또 사고 싶어요</p>
             <small class="text-muted">Posted by Anonymous on 3/1/17</small>
             <hr>
-            <a href="#" class="btn btn-success">Leave a Review</a>
+            <a href="/main" class="btn btn-success">댓글남기기</a>
           </div>
         </div>
         <!-- /.card -->

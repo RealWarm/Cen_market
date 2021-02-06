@@ -24,7 +24,8 @@ public class SaleDAOImpl implements SaleDAO {
 	@Override
 	public int boardCnt() throws Exception {
 		log.info("SaleDAOImpl::public int boardCnt() invked!!!");
-		int cnt=sqlSession.selectOne(namespace+".getBoardCnt");
+		Integer cnt=sqlSession.selectOne(namespace+".getBoardCnt");
+		if(cnt==0) cnt=1;
 		return cnt;
 	}//boardCnt
 

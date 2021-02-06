@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.cen.domain.SboardVO;
@@ -46,7 +46,8 @@ public class SaleController {
 	@RequestMapping(value ="/saleregist",
 			method = RequestMethod.POST)
 	public String registPost(SaleRegisterDTO dto, ViewDTO viewdto,
-			@RequestParam("uploadFiles") MultipartFile[] uploadFiles) throws Exception {
+			@RequestParam("uploadFiles") MultipartFile[] uploadFiles,
+			HttpSession session) throws Exception {
 				
 		log.info("SaleController :: public String registPost() invoked!!!");		
 		System.out.println("uploadFiles :: " + uploadFiles.length);
@@ -61,7 +62,12 @@ public class SaleController {
 				
 		// 카테고리번호 임시지정
 		dto.setCt_num(110);
-				
+		
+		// 작성자 아이디
+		dto.setSb_writer("testid1");
+		
+		// 작성자의 닉네임
+		dto.setSb_nickname("testnick");		
 		///////////////////////////////////////////////////////////
 		// 이미지 데이터 등록
 		int flag=0;

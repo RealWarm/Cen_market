@@ -29,10 +29,10 @@ public class SaleDAOTest {
 	
 	@Test
 	public void testinsertBoard() throws Exception{
-		SaleRegisterDTO dto = new SaleRegisterDTO(2, "testid1", "사무용 책상 팝니다.",  "사무용 의자 책상팝니다. ㅇㅇㅇㅇ팝니다. ㅇㅇㅇㅇ팝니다. ㅇㅇㅇㅇ팝니다. ㅇㅇㅇㅇ",
-				100000, 1, 110, "직거래", "main_banner11_1200x350.png");
-		System.out.println(dto);
-		saledao.insertBoard(dto);		
+//		SaleRegisterDTO dto = new SaleRegisterDTO(2, "testid1", "사무용 책상 팝니다.",  "사무용 의자 책상팝니다. ㅇㅇㅇㅇ팝니다. ㅇㅇㅇㅇ팝니다. ㅇㅇㅇㅇ팝니다. ㅇㅇㅇㅇ",
+//				100000, 1, 110, "직거래", "main_banner11_1200x350.png");
+//		System.out.println(dto);
+//		saledao.insertBoard(dto);		
 	}//testCreate
 	
 	

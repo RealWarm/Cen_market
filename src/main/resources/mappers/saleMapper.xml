@@ -20,10 +20,10 @@
  	<insert id="insertBoard"
  			parameterType="com.cen.model.SaleRegisterDTO">
  		insert into tbl_sboard 
-			(sb_num, sb_writer, sb_name, sb_detail, Total_price, 
+			(sb_num, sb_writer, sb_nickname, sb_name, sb_detail, Total_price, 
 			 Total_quantity, ct_num, trade_shape, sb_view)
 		value
-			(#{sb_num}, #{sb_writer}, #{sb_name}, #{sb_detail}, #{Total_price}, 
+			(#{sb_num}, #{sb_writer}, #{sb_nickname}, #{sb_name}, #{sb_detail}, #{Total_price}, 
 			 #{Total_quantity}, #{ct_num}, #{trade_shape}, #{sb_view});
  	</insert>
  	

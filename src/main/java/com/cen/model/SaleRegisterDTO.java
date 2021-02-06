@@ -28,7 +28,7 @@ public class SaleRegisterDTO {
 	private String sb_writer; 		/* 작성자의 아이디(FK) */			//
 	private String sb_name;  		/* 게시글의 제목 */				// 
 	private String sb_detail;		/* 판매상품의 설명 */				// 
-    
+	private String sb_nickname;		/* 판매자의 닉네임 */
     private int Total_price;		/* 총 판매 금액 */
     private int Total_quantity;		/* 총 판매수량 */
 	// private Timestamp sb_regdate;	/* 게시글 등록일 */

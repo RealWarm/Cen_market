@@ -46,8 +46,9 @@
       <div class="col-lg-9">
 
         <div class="detail__header">
+        	<div> </div>
           <h2> 상세 카테고리 페이지</h2>
-
+			<hr>
         </div>
 
         <div class="row">

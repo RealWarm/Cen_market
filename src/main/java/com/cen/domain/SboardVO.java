@@ -14,16 +14,16 @@ import lombok.NoArgsConstructor;
 public class SboardVO {
 	
 		private Integer sb_num; 			/* 게시글 번호를 정수로 */
-		private String sb_writer;   	/* 작성자의 아이디(FK) */
-		private String sb_nickname; 	/* 작성자의 닉네임 */
-		private String sb_name;			/* 게시글의 제목 */
-		private String sb_detail;  		/* 판매상품의 설명 */		
+		private String sb_writer;   		/* 작성자의 아이디(FK) */
+		private String sb_nickname; 		/* 작성자의 닉네임 */
+		private String sb_name;				/* 게시글의 제목 */
+		private String sb_detail;  			/* 판매상품의 설명 */		
 		private Integer Total_price; 		/* 총 판매 금액 */  // >>>>>>>>>>>>>>>>>>>>>>>> jsp에서는 total_price로 나온다.
 		private Integer Total_quantity; 	/* 총 판매수량 */
-		private Timestamp sb_regdate; 	/* 게시글 등록일 */
+		private Timestamp sb_regdate; 		/* 게시글 등록일 */
 		private Integer ct_num; 			/* 카테고리 번호(FK) */
-		private String trade_shape;		/* 거래 형태 */
-		private String trade_progress; 	/* 거래 진행 상황 */			
+		private String trade_shape;			/* 거래 형태 */
+		private String trade_progress; 		/* 거래 진행 상황 */			
 
 }//end class
 
