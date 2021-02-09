@@ -117,7 +117,7 @@ public class SaleController {
 		
 		// 게시글을 등록합니다. 
 		saleservice.insertBoard(dto);
-		
+		System.out.println("SaleRegisterDTO :: " + dto);
 		return "redirect:/main";
 	}//registPost
 	

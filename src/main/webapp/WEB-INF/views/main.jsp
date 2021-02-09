@@ -29,67 +29,67 @@
 
 	<jsp:include page="navbar.jsp" flush="false"/>  
 
-  <!-- Page Content -->
-  <div class="container">
-
-    <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active">
-          <img class="d-block img-fluid" src="/resources/img/main_banner2_1200x350.png" alt="First slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block img-fluid" src="/resources/img/main_banner3_1200x350.png" alt="Second slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block img-fluid" src="/resources/img/main_banner4_1200x350.png" alt="Third slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block img-fluid" src="/resources/img/main_banner11_1200x350.png" alt="Third slide">
-        </div>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-
-    <!-- Page Features -->
-    <div class="row text-center">
-    
-		<c:forEach items="${mlist}" var="list" begin="0" end="10">
-			<div class="col-lg-3 col-md-6 mb-4">
-		        <div class="card h-100">
-		          <%-- <img class="card-img-top" src="<spring:url value='/resources/upload_data/${list.sb_view}'/>" alt="${list.sb_view}"> --%>
-		          <img class="card-img-top" src="/resources/upload_data/${list.sb_view}" alt="${list.sb_view}">
-		          <div class="card-body">
-		            <h4 class="card-title">${list.sb_name}</h4>		            
-		            <hr>
-		            <%-- <p class="card-text">${list.sb_detail}</p> --%>
-		            <p class="card-text">000,000원</p>
-		          </div>
-		          <div class="card-footer">		          
-		            <a href="/sale/detail?num=${list.sb_num}" class="btn btn-primary">구 매 하 기</a>
-		          </div>
-		        </div>
-		      </div>
-		</c:forEach>
-      
-
-    </div>
-    <!-- /.row -->
-
-  </div>
-  <!-- /.container -->
+	  <!-- Page Content -->
+	  <div class="container">
+	
+	    <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+	      <ol class="carousel-indicators">
+	        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+	        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+	        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+	        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+	      </ol>
+	      <div class="carousel-inner" role="listbox">
+	        <div class="carousel-item active">
+	          <img class="d-block img-fluid" src="/resources/img/main_banner2_1200x350.png" alt="First slide">
+	        </div>
+	        <div class="carousel-item">
+	          <img class="d-block img-fluid" src="/resources/img/main_banner3_1200x350.png" alt="Second slide">
+	        </div>
+	        <div class="carousel-item">
+	          <img class="d-block img-fluid" src="/resources/img/main_banner4_1200x350.png" alt="Third slide">
+	        </div>
+	        <div class="carousel-item">
+	          <img class="d-block img-fluid" src="/resources/img/main_banner11_1200x350.png" alt="Third slide">
+	        </div>
+	      </div>
+	      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+	        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	        <span class="sr-only">Previous</span>
+	      </a>
+	      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+	        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	        <span class="sr-only">Next</span>
+	      </a>
+	    </div>
+	
+	    <!-- Page Features -->
+	    <div class="row text-center">
+	    
+			<c:forEach items="${mlist}" var="list" begin="0" end="10">
+				<div class="col-lg-3 col-md-6 mb-4">
+			        <div class="card h-100">
+			          <%-- <img class="card-img-top" src="<spring:url value='/resources/upload_data/${list.sb_view}'/>" alt="${list.sb_view}"> --%>
+			          <img class="card-img-top" src="/resources/upload_data/${list.sb_view}" alt="${list.sb_view}">
+			          <div class="card-body">
+			            <h4 class="card-title">${list.sb_name}</h4>		            
+			            <hr>
+			            <%-- <p class="card-text">${list.sb_detail}</p> --%>
+			            <p class="card-text">000,000원</p>
+			          </div>
+			          <div class="card-footer">		          
+			            <a href="/sale/detail?num=${list.sb_num}" class="btn btn-primary">구 매 하 기</a>
+			          </div>
+			        </div>
+			      </div>
+			</c:forEach>
+	      
+	
+	    </div>
+	    <!-- /.row -->
+	
+	  </div>
+	  <!-- /.container -->
 
   <jsp:include page="footer.jsp" flush="false"/>
 
