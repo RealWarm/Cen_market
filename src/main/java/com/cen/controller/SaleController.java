@@ -61,7 +61,7 @@ public class SaleController {
 		dto.setSb_writer("testid1");
 				
 		// 카테고리번호 임시지정
-		dto.setCt_num(110);
+		// dto.setCt_num(110);
 		
 		// 작성자 아이디
 		dto.setSb_writer("testid1");
@@ -71,8 +71,10 @@ public class SaleController {
 		///////////////////////////////////////////////////////////
 		// 이미지 데이터 등록
 		int flag=0;
-		// 게시글의 번호 설정
+		
+		// 이미지에 게시글 번호 설정
 		viewdto.setSb_num(bd_num);
+		
 		for(MultipartFile file : uploadFiles) {
 			log.info("\t\t =================================");
 			log.info("\t\t* 1. contentType: "		+file.getContentType());
@@ -119,11 +121,13 @@ public class SaleController {
 		return "redirect:/main";
 	}//registPost
 	
+	
 	@GetMapping("/category")
 	public String categoryGet() throws Exception {
 		log.info("SaleController :: public void registGet() invoked!!!");
 		return "/category_details";
 	}//registGet
+	
 	
 	@PostMapping("/category")
 	public String categoryPost() throws Exception {
