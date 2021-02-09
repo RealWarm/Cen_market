@@ -47,27 +47,26 @@ public class SaleController {
 			method = RequestMethod.POST)
 	public String registPost(SaleRegisterDTO dto, ViewDTO viewdto,
 			@RequestParam("uploadFiles") MultipartFile[] uploadFiles,
-			HttpSession session) throws Exception {
-				
+			HttpSession session) throws Exception {				
 		log.info("SaleController :: public String registPost() invoked!!!");		
-		System.out.println("uploadFiles :: " + uploadFiles.length);
-		System.out.println("SaleRegisterDTO :: " + dto);
+		System.out.println("uploadFiles :: " + uploadFiles.length);	
 		
 		// 게시글의 번호를 설정한다.
-		int bd_num=saleservice.boardCnt() + 1;  
+		int bd_num=saleservice.boardCnt()+1;		
 		dto.setSb_num(bd_num);
 		
 		// 세션에서 아이디를 추출해서 넣는다.
-		dto.setSb_writer("testid1");
+		dto.setSb_writer("test1");
 				
 		// 카테고리번호 임시지정
 		// dto.setCt_num(110);
 		
 		// 작성자 아이디
-		dto.setSb_writer("testid1");
+		dto.setSb_writer("test1");
 		
 		// 작성자의 닉네임
-		dto.setSb_nickname("testnick");		
+		dto.setSb_nickname("test_nickname");		
+		System.out.println("SaleRegisterDTO :: " + dto);
 		///////////////////////////////////////////////////////////
 		// 이미지 데이터 등록
 		int flag=0;
@@ -110,13 +109,12 @@ public class SaleController {
 			if(flag==0) {
 				flag=1;
 				dto.setSb_view(file.getOriginalFilename());
+				// 게시글을 등록합니다. 
+				saleservice.insertBoard(dto);
 			}//if
 			viewdto.setView_name(file.getOriginalFilename());			
 			saleservice.insertImage(viewdto);
 		}//enhanced for	
-		
-		// 게시글을 등록합니다. 
-		saleservice.insertBoard(dto);
 		System.out.println("SaleRegisterDTO :: " + dto);
 		return "redirect:/main";
 	}//registPost

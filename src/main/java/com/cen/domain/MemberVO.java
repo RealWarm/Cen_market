@@ -15,7 +15,7 @@ public class MemberVO {
 	private String nickname;
 	private String email;
 	private String phnum;
-	private int org_code;
+	private String org_name;
 	private String recent_address;
 	
 

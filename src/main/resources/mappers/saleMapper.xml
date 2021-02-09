@@ -11,9 +11,14 @@
  	<select id="getBoardCnt"
  			resultType="int">
  		select
- 			max(sb_num)
- 		from
- 			tbl_sboard; 	
+			case 
+				when count(*)=0
+					then 0
+				else
+					max(sb_num)
+				end as numb
+		from
+			tbl_sboard;	
  	</select>
  	
  	<!-- 게시글을 삽입한다. -->
@@ -21,10 +26,10 @@
  			parameterType="com.cen.model.SaleRegisterDTO">
  		insert into tbl_sboard 
 			(sb_num, sb_writer, sb_nickname, sb_name, sb_detail, Total_price, 
-			 Total_quantity, ct_num, trade_shape, sb_view)
+			 Total_quantity, ct_num, trade_shape, sb_view, trade_area)
 		value
 			(#{sb_num}, #{sb_writer}, #{sb_nickname}, #{sb_name}, #{sb_detail}, #{Total_price}, 
-			 #{Total_quantity}, #{ct_num}, #{trade_shape}, #{sb_view});
+			 #{Total_quantity}, #{ct_num}, #{trade_shape}, #{sb_view}, #{trade_area});
  	</insert>
  	
  	<!-- 이미지들을  테이블에 삽입한다.-->

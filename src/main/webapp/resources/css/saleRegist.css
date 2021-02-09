@@ -56,7 +56,7 @@ body {
     font-family: 'Open Sans', sans-serif;    
     cursor: default;
     /* margin:auto; */
-    background-color: gray;
+    /* background-color: gray; */
     /* margin-bottom: 500px; */
     /* 텍스트 커서가 기본 커서로 바뀐다. */
 }

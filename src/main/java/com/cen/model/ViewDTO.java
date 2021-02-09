@@ -8,14 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ViewDTO {
-	
-	
-//	sb_num varchar(50) not null,		/* 게시글 번호 */
-//  view_name varchar(50) not null,		/* 사진이름 */
-	
-//	private String sb_num;
-	private int sb_num;
-	private String view_name;
-	
-	
+	// 입력으로 들어온 사진을 DB에 넣기위한 빈클래스	
+	private int sb_num;				// 게시글 번호	
+	private String view_name;		// 확장자 포함한, 이미지 이름	
 }//endclass

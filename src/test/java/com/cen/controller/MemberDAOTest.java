@@ -27,9 +27,9 @@ public class MemberDAOTest {
 	
 	@Test
 	public void testRegister() throws Exception{
-		MemberVO vo = new MemberVO("testid2", "test2", "testname2", "testnick2", 
-								   "test2@naver.com", "010-9999-9199", 1 , "관악구신림동");		
-		registerdao.register(vo);
+//		MemberVO vo = new MemberVO("testid2", "test2", "testname2", "testnick2", 
+//								   "test2@naver.com", "010-9999-9199", 1 , "관악구신림동");		
+//		registerdao.register(vo);
 	}//testCreate
 	
 	@Test

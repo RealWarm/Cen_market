@@ -18,37 +18,14 @@
  		where
  			id=#{userid} AND
  			password=#{userpw};			
- 	</select>
- 	
- 	<select id="getOrgCode"
- 			parameterType="java.lang.String"
- 			resultType="int">
- 		select
-			org_code
-		from
-			tbl_org                  
-		where
-			org_name=#{org_name};
- 	</select>
- 	
- 	<select id="getOrgAdderss"
- 			parameterType="int"
- 			resultType="java.lang.String">
- 		select 
-			org_address
-		from
-			tbl_org
-		where
-			org_code=#{org_code};
- 	</select>
- 	
+ 	</select> 	
  
 	<insert id="registerMember"
 			parameterType="com.cen.domain.MemberVO">
 		insert into tbl_member 
-			(id, password, name, nickname, email, phnum, org_code, recent_address)
+			(id, password, name, nickname, email, phnum, org_name, recent_address)
 		value
-			(#{id}, #{password}, #{name}, #{nickname}, #{email}, #{phnum}, #{org_code}, #{recent_address});	
+			(#{id}, #{password}, #{name}, #{nickname}, #{email}, #{phnum}, #{org_name}, #{recent_address});	
 	</insert>
  
  	<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ id Ckeck(id 중복검사)ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ  -->    

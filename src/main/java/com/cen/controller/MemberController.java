@@ -36,19 +36,6 @@ public class MemberController {
 		// 기관코드를 이용하여 기관주소를 가져와서 recent_address에 입력합니다.
 		log.info("MemberController :: public String registerPost() invoked!!!!");		
 		System.out.println("before :: " + vo);
-		
-		
-		// System.out.println("org_name is " + org_name + "입니다.");
-		// 기관명을 이용하여 기관코드를 얻고 
-		int code=registerService.find_OrgCode(org_name);
-		vo.setOrg_code(code);
-		log.info("=-=-=-=-= org_naem is " + org_name);
-		
-		// 기관코드를 이용하여 기관주소를 가져와서 recent_address에 입력합니다.		
-		String recent=registerService.find_OrgAddress(code);
-		vo.setRecent_address(recent);		
-		System.out.println("after :: " + vo);
-		
 		registerService.register(vo);
 		return "redirect:/main";		
 	}//joinGet
