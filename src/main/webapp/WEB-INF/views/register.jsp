@@ -15,31 +15,14 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/resources/css/style1.css">
+    <link rel="stylesheet" href="/resources/css/style1.css" >
     <!-- Bootstrap core CSS -->
 	<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   	<!-- Bootstrap core JavaScript -->
   	<script src="/resources/vendor/jquery/jquery.min.js"></script>
   	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
 </head>
-<body>
-	<!-- <div id="header">
-        <div class="header-inner">
-            <h1 class="header-logo"><a href="/"><img src="/resources/img/kor_used1.PNG" alt="naraused" width="400px" height="80"></a></h1>
-            <div id="gnb">
-                <h2 class="blind">대표메뉴</h2>
-                    <ul class="nav">
-                        <li><a href="/">로그인</a></li>
-                        <li><a href="javascript:void(0)">아이디 찾기</a></li>
-                        <li><a href="javascript:void(0)">비밀번호 찾기</a></li>
-                    </ul>
-            </div>
-            <ul class="user-menu">
-                <li><a href="">로그인</a></li>
-                <li><a href="">회원가입</a></li>
-            </ul>
-        </div>
-    </div> -->
+<body>	
     <jsp:include page="navbar.jsp" flush="false"/>
     <div class="main-join-wrap">
         <form class="join-form" action="/member/register" method="POST">

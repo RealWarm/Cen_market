@@ -1,22 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
-
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" 	prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" 	prefix="fmt"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-
 <% request.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE html>
 <html>
-<head>
-	
+<head>	
 	<meta charset="UTF-8">
 	<title>나라중고장터</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" type="image/jpg" href="/resources/img/shopping.png">      
-    <link href="/resources/css/saleRegist.css" rel="stylesheet">
+    <link href="/resources/css/saleRegist.css" rel="stylesheet" type="text/css">
 </head>
 <body>	
 	<%-- <jsp:include page="navbar.jsp" flush="false"/> --%>
