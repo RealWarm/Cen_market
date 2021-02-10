@@ -51,7 +51,6 @@ public class MainController {
 		if(vo==null) {
 			log.info("login fail!!!!!!!!");
 			return "redirect:/";
-//			return "/";
 		}else {
 			log.info("login success!!!!!!!!!");
 			HttpSession session = request.getSession();
@@ -71,9 +70,15 @@ public class MainController {
 	
 	// 메인페이지 호출
 	@GetMapping("/main")
-	public String main(Model model) throws Exception {		
+	public String main(HttpSession session, Model model) throws Exception {		
 		log.info("MainController :: public String main() invoked!!!!");		
+		MemberVO vo = (MemberVO)session.getAttribute("login");
+		System.out.println("login :: " + vo + "!!!!!!");
+		//////////////////////////////////////////////
 		List<MainVO> mlist=bringService.mainListAll();
+		for(MainVO nvo:mlist) {
+			System.out.println(nvo);
+		}//enhanced-for
 		model.addAttribute("mlist", mlist);		
 		return "/main";		
 	}//main

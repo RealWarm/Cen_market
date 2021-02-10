@@ -25,7 +25,6 @@ import com.cen.service.SaleService;
 import lombok.extern.log4j.Log4j;
 
 
-
 @Log4j
 @Controller
 @RequestMapping("/sale")

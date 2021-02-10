@@ -30,7 +30,7 @@
 	<jsp:include page="navbar.jsp" flush="false"/>  
 
 	  <!-- Page Content -->
-	  <div class="container">
+	  <div class="container center">
 	
 	    <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
 	      <ol class="carousel-indicators">

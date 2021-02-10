@@ -4,6 +4,10 @@
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-heroic-features/blob/master/LICENSE)
  */
 body {
-  padding-top: 56px;
-  background-color: gray;
+  padding-top: 80px;
 }
+
+.container.center{
+  margin-bottom: 130px;
+}
+
