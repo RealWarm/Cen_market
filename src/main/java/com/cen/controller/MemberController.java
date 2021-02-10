@@ -22,6 +22,12 @@ public class MemberController {
 	@Inject
 	RegisterService registerService;
 	
+	@GetMapping("/mypage")
+	public String mypageGet() throws Exception{
+		log.info("MemberController :: public String mypageGet() invoked!!!!");		
+		return "mypage";		
+	}//joinGet
+	
 	@GetMapping("/confirm")
 	public String confirmGet() throws Exception{
 		log.info("MemberController :: public String confirmGet() invoked!!!!");		
