@@ -19,6 +19,23 @@
  			id=#{userid} AND
  			password=#{userpw};			
  	</select> 	
+ 	
+ 	<select id="logincheck"
+ 			parameterType="com.cen.model.LoginDTO"
+ 			resultType="int"> 		 			
+ 		select
+			case 
+				when count(*)=0
+					then 0
+				else
+					count(*)
+				end as numb
+		from
+ 			tbl_member
+ 		where
+ 			id=#{userid} AND
+ 			password=#{userpw};		
+ 	</select>
  
 	<insert id="registerMember"
 			parameterType="com.cen.domain.MemberVO">

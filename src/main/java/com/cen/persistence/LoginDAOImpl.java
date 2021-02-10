@@ -24,7 +24,7 @@ public class LoginDAOImpl implements LoginDAO{
 		
 	@Override
 	public MemberVO login(LoginDTO dto) throws Exception {		
-		log.info("LoginDAOImpl::public Boolean login(LoginDTO dto) invoked!!");
+		log.info("LoginDAOImpl::public MemberVO login(LoginDTO dto) invoked!!");
 		MemberVO vo = sqlSession.selectOne(namespace + ".login", dto);
 		System.out.println(vo);
 		
@@ -35,5 +35,11 @@ public class LoginDAOImpl implements LoginDAO{
 		}//if
 		
 	}//login
+
+	@Override
+	public Integer login_chk(LoginDTO dto) throws Exception {
+		log.info("LoginDAOImpl::public Integer login_chk(LoginDTO dto) invoked!!");		
+		return sqlSession.selectOne(namespace + ".logincheck", dto);
+	}//login_chk
 
 }//endclass

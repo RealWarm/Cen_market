@@ -21,6 +21,11 @@ public class LoginServiceImpl implements LoginService {
 	public MemberVO login(LoginDTO dto) throws Exception {		
 		return dao.login(dto);
 	}//login
+
+	@Override
+	public Integer login_chk(LoginDTO dto) throws Exception {		
+		return dao.login_chk(dto);
+	}//login_chk
 	
 
 }//end class

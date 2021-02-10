@@ -51,6 +51,7 @@ public class MainController {
 		if(vo==null) {
 			log.info("login fail!!!!!!!!");
 			return "redirect:/";
+//			return "/";
 		}else {
 			log.info("login success!!!!!!!!!");
 			HttpSession session = request.getSession();
@@ -63,9 +64,9 @@ public class MainController {
 	// 로그인 체크 확인
 	@ResponseBody
 	@PostMapping("/login_check")	
-	public MemberVO loginCheck(LoginDTO dto) throws Exception{
+	public Integer loginCheck(LoginDTO dto) throws Exception{
 		log.info("MainController :: loginCheck() invoked!!!!");		
-		return loginService.login(dto);
+		return loginService.login_chk(dto);
 	}//loginCheck
 	
 	// 메인페이지 호출
