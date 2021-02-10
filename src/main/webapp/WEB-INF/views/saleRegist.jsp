@@ -12,11 +12,17 @@
 	<title>나라중고장터</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" type="image/jpg" href="/resources/img/shopping.png">      
+    <link rel="icon" type="image/jpg" href="/resources/img/shopping.png">
+     <!-- Bootstrap core CSS -->
+	<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  	<!-- Bootstrap core JavaScript -->
+  	<script src="/resources/vendor/jquery/jquery.min.js"></script>
+  	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>   	
+  	<!-- Custom styles for this template -->  	      
     <link href="/resources/css/saleRegist.css" rel="stylesheet" type="text/css">
 </head>
 <body>	
-	<%-- <jsp:include page="navbar.jsp" flush="false"/> --%>
+	<jsp:include page="navbar.jsp" flush="false"/>
 	<div class="info__container">
         <!-- Top Title -->
         <section class="top__title">
@@ -134,6 +140,6 @@
         </form> <!-- 중앙입력란 -->
 
     </div> <!-- Top Title -->
-	<%-- <jsp:include page="footer.jsp" flush="false"/> --%>
+	<jsp:include page="footer.jsp" flush="false"/>
 </body>
 </html>

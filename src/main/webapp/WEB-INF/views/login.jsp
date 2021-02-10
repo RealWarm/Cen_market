@@ -32,7 +32,7 @@
             </div>
             <div class="login-lnk">
                 <ul class="login-menu">
-                    <li><a href="/member/register">회원가입</a></li>
+                    <li><a href="/member/confirm">회원가입</a></li>
                     <li><a href="javascript:void(0)">아이디 찾기</a></li>
                     <li><a href="javascript:void(0)">비밀번호 찾기</a></li>
                 </ul>
