@@ -109,7 +109,7 @@
                                         <button type="button" class="recent__address">최근지역</button>
                                     </div>                                    
                                     <br>
-                                    <input type="text" class="address__detail" name="recent_address">
+                                    <input type="text" class="address__detail" name="trade_area">
                                     <div class="warning">* 주의 : (동)까지만 입력해주세요 <span class="tag__star">예시) 관악구 신림동</span></div>
                                 </div>
                             </th>

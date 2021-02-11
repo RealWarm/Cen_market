@@ -22,9 +22,9 @@ public class SaleRegisterDTO {
     private int ct_num;					/* 카테고리 번호(FK) */			// 욕심 부리지말고 대분류를 나타내는 버튼만 만들어보자.
     private String trade_shape;			/* 거래 형태 */
     private String sb_view;				/* 게시글 대표 이미지 */
-//    private String recent_address;		// 최근 거래지역 >> 매번 자신의 최근 주소를 업데이트 한다.	
+//  private String recent_address;		// 최근 거래지역 >> 매번 자신의 최근 주소를 업데이트 한다.	
 //	private Timestamp sb_regdate;		/* 게시글 등록일 */
-//    private String trade_progress;		/* 거래 진행 상황 */     
+//  private String trade_progress;		/* 거래 진행 상황 */     
     private String trade_area;			/* 거래희망 지역 */
     
 }//end class
