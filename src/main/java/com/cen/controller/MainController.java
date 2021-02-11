@@ -60,6 +60,14 @@ public class MainController {
 		
 	}//login
 	
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		log.info("로그아웃!!");
+		session.removeAttribute("login");
+		return "redirect:/";
+	}
+	
+	
 	// 로그인 체크 확인
 	@ResponseBody
 	@PostMapping("/login_check")	
@@ -82,6 +90,8 @@ public class MainController {
 		model.addAttribute("mlist", mlist);		
 		return "/main";		
 	}//main
+	
+	
 
 //	@PostMapping("/login_Post")
 //	public String login_result(HttpServletRequest request,
