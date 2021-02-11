@@ -62,32 +62,27 @@
 	        <span class="sr-only">Next</span>
 	      </a>
 	    </div>
-	
-	    <!-- Page Features -->
+		
+		<!-- Page Features -->
 	    <div class="row text-center">
-	    
 			<c:forEach items="${mlist}" var="list" begin="0" end="10">
-				<div class="col-lg-3 col-md-6 mb-4">
-			        <div class="card h-100">
-			          <%-- <img class="card-img-top" src="<spring:url value='/resources/upload_data/${list.sb_view}'/>" alt="${list.sb_view}"> --%>
-			          <img class="card-img-top" src="/resources/upload_data/${list.sb_view}" alt="${list.sb_view}">
-			          <div class="card-body">
-			            <h4 class="card-title">${list.sb_name}</h4>		            
-			            <hr>
-			            <%-- <p class="card-text">${list.sb_detail}</p> --%>
-			            <p class="card-text">000,000원</p>
-			          </div>
-			          <div class="card-footer">		          
-			            <a href="/sale/detail?num=${list.sb_num}" class="btn btn-primary">구 매 하 기</a>
-			          </div>
-			        </div>
-			      </div>
+		      <div class="col-lg-3 col-md-6 mb-4">
+		        <div class="card h-100">
+		          <a href="/sale/detail?num=${list.sb_num}" class="a__pic"><img class="card-img-top" src="/resources/upload_data/${list.sb_view}" alt="${list.sb_view}"></a>          
+		          <div class="card-body1">
+		            <h7 class="card-title1">${list.sb_name}</h7>            
+		            <hr>
+		            <div class="price_address">
+		              <h5 class="card-text1">${list.total_price} 원</h5>
+		              <h5 class="card-text2">${list.trade_area}</h5>
+		            </div>
+		            
+		          </div>          
+		        </div>
+		      </div>
 			</c:forEach>
-	      
-	
 	    </div>
 	    <!-- /.row -->
-	
 	  </div>
 	  <!-- /.container -->
 
