@@ -27,10 +27,17 @@ public class MemberDAOTest {
 	private LoginDAO logindao;
 	
 	@Test
-	public void testRegister() throws Exception{
+	public void testLogin1() throws Exception{
 		LoginDTO dto = new LoginDTO("test12", "tttt");
 		int num = logindao.login_chk(dto);
 		System.out.println("num : " + num);
+	}//testCreate
+	
+	@Test
+	public void testRegister() throws Exception{		
+		MemberVO vo = new MemberVO("test2", "tttt", "testName2", "testNickName", "test2@naver.com", "010-8957-4929",
+						"신림동 동사무서", "");
+		registerdao.register(vo);
 	}//testCreate
 	
 	@Test
@@ -85,7 +92,7 @@ public class MemberDAOTest {
 	@Test
 	public void testfind_nick() throws Exception{
 		log.info("MemberDAOTest :: public void testfind_nick() invoked!!!");
-		int res = registerdao.nickCheck("testnick2");
+		int res = registerdao.nickCheck("test_nickname");
 		if(res==1) {
 			System.out.println("아이디가 있습니다.");
 		}else if(res==0) {

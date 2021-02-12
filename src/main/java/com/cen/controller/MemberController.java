@@ -79,14 +79,14 @@ public class MemberController {
 	
 	@ResponseBody
 	@PostMapping("/emailcheck")
-	public int emailCheck(@RequestParam("password") String upw) throws Exception {
+	public int emailCheck(@RequestParam("email") String upw) throws Exception {
 		return registerService.emailCheck(upw);
 	}//emailcheck
 	
 	@ResponseBody
 	@PostMapping("/nickcheck")
 	public int nickCheck(@RequestParam("nickname") String nick) throws Exception {
-		return registerService.emailCheck(nick);
+		return registerService.nickCheck(nick);
 	}//nickCheck
 	
 	

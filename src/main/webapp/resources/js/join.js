@@ -1,11 +1,13 @@
 $(document).ready(function () {
 	
-  var idReg = /^[a-zA-Z0-9]{6,10}$/;
+  var idReg = /^[A-za-z]{5,15}/g;
   var pwReg = /^[a-zA-Z0-9]{6,10}$/;
   var nameReg = /^[가-힣]+$/;
+  var nicknameReg = /^[ㄱ-ㅎ|가-힣|a-z|A-Z|0-9|\*]+$/  
   var emailReg = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/
   $('.join-submit').on('click', function (event) {
-    //    event.preventDefault();
+    // event.preventDefault();
+
     //아아디
     if ($("#id").val() == "") {
       $("#id").focus();
@@ -16,6 +18,7 @@ $(document).ready(function () {
       $("#id").focus();
       return false;
     }
+
     //비밀번호
     if (!pwReg.test($("#password").val())) {
       $("#password").focus();
@@ -37,6 +40,7 @@ $(document).ready(function () {
       return false;
     }
 
+    //이메일
     if (!emailReg.test($("#email").val())) {
       //  $("#email").val("");
       $("#email").focus();
@@ -79,7 +83,7 @@ $(document).ready(function () {
 
   $('#id').on('blur', function (event) {
     var user_id = $('#id').val();
-
+    console.log("user_id:", user_id);
     if (user_id == "") {
       $("#idMessage").show();
       $("#idMessage").text("아이디를 입력해주세요.");
@@ -89,7 +93,7 @@ $(document).ready(function () {
       url: '/member/idcheck',
       type: 'post',
       data: {
-        userId: user_id
+        id: user_id
       },
       dataType: 'json',
       success: function (userId) {
@@ -114,6 +118,43 @@ $(document).ready(function () {
       } //end-error
     }); //ajax
   });
+
+  $('#nickname').on('blur', function (event) {
+    var user_nick=$("#nickname").val();
+    console.log("user_nick : ", user_nick);
+    if(user_nick==""){
+      $("#nicknameMessage").show();
+      $("#nicknameMessage").text("닉네임을 입력해주세요.");
+      return false;
+    }
+    $.ajax({
+      url: '/member/nickcheck',
+      type: 'post',
+      data: {
+        nickname: user_nick
+      },
+      dataType: 'json',
+      success: function(nick){
+          console.log("nick cnt ::: ", nick);
+          if(nick==1){
+            $("#nicknameMessage").show();
+            $("#nicknameMessage").text("이미 가입된 별명입니다.");
+            $("#nickname").val("");
+            return false;
+          }else if(!nicknameReg.test(user_nick)){
+            $("#nicknameMessage").show();            
+            $("#nicknameMessage").text("별명은 한글 영어 숫자로 이루어진 5~10글자로 입력해주세요.");
+            return false;
+          }else {
+            $("#nicknameMessage").hide();
+            return false;
+          }
+      },//end-success
+      error: function(){
+        console.log("닉네임에서 에러발생")
+      }//end-error
+    });//ajax
+  });//nick
 
   $('#password').on('blur', function (event) {
     if ($('#password').val() === "") {
@@ -167,8 +208,9 @@ $(document).ready(function () {
   });
 
   $('#email').on('blur', function (event) {
-    var user_email = $('#email').val();
-
+    var user_email = $('#email').val();      
+    console.log("user_email : ", user_email);
+    
     if (user_email === "") {
       $("#emailMessage").show();
       $("#emailMessage").text("이메일을 입력해주세요.");
@@ -178,7 +220,7 @@ $(document).ready(function () {
       url: '/member/emailcheck',
       type: 'post',
       data: {
-        userEmail: user_email
+        email: user_email
       },
       dataType: 'json',
       success: function (data) {
@@ -204,6 +246,10 @@ $(document).ready(function () {
       } //end-error
     }) //ajax
   });
+
+
+
+
   function emailAuthentiCation() {
     var email = $('#email').val();
     console.log(email);

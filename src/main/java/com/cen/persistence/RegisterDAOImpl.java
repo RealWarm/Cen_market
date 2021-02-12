@@ -50,7 +50,7 @@ public class RegisterDAOImpl implements RegisterDAO {
 		sqlSession.insert(namespace + ".registReply", dto);
 	}//registReply
 
-
+	//=================== 형식검사==============================
 	@Override
 	public int idCheck(String user_id) throws Exception {
 		log.info("RegisterDAOImpl:: public String find_OrgAddress(int org_code) invoked!!!");
