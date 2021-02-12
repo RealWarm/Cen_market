@@ -84,15 +84,13 @@
             	상품문의 댓글
           </div>
           <div class="card-body">
-            <p>생각보다 너무좋아요 가격이 저렵해서 걱정이 많았지만 사길 잘한거같아요 그리고 판매자분도 연락을 잘해주시고 너무 좋았어요. </p>
-            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-            <hr>
-            <p>구매하길 잘했어요. 또 사고 싶어요</p>
-            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-            <hr>
-            <p>믿고사길 잘했어요 혹시나 또파신다면 또 사고 싶어요</p>
-            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-            <hr>            
+          	<c:forEach items="${reply}" var="rlist" begin="0" end="10">
+          		<p>${rlist.sb_detail}</p>
+            	<small class="text-muted">Posted by ${rlist.sb_nickname} on <fmt:formatDate value="${rlist.rp_regdate}" pattern="yyyy.MM.dd"/></small>
+            	<hr>
+          	</c:forEach>
+            
+                 
           </div>
           
           <!-- 댓글달기 -->
