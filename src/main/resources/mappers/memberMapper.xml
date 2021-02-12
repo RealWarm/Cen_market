@@ -44,6 +44,15 @@
 		value
 			(#{id}, #{password}, #{name}, #{nickname}, #{email}, #{phnum}, #{org_name}, #{recent_address});	
 	</insert>
+	
+	<insert id="registReply"
+			parameterType="com.cen.domain.MemberVO">
+		insert into tbl_reply(
+			sb_num, sb_writer, sb_nickname, sb_detail
+		)value(
+			#{sb_num}, #{sb_writer}, #{sb_nickname}, #{sb_detail}
+		);			
+	</insert>
  
  	<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ id Ckeck(id 중복검사)ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ  -->    
      <select id= "idCheck" parameterType="string" resultType="int">

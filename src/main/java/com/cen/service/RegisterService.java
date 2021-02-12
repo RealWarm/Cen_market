@@ -1,6 +1,7 @@
 package com.cen.service;
 
 import com.cen.domain.MemberVO;
+import com.cen.model.ReplyDTO;
 
 
 public interface RegisterService {
@@ -22,5 +23,8 @@ public interface RegisterService {
 
 	// 이메일 체크
 	public int emailCheck(String user_email) throws Exception;
+	
+	// 댓글을 등록한다.
+	public void registReply(ReplyDTO dto) throws Exception;
 	
 }//end interface

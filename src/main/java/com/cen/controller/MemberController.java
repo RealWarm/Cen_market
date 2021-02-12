@@ -1,6 +1,8 @@
 package com.cen.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cen.domain.MemberVO;
+import com.cen.model.ReplyDTO;
 import com.cen.service.RegisterService;
 
 import lombok.extern.log4j.Log4j;
@@ -51,7 +54,21 @@ public class MemberController {
 		registerService.register(vo);
 		return "redirect:/main";		
 	}//joinGet
-		
+	
+	@PostMapping("/reply")
+	public String replyPost(ReplyDTO dto, HttpSession session,  
+			@RequestParam(value="num", required=false) String nnnn) throws Exception{
+		log.info("MemberController :: public String replyPost() invoked!!!!");		
+		System.out.println("+++++++++num :: " + nnnn);
+		System.out.println("ReplyDTO :: " + dto + "!!!!!");
+		MemberVO vo = (MemberVO)session.getAttribute("login");
+		System.out.println("+++++++++++++ vo :: " + vo);
+		dto.setSb_writer(vo.getId());
+		dto.setSb_nickname(vo.getNickname());
+		registerService.registReply(dto);
+		System.out.println("ReplyDTO :: " + dto + "!!!!!");
+		return "redirect:/sale/detail"+"?num="+dto.getSb_num();	
+	}//replyPost
 	
 	// 회원 가입 형식 검사
 	@ResponseBody

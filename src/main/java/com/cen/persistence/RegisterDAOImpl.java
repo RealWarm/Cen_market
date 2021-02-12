@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.cen.domain.MemberVO;
+import com.cen.model.ReplyDTO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -42,6 +43,12 @@ public class RegisterDAOImpl implements RegisterDAO {
 		String str = sqlSession.selectOne(namespace + ".getOrgAdderss", org_code);
 		return str;
 	}//find_OrgAddress
+	
+	@Override
+	public void registReply(ReplyDTO dto) throws Exception {
+		log.info("RegisterDAOImpl:: public String registReply(ReplyVO vo) invoked!!!");
+		sqlSession.insert(namespace + ".registReply", dto);
+	}//registReply
 
 
 	@Override
@@ -62,6 +69,9 @@ public class RegisterDAOImpl implements RegisterDAO {
 		log.info("RegisterDAOImpl:: public int nickCheck(String user_nick) invoked!!!");		
 		return sqlSession.selectOne(namespace + ".emailCheck", user_email);
 	}//emailCheck
+
+
+	
 
 
 	

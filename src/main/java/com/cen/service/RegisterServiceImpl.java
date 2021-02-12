@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Repository;
 
 import com.cen.domain.MemberVO;
+import com.cen.model.ReplyDTO;
 import com.cen.persistence.RegisterDAO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -53,6 +54,12 @@ public class RegisterServiceImpl implements RegisterService {
 		log.info("RegisterServiceImpl:: emailCheck() invoked!!!");
 		return dao.emailCheck(user_email);
 	}//emailCheck
+
+	@Override
+	public void registReply(ReplyDTO dto) throws Exception {
+		log.info("RegisterServiceImpl:: emailCheck() invoked!!!");
+		dao.registReply(dto);
+	}//registReply
 	
 	
 

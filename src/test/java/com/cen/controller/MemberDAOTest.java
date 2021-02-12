@@ -9,6 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.cen.domain.MemberVO;
 import com.cen.model.LoginDTO;
+import com.cen.model.ReplyDTO;
 import com.cen.persistence.LoginDAO;
 import com.cen.persistence.RegisterDAO;
 
@@ -45,6 +46,14 @@ public class MemberDAOTest {
 			log.info("login fail!!");
 		}//if	
 	}//testRead
+	
+	@Test
+	public void testInsertReply() throws Exception{
+		log.info("MemberDAOTest :: public void testInsertReply() invoked!!!");
+		ReplyDTO vo = new ReplyDTO("test1", "test_nickname", 1, "혹시 자세한 거래지역은 어디인가요?");
+		registerdao.registReply(vo);
+		
+	}//testUpdate
 	
 	@Test
 	public void testgetOrgCodeNum() throws Exception{

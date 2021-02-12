@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.cen.domain.MemberVO;
 import com.cen.domain.SboardVO;
 import com.cen.domain.ViewVO;
 import com.cen.model.SaleRegisterDTO;
@@ -54,25 +55,21 @@ public class SaleController {
 		int bd_num=saleservice.boardCnt()+1;		
 		dto.setSb_num(bd_num);
 		
-		// 세션에서 아이디를 추출해서 넣는다.
-		dto.setSb_writer("test1");
-				
-		// 카테고리번호 임시지정
-		// dto.setCt_num(110);
+		// 세션에서 데이터 가져오기
+		MemberVO vo = (MemberVO)session.getAttribute("login");
 		
-		// 작성자 아이디
-		dto.setSb_writer("test1");
+		// 세션에서 아이디를 추출해서 넣는다.		
+		dto.setSb_writer(vo.getId());		
 		
 		// 작성자의 닉네임
-		dto.setSb_nickname("test_nickname");		
+		dto.setSb_nickname(vo.getNickname());
+		
 		System.out.println("SaleRegisterDTO :: " + dto);
 		///////////////////////////////////////////////////////////
 		// 이미지 데이터 등록
-		int flag=0;
-		
+		int flag=0;		
 		// 이미지에 게시글 번호 설정
-		viewdto.setSb_num(bd_num);
-		
+		viewdto.setSb_num(bd_num);		
 		for(MultipartFile file : uploadFiles) {
 			log.info("\t\t =================================");
 			log.info("\t\t* 1. contentType: "		+file.getContentType());
