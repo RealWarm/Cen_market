@@ -51,6 +51,17 @@
 			1;
     </select>
     
+    <select id="bringReply"
+    		resultType="com.cen.domain.ReplyVO">
+    	select 
+			* 
+		from 
+			tbl_reply
+		where
+			sb_num=${sb_num}
+		order by	
+			rp_regdate desc;
+    </select>
     
   
   </mapper>

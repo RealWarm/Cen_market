@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.cen.domain.MemberVO;
+import com.cen.domain.ReplyVO;
 import com.cen.domain.SboardVO;
 import com.cen.domain.ViewVO;
 import com.cen.model.SaleRegisterDTO;
@@ -133,14 +134,18 @@ public class SaleController {
 	@GetMapping("/detail")
 	public String pddetailGet(@RequestParam("num") Integer num, Model model) throws Exception {
 		log.info("SaleController :: public void pddetailGet() invoked!!!");
+		
 		// 게시글 상세내용 가져오기
 		SboardVO bvo = bringService.detail(num);
+		
 		// 게시글 이미지 모두 가져오기
 		List<ViewVO> imglist=bringService.viewAll(num);
+		
 		// 대표이미지 가져오기
 		String topPic=bringService.topPicture(num);
-		//닉네임 가져오기
 		
+		// 댓글정보 모두가져오기
+		List<ReplyVO> replylist=bringService.replyAll(num);
 		
 		System.out.println("SboardVO :: " + bvo);
 		System.out.println("imglist :: ===================== ");
@@ -151,6 +156,7 @@ public class SaleController {
 		model.addAttribute("detail", bvo);
 		model.addAttribute("imglist", imglist);	
 		model.addAttribute("top", topPic);
+		model.addAttribute("reply", replylist);
 		return "/product_detail";
 	}//registGet
 		

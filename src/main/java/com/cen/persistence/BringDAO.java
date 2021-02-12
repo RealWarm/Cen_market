@@ -3,6 +3,7 @@ package com.cen.persistence;
 import java.util.List;
 
 import com.cen.domain.MainVO;
+import com.cen.domain.ReplyVO;
 import com.cen.domain.SboardVO;
 import com.cen.domain.ViewVO;
 
@@ -20,5 +21,7 @@ public interface BringDAO {
 	// 게시글에 속한 사진들의 목록을 모두 가져옵니다.
 	public List<ViewVO> viewAll(Integer num) throws Exception;
 		
-
+	// 게시글의 댓글들을 모두 가져온다.
+	public List<ReplyVO> replyAll(Integer rnum) throws Exception;
+	
 }//end interface

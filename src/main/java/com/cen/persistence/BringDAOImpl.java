@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.cen.domain.MainVO;
+import com.cen.domain.ReplyVO;
 import com.cen.domain.SboardVO;
 import com.cen.domain.ViewVO;
 
@@ -46,6 +47,12 @@ public class BringDAOImpl implements BringDAO{
 		log.info("BringDAOImpl:: viewAll(Integer num) invoked!!!");
 		return session.selectList(namespace+".bringViewAll", num);
 	}//viewAll
+
+	@Override
+	public List<ReplyVO> replyAll(Integer rnum) throws Exception {
+		log.info("BringDAOImpl:: mainListAll() invoked!!!");		
+		return session.selectList(namespace+".bringReply", rnum);
+	}//replyAll
 
 	
 }//endclass

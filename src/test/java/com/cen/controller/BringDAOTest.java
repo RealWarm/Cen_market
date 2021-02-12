@@ -10,6 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.cen.domain.MainVO;
+import com.cen.domain.ReplyVO;
 import com.cen.domain.SboardVO;
 import com.cen.domain.ViewVO;
 import com.cen.persistence.BringDAO;
@@ -67,6 +68,15 @@ public class BringDAOTest {
 		System.out.println(top);		
 	}//test
 	
+	
+	@Test
+	public void testReplyAll() throws Exception{
+		log.info("BringDAOTest::testReplyAll() invoked!!");
+		List<ReplyVO> list=dao.replyAll(1);
+		for(ReplyVO vv:list) {
+			System.out.println("++ " + vv);
+		}
+	}//test
 	
 
 }//endclass
