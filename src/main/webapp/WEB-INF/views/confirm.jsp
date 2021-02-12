@@ -14,12 +14,11 @@
 	<title>나라중고장터</title>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/resources/css/style1.css"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">    
+    <link rel="stylesheet" href="/resources/css/style1.css">
     <script  src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script  src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>    
-    <script type="text/javascript"> 
-        
+    <script type="text/javascript">         
         $(function(){ 
         //전체선택 체크박스 클릭 
             $("#agree_check_all").click(function(){ 
