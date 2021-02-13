@@ -33,6 +33,12 @@ public class MainController {
 	@Inject
 	BringService bringService;
 	
+	@GetMapping("/index.html")
+	public String Main_index() {
+		log.info("Get-Main-Re");
+		return "redirect:/";
+	}
+	
 	// 메인페이지 호출
 	@GetMapping("/main")
 	public String main(HttpSession session, Model model) throws Exception {		
@@ -51,7 +57,7 @@ public class MainController {
 	@GetMapping("/login")
 	public String loginGet() throws Exception {		
 		log.info("MainController :: public String main() invoked!!!!");		
-		return "login";		
+		return "/login";		
 	}//main
 
 	
@@ -90,10 +96,7 @@ public class MainController {
 		log.info("MainController :: loginCheck() invoked!!!!");		
 		return loginService.login_chk(dto);
 	}//loginCheck
-	
-	
-	
-	
+		
 
 //	@PostMapping("/login_Post")
 //	public String login_result(HttpServletRequest request,
