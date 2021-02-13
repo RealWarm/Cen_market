@@ -32,6 +32,21 @@ public class MainController {
 	
 	@Inject
 	BringService bringService;
+	
+	// 메인페이지 호출
+	@GetMapping("/main")
+	public String main(HttpSession session, Model model) throws Exception {		
+		log.info("MainController :: public String main() invoked!!!!");		
+		MemberVO vo = (MemberVO)session.getAttribute("login");
+		System.out.println("login :: " + vo + "!!!!!!");
+		//////////////////////////////////////////////
+		List<MainVO> mlist=bringService.mainListAll();
+		for(MainVO nvo:mlist) {
+			System.out.println(nvo);
+		}//enhanced-for
+		model.addAttribute("mlist", mlist);		
+		return "/main";		
+	}//main
 		
 	@GetMapping("/login")
 	public String loginGet() throws Exception {		
@@ -76,20 +91,7 @@ public class MainController {
 		return loginService.login_chk(dto);
 	}//loginCheck
 	
-	// 메인페이지 호출
-	@GetMapping("/main")
-	public String main(HttpSession session, Model model) throws Exception {		
-		log.info("MainController :: public String main() invoked!!!!");		
-		MemberVO vo = (MemberVO)session.getAttribute("login");
-		System.out.println("login :: " + vo + "!!!!!!");
-		//////////////////////////////////////////////
-		List<MainVO> mlist=bringService.mainListAll();
-		for(MainVO nvo:mlist) {
-			System.out.println(nvo);
-		}//enhanced-for
-		model.addAttribute("mlist", mlist);		
-		return "/main";		
-	}//main
+	
 	
 	
 
