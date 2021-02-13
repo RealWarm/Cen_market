@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.cen.domain.MainVO;
 import com.cen.domain.MemberVO;
 import com.cen.model.LoginDTO;
+import com.cen.security.Sha256;
 import com.cen.service.BringService;
 import com.cen.service.LoginService;
 
@@ -65,7 +66,10 @@ public class MainController {
 	public String loginPost(HttpServletRequest request, LoginDTO dto) throws Exception{		
 		log.info("MainController :: public String login_Post() invoked!!!!");
 		
-		System.out.println("+++++++" + dto);
+		System.out.println("+++++++before :: " + dto);
+		String encryPassword = Sha256.encrypt(dto.getUserpw()); // 비번 암호화		
+		dto.setUserpw(encryPassword);	
+		System.out.println("+++++++after :: " + dto);
 		MemberVO vo= loginService.login(dto);
 		System.out.println("+++++++" + vo);
 		
