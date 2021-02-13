@@ -32,7 +32,7 @@
 <body>	
     <jsp:include page="navbar.jsp" flush="false"/>
     <div class="main-join-wrap">
-        <form class="join-form" action="/member/join" method="POST">
+        <form class="join-form" action="/member/register" method="POST">
             <div class="join-title-main">
                 <h2 class="join-title">회원가입</h2>
             </div>
@@ -80,7 +80,8 @@
                             <th><label for="nickname">*닉네임</label></th>
                             <td>
                                 <input type="text" title="닉네임" id="nickname" name="nickname">
-                                <span class="error-message" id="nicknameMessage" role="alert" style="display:none"></span>
+                                <span class="error-message" id="nicknameMessage" role="alert"
+                                    style="display:none"></span>
                             </td>
                         </tr>
                         <!-- 기관명 -->
@@ -88,9 +89,20 @@
                             <th><label for="org_name">*기관명</label></th>
                             <td>
                                 <input type="text" title="닉네임" id="org_name" name="org_name">
-                                <span class="error-message" id="org_nameMessage" role="alert" style="display:none"></span>
+                                <span class="error-message" id="org_nameMessage" role="alert"
+                                    style="display:none"></span>
                             </td>
                         </tr>
+                        <!-- 핸드폰 번호 -->
+                        <tr>
+                            <th><label for="phnum">*휴대폰</label></th>
+                            <td>
+                                <input type="text" title="닉네임" id="phnum" name="phnum">
+                                <span class="error-message" id="phnumMessage" role="alert"
+                                    style="display:none"></span>
+                            </td>
+                        </tr>
+                        <!-- 이메일 -->
                         <tr>
                             <th scope="row"><label for="email">*이메일</label></th>
                             <td>
@@ -112,7 +124,7 @@
                 </table>
             </div> <!-- 입력양식 -->
             <div class="join-button-wrap">
-                <button type="button" class="join-button join-submit">회원가입</button>
+                <button type="submit" class="join-button join-submit">회원가입</button>
                 <input type="reset" value="취소" class="join-button">
             </div>
         </form>

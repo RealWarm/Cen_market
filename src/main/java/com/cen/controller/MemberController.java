@@ -1,7 +1,6 @@
 package com.cen.controller;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cen.domain.MemberVO;
 import com.cen.model.ReplyDTO;
+import com.cen.security.Sha256;
 import com.cen.service.RegisterService;
 
 import lombok.extern.log4j.Log4j;
@@ -45,12 +45,15 @@ public class MemberController {
 	
 	
 	@PostMapping("/register")
-	public String registerPost(MemberVO vo, @RequestParam("org_name") String org_name) throws Exception{
+	public String registerPost(MemberVO vo) throws Exception{
 		// 폼에서 입력값을 받아 옵니다. 
 		// 기관명을 이용하여 기관코드를 얻고
 		// 기관코드를 이용하여 기관주소를 가져와서 recent_address에 입력합니다.
 		log.info("MemberController :: public String registerPost() invoked!!!!");		
 		System.out.println("before :: " + vo);
+		String encryPassword = Sha256.encrypt(vo.getPassword()); // 비번 암호화
+		vo.setPassword(encryPassword);
+		System.out.println("after :: " + vo);
 		registerService.register(vo);
 		return "redirect:/main";		
 	}//joinGet
