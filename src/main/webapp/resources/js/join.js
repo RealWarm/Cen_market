@@ -114,7 +114,7 @@ $(document).ready(function () {
     console.log("user_id:", user_id);
     if (user_id == "") {
       $("#idMessage").show();
-      $("#idMessage").text("아이디를 입력해주세요!");
+      $("#idMessage").text("아이디를 입력해주세요.");
       return false;
     }
     $.ajax({

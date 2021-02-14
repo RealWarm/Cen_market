@@ -74,6 +74,7 @@ public class MainController {
 		System.out.println("+++++++" + vo);
 		
 		if(vo==null) {
+			// 첫 로그인 실패때 경고문이 안뜨는데 여기가 문제인가????
 			log.info("login fail!!!!!!!!");
 			return "redirect:/";
 		}else {
@@ -89,7 +90,7 @@ public class MainController {
 	public String logout(HttpSession session) {
 		log.info("로그아웃!!");
 		session.removeAttribute("login");
-		return "redirect:/";
+		return "redirect:/main";
 	}
 	
 	
@@ -98,6 +99,10 @@ public class MainController {
 	@PostMapping("/login_check")	
 	public Integer loginCheck(LoginDTO dto) throws Exception{
 		log.info("MainController :: loginCheck() invoked!!!!");		
+		System.out.println("+++++++before :: " + dto);
+		String encryPassword = Sha256.encrypt(dto.getUserpw()); // 비번 암호화		
+		dto.setUserpw(encryPassword);	
+		System.out.println("+++++++after :: " + dto);
 		return loginService.login_chk(dto);
 	}//loginCheck
 		
