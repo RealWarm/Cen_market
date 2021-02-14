@@ -74,8 +74,9 @@
           <div class="card-body">
             <h3 class="card-title">${detail.sb_name}</h3>
             <h4>${detail.total_price} 원 </h4>
-            <form class="book_markform" method="POST" action="/member/reply">
-              <button type="submit" class="btn btn-success">찜하기</button>
+            <form class="book_markform" method="GET" action="/member/bookmark">
+            	<input type="hidden" name="sb_num" value="${detail.sb_num}">
+              	<button type="submit" class="btn btn-success">찜하기</button>
             </form>
             <hr>                       
             <p class="card-text">${detail.sb_detail}</p>

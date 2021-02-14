@@ -75,6 +75,21 @@ public class MemberController {
 	}//replyPost
 	
 	// 찜하기
+	@GetMapping("/bookmark")
+	public String bookmarkGet(HttpSession session,  
+			@RequestParam(value="sb_num", required=false) String sb_num) throws Exception{
+		log.info("MemberController :: public String bookmarkGet() invoked!!!!");
+		MemberVO vo = (MemberVO)session.getAttribute("login");
+		String sb_writer=vo.getId();
+		System.out.println("++++++++++++ " + sb_num + " :::: " + sb_writer);
+		int cnt=registerService.getbookCnt(sb_num, sb_writer);
+		System.out.println("@@@@@@@ 갯수는 " + cnt +"개 입니다.");
+		if(cnt==0) {
+			registerService.bookMark(sb_num, sb_writer);
+		}//if				
+		return "redirect:/sale/detail"+"?num="+sb_num;	
+	}//bookmarkGet
+	
 	
 	// 회원 가입 형식 검사
 	@ResponseBody
