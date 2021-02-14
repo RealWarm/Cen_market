@@ -58,6 +58,7 @@ public class MemberController {
 		return "redirect:/main";		
 	}//joinGet
 	
+	// 댓글 달기
 	@PostMapping("/reply")
 	public String replyPost(ReplyDTO dto, HttpSession session,  
 			@RequestParam(value="num", required=false) String nnnn) throws Exception{
@@ -72,6 +73,8 @@ public class MemberController {
 		System.out.println("ReplyDTO :: " + dto + "!!!!!");
 		return "redirect:/sale/detail"+"?num="+dto.getSb_num();	
 	}//replyPost
+	
+	// 찜하기
 	
 	// 회원 가입 형식 검사
 	@ResponseBody

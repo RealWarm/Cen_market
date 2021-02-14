@@ -1,5 +1,8 @@
 package com.cen.persistence;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -66,9 +69,39 @@ public class RegisterDAOImpl implements RegisterDAO {
 
 	@Override
 	public int emailCheck(String user_email) throws Exception {
-		log.info("RegisterDAOImpl:: public int nickCheck(String user_nick) invoked!!!");		
+		log.info("RegisterDAOImpl:: public int emailCheck(String user_email) invoked!!!");		
 		return sqlSession.selectOne(namespace + ".emailCheck", user_email);
 	}//emailCheck
+
+
+	@Override
+	public void bookMark(String sb_num, String sb_writer) throws Exception {
+		log.info("RegisterDAOImpl:: public void bookMark(int sb_num, String sb_writer) invoked!!!");
+		Map<String, String> bmk = new HashMap<>();
+		bmk.put("sb_num", sb_num);
+		bmk.put("sb_writer", sb_writer);
+		sqlSession.insert(namespace + ".bookMark", bmk);
+	}//bookMark
+
+
+	@Override
+	public void deleteBookMark(String sb_num, String sb_writer) throws Exception {		
+		log.info("RegisterDAOImpl:: public void deleteBookMark(String sb_num, String sb_writer) invoked!!!");
+		Map<String, String> bmk = new HashMap<>();
+		bmk.put("sb_num", sb_num);
+		bmk.put("sb_writer", sb_writer);
+		sqlSession.delete(namespace + ".deleteBookMark", bmk);
+	}//deleteBookMark
+
+
+	@Override
+	public int getbookCnt(String sb_num, String sb_writer) throws Exception {
+		log.info("RegisterDAOImpl:: public int getbookCnt(String sb_num, String sb_writer) invoked!!!");
+		Map<String, String> bmk = new HashMap<>();
+		bmk.put("sb_num", sb_num);
+		bmk.put("sb_writer", sb_writer);		
+		return sqlSession.selectOne(namespace + ".getBookCnt", bmk);
+	}//getbookCnt
 
 
 	

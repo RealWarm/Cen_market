@@ -1,5 +1,8 @@
 package com.cen.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Repository;
@@ -60,7 +63,24 @@ public class RegisterServiceImpl implements RegisterService {
 		log.info("RegisterServiceImpl:: emailCheck() invoked!!!");
 		dao.registReply(dto);
 	}//registReply
-	
+
+	@Override
+	public void bookMark(String sb_num, String sb_writer) throws Exception {
+		log.info("RegisterServiceImpl:: bookMark() invoked!!!");		
+		dao.bookMark(sb_num, sb_writer);
+	}//bookMark
+
+	@Override
+	public void deleteBookMark(String sb_num, String sb_writer) throws Exception {
+		log.info("RegisterServiceImpl:: deleteBookMark() invoked!!!");
+		dao.deleteBookMark(sb_num, sb_writer);
+	}//deleteBookMark
+
+	@Override
+	public int getbookCnt(String sb_num, String sb_writer) throws Exception {
+		log.info("RegisterServiceImpl:: getbookCnt() invoked!!!");
+		return dao.getbookCnt(sb_num, sb_writer);
+	}//getbookCnt
 	
 
 }//end class

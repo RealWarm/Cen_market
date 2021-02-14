@@ -27,4 +27,13 @@ public interface RegisterService {
 	// 댓글을 등록한다.
 	public void registReply(ReplyDTO dto) throws Exception;
 	
+	// 북마크를 등록한다.
+	public void bookMark(String sb_num, String sb_writer) throws Exception;
+	
+	// 북마크를 취소한다.
+	public void deleteBookMark(String sb_num, String sb_writer) throws Exception;
+	
+	// 북마크를 등록한다.
+	public int getbookCnt(String sb_num, String sb_writer) throws Exception;
+	
 }//end interface

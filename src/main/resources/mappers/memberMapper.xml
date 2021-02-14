@@ -36,17 +36,7 @@
  			id=#{userid} AND
  			password=#{userpw};		
  	</select>
- 	
- 	<!-- 상세페이지 댓글달기 -->
- 	<insert id="registReply"
-			parameterType="com.cen.domain.MemberVO">
-		insert into tbl_reply(
-			sb_num, sb_writer, sb_nickname, sb_detail
-		)value(
-			#{sb_num}, #{sb_writer}, #{sb_nickname}, #{sb_detail}
-		);			
-	</insert>
- 	
+ 	 	
  	<!-- 회원가입 -->
 	<insert id="registerMember"
 			parameterType="com.cen.domain.MemberVO">
@@ -87,7 +77,51 @@
           	nickname=#{nickname}
      </select>
  	
- 
+ 	 <!-- 상세페이지 댓글달기 -->
+ 	<insert id="registReply"
+			parameterType="com.cen.domain.MemberVO">
+		insert into tbl_reply(
+			sb_num, sb_writer, sb_nickname, sb_detail
+		)value(
+			#{sb_num}, #{sb_writer}, #{sb_nickname}, #{sb_detail}
+		);			
+	</insert>
+	
+	<!-- 북마크 하기 -->
+	<insert id="bookMark"
+			parameterType="java.util.HashMap">
+		insert into tbl_bookmark(
+			sb_num, sb_writer
+		)value(
+			#{sb_num}, #{sb_writer}
+		);		
+	</insert>
+	
+	<!-- 북마크 취소하기 -->
+	<delete id="deleteBookMark"
+			parameterType="java.util.HashMap">
+		delete from	tbl_bookMark
+		where sb_num=#{sb_num} and sb_writer=#{sb_writer};
+	</delete>
+	
+	<!-- 북마크 했는지 -->
+	<select id="getBookCnt"
+			parameterType="java.util.HashMap"
+			resultType="int">
+		select
+			case 
+				when count(*)=0
+					then 0
+				else
+					count(*)
+				end as numb
+		from
+			tbl_bookmark
+		where
+			sb_num=#{sb_num} and
+		    sb_writer=#{sb_writer};
+	</select>
+ 	
  </mapper>
  
  

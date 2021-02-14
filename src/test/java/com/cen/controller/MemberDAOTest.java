@@ -112,8 +112,21 @@ public class MemberDAOTest {
 		}//if
 	}//testfind_email
 	
+	@Test
+	public void testBookMark() throws Exception{
+		registerdao.bookMark("2", "test1");
+	}//testfind_email
 	
+	@Test
+	public void testDeleteBookMark() throws Exception{
+		registerdao.deleteBookMark("3", "real13");
+	}//testfind_email
 	
+	@Test
+	public void testCntBookMark() throws Exception{
+		int res = registerdao.getbookCnt("2", "test1");
+		System.out.println("+++++++++++ res :: "+res);
+	}//testfind_email
 	
 
 }//end
