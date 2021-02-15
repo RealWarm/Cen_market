@@ -87,7 +87,8 @@ public class MemberController {
 		if(cnt==0) {
 			registerService.bookMark(sb_num, sb_writer);
 		}//if				
-		return "redirect:/sale/detail"+"?num="+sb_num;	
+		// return "redirect:/sale/detail"+"?num="+sb_num;	
+		return "redirect:/member/mypage";
 	}//bookmarkGet
 	
 	

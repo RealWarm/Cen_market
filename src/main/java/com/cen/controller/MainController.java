@@ -91,7 +91,7 @@ public class MainController {
 		log.info("로그아웃!!");
 		session.removeAttribute("login");
 		return "redirect:/main";
-	}
+	}//logout
 	
 	
 	// 로그인 체크 확인
@@ -105,28 +105,6 @@ public class MainController {
 		System.out.println("+++++++after :: " + dto);
 		return loginService.login_chk(dto);
 	}//loginCheck
-		
-
-//	@PostMapping("/login_Post")
-//	public String login_result(HttpServletRequest request,
-//								LoginDTO dto, Model model) throws Exception {
-//		log.info("POST-Login");
-//
-//		String encryPassword = Sha256.encrypt(dto.getUserpw()); // 비번 암호화
-//		dto.setUserpw(encryPassword);
-//
-//		MemberVO vo = loginService.login(dto);
-//           
-//      	if(vo==null) {
-//			log.info("login fail!!!!!!!!");
-//			return "redirect:/login";
-//		}else {
-//			log.info("login success!!!!!!!!!");
-//			HttpSession session = request.getSession();
-//			session.setAttribute("login", vo);			
-//			return "main";
-//		}//if
-//      	
-//   }// login_POST
+	
 		
 }//main
