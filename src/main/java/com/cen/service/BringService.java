@@ -2,6 +2,7 @@ package com.cen.service;
 
 import java.util.List;
 
+import com.cen.domain.BookMarkVO;
 import com.cen.domain.MainVO;
 import com.cen.domain.ReplyVO;
 import com.cen.domain.SboardVO;
@@ -23,5 +24,14 @@ public interface BringService {
 	
 	// 게시글의 댓글들을 모두 가져온다.
 	public List<ReplyVO> replyAll(Integer rnum) throws Exception;
+	
+	// 내가 등록한 게시글주 판매중인  게시글 가져오기
+	public List<SboardVO> bringSaling(String sb_writer) throws Exception;
+	
+	// 내가 등록한 게시글중 판매완료인  게시글 가져오기
+	public List<SboardVO> bringSaleComplete(String sb_writer) throws Exception;
+	
+	// 내가 찜 한 게시글 목록 정보들을 가져오기
+	public List<BookMarkVO> bringBookMark(String sb_writer) throws Exception;
 	
 }//end interface

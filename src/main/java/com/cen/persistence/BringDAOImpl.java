@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.cen.domain.BookMarkVO;
 import com.cen.domain.MainVO;
 import com.cen.domain.ReplyVO;
 import com.cen.domain.SboardVO;
@@ -53,6 +54,24 @@ public class BringDAOImpl implements BringDAO{
 		log.info("BringDAOImpl:: mainListAll() invoked!!!");		
 		return session.selectList(namespace+".bringReply", rnum);
 	}//replyAll
+
+	@Override
+	public List<SboardVO> bringSaling(String sb_writer) throws Exception {
+		log.info("BringDAOImpl:: bringSaling() invoked!!!");	
+		return session.selectList(namespace+".bringSaling", sb_writer);
+	}//bringSaling
+
+	@Override
+	public List<SboardVO> bringSaleComplete(String sb_writer) throws Exception {
+		log.info("BringDAOImpl:: bringSaleComplete() invoked!!!");
+		return session.selectList(namespace+".bringSaleComplete", sb_writer);
+	}//bringSaleComplete
+
+	@Override
+	public List<BookMarkVO> bringBookMark(String sb_writer) throws Exception {
+		log.info("BringDAOImpl:: bringBookMark() invoked!!!");
+		return session.selectList(namespace+".bringBookMark", sb_writer);
+	}//bringBookMark
 
 	
 }//endclass

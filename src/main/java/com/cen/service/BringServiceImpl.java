@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Repository;
 
+import com.cen.domain.BookMarkVO;
 import com.cen.domain.MainVO;
 import com.cen.domain.ReplyVO;
 import com.cen.domain.SboardVO;
@@ -51,6 +52,24 @@ public class BringServiceImpl implements BringService{
 		log.info("BringServiceImpl::replyAll(Integer rnum) invoked!!");
 		return dao.replyAll(rnum);
 	}//replyAll
+
+	@Override
+	public List<SboardVO> bringSaling(String sb_writer) throws Exception {
+		log.info("BringServiceImpl::bringSaling() invoked!!");
+		return dao.bringSaling(sb_writer);
+	}//bringSaling
+
+	@Override
+	public List<SboardVO> bringSaleComplete(String sb_writer) throws Exception {
+		log.info("BringServiceImpl::bringSaleComplete() invoked!!");
+		return dao.bringSaleComplete(sb_writer);
+	}//bringSaleComplete
+
+	@Override
+	public List<BookMarkVO> bringBookMark(String sb_writer) throws Exception {
+		log.info("BringServiceImpl::bringBookMark() invoked!!");
+		return dao.bringBookMark(sb_writer);
+	}//bringBookMark
 
 	
 

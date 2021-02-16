@@ -1,18 +1,25 @@
 package com.cen.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.cen.domain.BookMarkVO;
 import com.cen.domain.MemberVO;
+import com.cen.domain.SboardVO;
 import com.cen.model.ReplyDTO;
 import com.cen.security.Sha256;
+import com.cen.service.BringService;
 import com.cen.service.RegisterService;
 
 import lombok.extern.log4j.Log4j;
@@ -25,9 +32,31 @@ public class MemberController {
 	@Inject
 	RegisterService registerService;
 	
+	@Inject
+	BringService bringService;
+	
 	@GetMapping("/mypage")
-	public String mypageGet() throws Exception{
-		log.info("MemberController :: public String mypageGet() invoked!!!!");		
+	public String mypageGet(HttpServletRequest request, Model model) throws Exception{
+		log.info("MemberController :: public String mypageGet() invoked");
+		HttpSession session = request.getSession(false);
+		MemberVO vo = (MemberVO)session.getAttribute("login");
+		String sb_writer=vo.getId();
+		
+		// 판매중인 게시글
+		List<SboardVO> list1=bringService.bringSaling(sb_writer);
+		System.out.println("list1 :: " + list1);
+		
+		
+		// 판매완료 게시글
+		List<SboardVO> list2=bringService.bringSaleComplete(sb_writer);
+		
+		// 북마크 내용 가져오기
+		List<BookMarkVO> list3=bringService.bringBookMark(sb_writer);
+		
+		model.addAttribute("list1", list1);
+		model.addAttribute("list2", list2);
+		model.addAttribute("list3", list3);
+		
 		return "mypage";		
 	}//joinGet
 	

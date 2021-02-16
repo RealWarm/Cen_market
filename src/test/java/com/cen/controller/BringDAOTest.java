@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.cen.domain.BookMarkVO;
 import com.cen.domain.MainVO;
 import com.cen.domain.ReplyVO;
 import com.cen.domain.SboardVO;
@@ -76,6 +77,37 @@ public class BringDAOTest {
 		for(ReplyVO vv:list) {
 			System.out.println("++ " + vv);
 		}
+	}//test
+	
+	
+	@Test
+	public void bringSaling() throws Exception{
+		log.info("BringDAOTest::testReplyAll() invoked!!");
+		String sb_writer = "real123";
+		List<SboardVO> list1=dao.bringSaling(sb_writer);
+		for(SboardVO vv:list1) {
+			System.out.println("++ " + vv);			
+		}//for-enhaced
+	}//test
+	
+	@Test
+	public void bringSaleComplete() throws Exception{
+		log.info("BringDAOTest::testReplyAll() invoked!!");
+		String sb_writer1 = "real124";
+		List<SboardVO> list2=dao.bringSaleComplete(sb_writer1);
+		for(SboardVO vv:list2) {
+			System.out.println("++ " + vv);			
+		}//for-enhaced
+	}//test
+	
+	@Test
+	public void bringBookMark() throws Exception{
+		log.info("BringDAOTest::testReplyAll() invoked!!");
+		String sb_writer="real123";
+		List<BookMarkVO> list3=dao.bringBookMark(sb_writer);
+		for(BookMarkVO vv : list3 ) {
+			System.out.println("++ " + vv);
+		}//for
 	}//test
 	
 

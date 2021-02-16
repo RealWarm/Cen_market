@@ -52,13 +52,13 @@ public class MainController {
 			System.out.println(nvo);
 		}//enhanced-for
 		model.addAttribute("mlist", mlist);		
-		return "/main";		
+		return "main";		
 	}//main
 		
 	@GetMapping("/login")
 	public String loginGet() throws Exception {		
 		log.info("MainController :: public String main() invoked!!!!");		
-		return "/login";		
+		return "login";		
 	}//main
 
 	
