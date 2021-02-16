@@ -73,7 +73,7 @@
 			tbl_sboard
 		where
 			sb_writer="${sb_writer}" AND
-			trade_progress = "판매중";
+			(trade_progress = "판매중" OR trade_progress="예약중");
     </select>
     
     <!-- 내가 등록한 게시글중 판매완료인  게시글 가져오기 -->
