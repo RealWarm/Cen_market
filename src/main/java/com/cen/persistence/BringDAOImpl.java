@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.cen.domain.BookMarkVO;
+import com.cen.domain.CategoryVO;
 import com.cen.domain.MainVO;
 import com.cen.domain.ReplyVO;
 import com.cen.domain.SboardVO;
@@ -72,6 +73,20 @@ public class BringDAOImpl implements BringDAO{
 		log.info("BringDAOImpl:: bringBookMark() invoked!!!");
 		return session.selectList(namespace+".bringBookMark", sb_writer);
 	}//bringBookMark
+
+	
+	// 카테고리 분류페이지.
+	@Override
+	public List<MainVO> cateListAll(String ct_num) throws Exception {
+		log.info("BringDAOImpl:: cateListAll() invoked!!!");
+		return session.selectList(namespace+".bringCategory", ct_num);
+	}//cateListAll
+
+	@Override
+	public CategoryVO categoryData(String ct_num) throws Exception {
+		log.info("BringDAOImpl:: cateListAll() invoked!!!");
+		return session.selectOne(namespace+".bringCateData", ct_num);
+	}
 
 	
 }//endclass

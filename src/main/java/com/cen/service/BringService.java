@@ -3,6 +3,7 @@ package com.cen.service;
 import java.util.List;
 
 import com.cen.domain.BookMarkVO;
+import com.cen.domain.CategoryVO;
 import com.cen.domain.MainVO;
 import com.cen.domain.ReplyVO;
 import com.cen.domain.SboardVO;
@@ -33,5 +34,11 @@ public interface BringService {
 	
 	// 내가 찜 한 게시글 목록 정보들을 가져오기
 	public List<BookMarkVO> bringBookMark(String sb_writer) throws Exception;
+	
+	// 선택한 카테고리에 따른 데이터를 가져온다. >> 상세카테고리 데이터
+	public List<MainVO> cateListAll(String ct_num) throws Exception;
+	
+	// 카테고리의 정보를 가져온다.
+	public CategoryVO categoryData(String ct_num) throws Exception;
 	
 }//end interface

@@ -10,6 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.cen.domain.BookMarkVO;
+import com.cen.domain.CategoryVO;
 import com.cen.domain.MainVO;
 import com.cen.domain.ReplyVO;
 import com.cen.domain.SboardVO;
@@ -108,6 +109,22 @@ public class BringDAOTest {
 		for(BookMarkVO vv : list3 ) {
 			System.out.println("++ " + vv);
 		}//for
+	}//test
+	
+	@Test
+	public void testcateListAll() throws Exception {
+		log.info("BringDAOTest::testcateListAll invoked!!");
+		List<MainVO> list = dao.cateListAll("100");
+		for(MainVO vv:list) {
+			System.out.println("++ " + vv);			
+		}//for-enhaced	
+	}//test
+	
+	@Test
+	public void testCategoryData() throws Exception {
+		log.info("BringDAOTest::testCategoryData() invoked!!");
+		CategoryVO vo=dao.categoryData("100");
+		System.out.println("+++ vo" + vo);
 	}//test
 	
 

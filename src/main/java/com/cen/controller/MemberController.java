@@ -84,7 +84,7 @@ public class MemberController {
 		vo.setPassword(encryPassword);
 		System.out.println("after :: " + vo);
 		registerService.register(vo);
-		return "redirect:/main";		
+		return "redirect:/login";		
 	}//joinGet
 	
 	// 댓글 달기

@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Repository;
 
 import com.cen.domain.BookMarkVO;
+import com.cen.domain.CategoryVO;
 import com.cen.domain.MainVO;
 import com.cen.domain.ReplyVO;
 import com.cen.domain.SboardVO;
@@ -70,6 +71,19 @@ public class BringServiceImpl implements BringService{
 		log.info("BringServiceImpl::bringBookMark() invoked!!");
 		return dao.bringBookMark(sb_writer);
 	}//bringBookMark
+
+	@Override
+	public List<MainVO> cateListAll(String ct_num) throws Exception {
+		// 선택한 카테고리에 따른 데이터를 가져온다.
+		log.info("BringServiceImpl::cateListAll() invoked!!");
+		return dao.cateListAll(ct_num);
+	}//cateListAll
+
+	@Override
+	public CategoryVO categoryData(String ct_num) throws Exception {
+		log.info("BringServiceImpl::categoryData() invoked!!");		
+		return dao.categoryData(ct_num);
+	}//categoryData
 
 	
 

@@ -13,9 +13,9 @@
 		from
 			tbl_sboard
 		order by
-			sb_regdate
+			sb_regdate desc
 		limit
-			8;
+			16;
     </select>
     
     <!-- 상세페이지 보여주기 -->
@@ -106,6 +106,57 @@
 							sb_writer="${sb_writer}");    		
     </select>
     	
+    <!-- 상세페이지 데이터 가져오기 -->
+    <select id="bringCategory"
+  			resultType="com.cen.domain.MainVO">
+  		select
+			* 
+		from
+			tbl_sboard
+		where
+			ct_num=${ct_num}
+		order by
+			sb_regdate desc;  			
+  	</select>
+  	  		
+  	<!-- 카테고리의 정보를 가져온다 -->
+  	<select id="bringCateData"
+  			resultType="com.cen.domain.CategoryVO">
+  		select
+			* 
+		from
+			tbl_category
+		where
+			ct_num=${ct_num};  			
+  	</select> 
+  	
     
   
   </mapper>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

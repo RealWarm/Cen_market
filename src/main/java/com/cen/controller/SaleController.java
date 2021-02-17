@@ -117,6 +117,7 @@ public class SaleController {
 	}//registPost
 	
 	
+	/////////////////////////여기	
 	@GetMapping("/category")
 	public String categoryGet() throws Exception {
 		log.info("SaleController :: public void registGet() invoked!!!");
@@ -129,6 +130,7 @@ public class SaleController {
 		log.info("SaleController :: public void registGet() invoked!!!");
 		return "/category_details";
 	}//registGet
+//	/////////////////////여기
 	
 	
 	@GetMapping("/detail")
