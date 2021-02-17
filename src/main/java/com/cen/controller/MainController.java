@@ -34,40 +34,23 @@ public class MainController {
 	@Inject
 	BringService bringService;
 	
-//	// 메인페이지 호출
-//	@GetMapping("/main")
-//	public String main(HttpSession session, Model model) throws Exception {		
-//		log.info("MainController :: public String main() invoked!!!!");		
-//		MemberVO vo = (MemberVO)session.getAttribute("login");
-//		System.out.println("login :: " + vo + "!!!!!!");
-//		//////////////////////////////////////////////
-//		List<MainVO> mlist=bringService.mainListAll();
-//		for(MainVO nvo:mlist) {
-//			System.out.println(nvo);
-//		}//enhanced-for
-//		model.addAttribute("mlist", mlist);		
-//		return "main";		
-//	}//main
-	
-//	// 메인페이지 호출
-//	@GetMapping("/")
-//	//@GetMapping("/main")
-//	public String main1(HttpServletRequest request, Model model) throws Exception {		
-//		log.info("MainController :: public String main() invoked!!!!");
-//		HttpSession session = request.getSession();
-//		MemberVO vo = (MemberVO)session.getAttribute("login");
-//		System.out.println("login :: " + vo + "!!!!!!");
-//		//////////////////////////////////////////////
-//		List<MainVO> mlist=bringService.mainListAll();
-//		for(MainVO nvo:mlist) {
-//			System.out.println(nvo);
-//		}//enhanced-for
-//		model.addAttribute("mlist", mlist);		
-//		return "main";		
-//	}//main
+	// 메인페이지 호출
+	@GetMapping("/")
+	public String main1(HttpServletRequest request, Model model) throws Exception {		
+		log.info("MainController :: public String main() invoked!!!!");
+		HttpSession session = request.getSession();
+		MemberVO vo = (MemberVO)session.getAttribute("login");
+		System.out.println("login :: " + vo + "!!!!!!");
+		//////////////////////////////////////////////
+		List<MainVO> mlist=bringService.mainListAll();
+		for(MainVO nvo:mlist) {
+			System.out.println(nvo);
+		}//enhanced-for
+		model.addAttribute("mlist", mlist);		
+		return "main";		
+	}//main
 	
 	// 메인페이지 호출
-//	@GetMapping("/")
 	@GetMapping("/main")
 	public String main(HttpServletRequest request, Model model) throws Exception {		
 		log.info("MainController :: public String main() invoked!!!!");
