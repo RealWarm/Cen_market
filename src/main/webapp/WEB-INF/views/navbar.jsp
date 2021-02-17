@@ -17,7 +17,7 @@
         	<c:choose>
         		<c:when test="${empty login}">
         			<li class="nav-item active">
-			            <a class="nav-link" href="/main">Home
+			            <a class="nav-link" href="/">Home
 			              <span class="sr-only">(current)</span>
 			            </a>
 		          	</li>        			
@@ -30,7 +30,7 @@
         		</c:when>
         		<c:otherwise>
         			<li class="nav-item active">
-			            <a class="nav-link" href="/main">Home
+			            <a class="nav-link" href="/">Home
 			              <span class="sr-only">(current)</span>
 			            </a>
 		          	</li>
@@ -38,7 +38,8 @@
 		            	<a class="nav-link" href="/sale/saleregist">판매등록</a>
 		          	</li>
 		          	<li class="nav-item">
-		            	<a class="nav-link" href="/sale/category">카테고리</a>
+		            	<!-- <a class="nav-link" href="/sale/category">카테고리</a> -->
+		            	<a class="nav-link" href="/category/greate?ct_num=100">카테고리</a>
 		          	</li>
 		          	<li class="nav-item">
 		            	<a class="nav-link" href="/member/mypage">${login.nickname}님 안녕하세요!</a>

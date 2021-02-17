@@ -31,7 +31,7 @@
 <body>
 	<jsp:include page="navbar.jsp" flush="false"/>
 
-	<div class="layout-content mypage-wrap">
+		<div class="layout-content mypage-wrap">
 		<div class="member-info-wrap">
 			<div class="join-title-main">
 				<h3 class="join-title">마이페이지</h3>
@@ -74,6 +74,7 @@
 				<li data-tab="tab2"><a href="javascript:void(0);">판매완료</a></li>
 				<li data-tab="tab3"><a href="javascript:void(0);">찜한내역</a></li>
 			</ul>
+
 			<!-- 판매중 -->
 			<div id="tab1" class="tabcontent current">
 				<table class="ticket-history">					
@@ -101,9 +102,11 @@
 						<c:forEach items="${list1}" var="list1" varStatus="status">
 							<tr>
                                 <td class="reservation-num">${list1.sb_num}</td>
-                                <td>${list1.sb_name}</td>                                
+                                <td><a href="/sale/detail?num=${list1.sb_num}" class="a__pic">${list1.sb_name}</a></td>             
                                 <td>${list1.total_price}</td>
                                 <td>
+									<div>현재 : ${list1.trade_progress}</div>
+									<br>
                                     <form role="form" action="/info/mypage/progress" method="POST">
 										<input type="hidden" name="sb_num" value="${list1.sb_num}">
                                         <select name="trade_progress" id="pro">
@@ -119,8 +122,7 @@
 									<input type="hidden" name="sb_num" value="${list1.sb_num}">
 									<td><button class="mypage-btn modify">게시글 수정</button></td>
                                 	<td><button class="mypage-btn delete">게시글 삭제</button></td>								
-								</form>
-                                
+								</form>                                
                             </tr>
 						</c:forEach>
 					</tbody>
@@ -153,9 +155,9 @@
 						<c:forEach items="${list2}" var="list2" varStatus="status">
 							<tr>
                                 <td class="reservation-num">${list2.sb_num}</td>
-                                <td>${list2.sb_name}</td>                                
+                                <td><a href="/sale/detail?num=${list2.sb_num}" class="a__pic">${list2.sb_name}</a></td>           
                                 <td>${list2.total_price}</td>
-                                <td>
+                                <td>									
                                     <form role="form" action="/info/mypage/progress" method="POST">
 										<input type="hidden" name="sb_num" value="${list2.sb_num}">
                                         <select name="trade_progress" id="pro">
@@ -205,7 +207,7 @@
 						<c:forEach items="${list3}" var="list3" varStatus="status">
 							<tr>
                                 <td class="reservation-num">${list3.sb_num}</td>
-                                <td>${list3.sb_name}</td>
+                                <td><a href="/sale/detail?num=${list3.sb_num}" class="a__pic">${list3.sb_name}</a></td>
                                 <td>${list3.sb_nickname}</td>
                                 <td>${list3.total_price}</td>
                                 <td>${list3.trade_progress}</td>                                

@@ -33,12 +33,15 @@
 
     <div class="row">
 
+      <!-- left Side Bar -->
       <div class="col-lg-3">
-        <h1 class="my-4">카테고리</h1>
+        <h1 class="my-4">Category</h1>
         <div class="list-group">
-          <a href="#" class="list-group-item active">시설기관 카테고리</a>
-          <a href="#" class="list-group-item">제품종류 카테고리</a>
-          <a href="#" class="list-group-item">등록시간 카테고리</a>
+          <a href="/category/greate?ct_num=100" class="list-group-item">의류</a>
+          <a href="/category/greate?ct_num=200" class="list-group-item">가전제품</a>
+          <a href="/category/greate?ct_num=300" class="list-group-item">도서/문구</a>
+          <a href="/category/greate?ct_num=400" class="list-group-item">생활가구</a>
+          <a href="/category/greate?ct_num=500" class="list-group-item">차량/오토바이</a>
         </div>
       </div>
       <!-- /.col-lg-3 -->
@@ -79,7 +82,7 @@
               	<button type="submit" class="btn btn-success">찜하기</button>
             </form>
             <hr>                       
-            <p class="card-text">${detail.sb_detail}</p>
+            <pre class="card-text">${detail.sb_detail}</pre>
           </div>
         </div>
         <!-- /.card -->

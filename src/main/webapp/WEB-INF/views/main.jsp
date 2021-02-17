@@ -75,8 +75,7 @@
 		            <div class="price_address">
 		              <h5 class="card-text1">${list.total_price} 원</h5>
 		              <h5 class="card-text2">${list.trade_area}</h5>
-		            </div>
-		            
+		            </div>		            
 		          </div>          
 		        </div>
 		      </div>

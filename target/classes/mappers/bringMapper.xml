@@ -114,9 +114,10 @@
 		from
 			tbl_sboard
 		where
-			ct_num=${ct_num}
+			ct_num=${ct_num} AND    
+			(trade_progress = "판매중" OR trade_progress="예약중")    
 		order by
-			sb_regdate desc;  			
+			sb_regdate desc;		
   	</select>
   	  		
   	<!-- 카테고리의 정보를 가져온다 -->
