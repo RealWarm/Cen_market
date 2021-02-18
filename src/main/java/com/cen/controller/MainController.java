@@ -87,7 +87,7 @@ public class MainController {
 		if(vo==null) {
 			// 첫 로그인 실패때 경고문이 안뜨는데 여기가 문제인가????
 			log.info("login fail!!!!!!!!");
-			return "redirect:/";
+			return "redirect:/login";
 		}else {
 			log.info("login success!!!!!!!!!");
 			HttpSession session = request.getSession();

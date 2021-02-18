@@ -76,14 +76,24 @@
 		<!-- item detail -->
         <div class="card mt-4">          
           <div class="card-body">
-            <h3 class="card-title">${detail.sb_name}</h3>
-            <h4>${detail.total_price} 원 </h4>
+            <h3 class="card-title">${detail.sb_name}</h3><br>            
+             <ul>
+              <li>
+                <p class="detail_top"><span class="detail_in">가 격</span> : ${detail.total_price} 원 </p>
+              </li>
+              <li>
+                <p class="detail_top"><span class="detail_in">거래지역</span> : ${detail.trade_area} </p>
+              </li>
+              <li>
+                <p class="detail_top"><span class="detail_in">거래상황</span> : ${detail.trade_progress} </p>
+              </li>
+            </ul>
             <form class="book_markform" method="GET" action="/member/bookmark">
             	<input type="hidden" name="sb_num" value="${detail.sb_num}">
               	<button type="submit" class="btn btn-success">찜하기</button>
             </form>
             <hr>                       
-            <pre class="card-text">${detail.sb_detail}</pre>
+            <pre class="card-text pre__line">${detail.sb_detail}</pre>
           </div>
         </div>
         <!-- /.card -->
