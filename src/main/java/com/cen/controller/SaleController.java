@@ -113,25 +113,9 @@ public class SaleController {
 			saleservice.insertImage(viewdto);
 		}//enhanced for	
 		System.out.println("SaleRegisterDTO :: " + dto);
-		return "redirect:/main";
+		return "redirect:/";
 	}//registPost
-	
-	
-	/////////////////////////여기	
-	@GetMapping("/category")
-	public String categoryGet() throws Exception {
-		log.info("SaleController :: public void registGet() invoked!!!");
-		return "/category_details";
-	}//registGet
-	
-	
-	@PostMapping("/category")
-	public String categoryPost() throws Exception {
-		log.info("SaleController :: public void registGet() invoked!!!");
-		return "/category_details";
-	}//registGet
-//	/////////////////////여기
-	
+		
 	
 	@GetMapping("/detail")
 	public String pddetailGet(@RequestParam("num") Integer num, Model model) throws Exception {
@@ -155,10 +139,12 @@ public class SaleController {
 			System.out.println("==================================");
 			System.out.println(vv);
 		}//enhanced-for
+		
 		model.addAttribute("detail", bvo);
 		model.addAttribute("imglist", imglist);	
 		model.addAttribute("top", topPic);
 		model.addAttribute("reply", replylist);
+		
 		return "/product_detail";
 	}//registGet
 		

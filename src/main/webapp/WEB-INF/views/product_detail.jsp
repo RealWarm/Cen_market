@@ -42,6 +42,7 @@
           <a href="/category/greate?ct_num=300" class="list-group-item">도서/문구</a>
           <a href="/category/greate?ct_num=400" class="list-group-item">생활가구</a>
           <a href="/category/greate?ct_num=500" class="list-group-item">차량/오토바이</a>
+          <a href="/category/greate?ct_num=2200" class="list-group-item">기타/특수</a>
         </div>
       </div>
       <!-- /.col-lg-3 -->

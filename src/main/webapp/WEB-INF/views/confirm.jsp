@@ -14,10 +14,19 @@
 	<title>나라중고장터</title>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">    
-    <link rel="stylesheet" href="/resources/css/style1.css">
-    <script  src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script  src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">     
+    <!-- Bootstrap core CSS -->
+	<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Custom styles for this template -->   
+    <!-- <link rel="stylesheet" href="/resources/css/style1.css"> -->
+    <link rel="stylesheet" href="/resources/css/join.css">
+    <link rel="stylesheet" href="/resources/css/reset.css">
+    <link rel="stylesheet" href="/resources/css/agree.css">
+		
+  	<!-- Bootstrap core JavaScript -->
+  	<script src="/resources/vendor/jquery/jquery.min.js"></script>
+  	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>   
     <script type="text/javascript">         
         $(function(){ 
         //전체선택 체크박스 클릭 
@@ -71,6 +80,7 @@
     
 </head>
 <body>
+	<jsp:include page="navbar.jsp" flush="false"/>
     <div class="wrap">
         <div class="main-agree-wrap">
             <form action="/member/register" method="GET" id="agree_form" name="">
@@ -170,10 +180,10 @@
                 </div> 
                 
             </form>
-        </div>
-                        
+        </div>                    
         
     </div>
+    <jsp:include page="footer.jsp" flush="false"/>
 
 </body>
 </html>

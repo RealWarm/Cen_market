@@ -102,3 +102,16 @@ body {
   font-weight: var(--weight-semi-bold);
 }
 
+.card-img-top.ffix{
+   height: 250px;
+  /* height: 100%; */
+}
+
+
+
+
+
+
+
+
+

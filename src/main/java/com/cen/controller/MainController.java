@@ -50,21 +50,21 @@ public class MainController {
 		return "main";		
 	}//main
 	
-	// 메인페이지 호출
-	@GetMapping("/main")
-	public String main(HttpServletRequest request, Model model) throws Exception {		
-		log.info("MainController :: public String main() invoked!!!!");
-		HttpSession session = request.getSession();
-		MemberVO vo = (MemberVO)session.getAttribute("login");
-		System.out.println("login :: " + vo + "!!!!!!");
-		//////////////////////////////////////////////
-		List<MainVO> mlist=bringService.mainListAll();
-		for(MainVO nvo:mlist) {
-			System.out.println(nvo);
-		}//enhanced-for
-		model.addAttribute("mlist", mlist);		
-		return "main";		
-	}//main
+//	// 메인페이지 호출
+//	@GetMapping("/main")
+//	public String main(HttpServletRequest request, Model model) throws Exception {		
+//		log.info("MainController :: public String main() invoked!!!!");
+//		HttpSession session = request.getSession();
+//		MemberVO vo = (MemberVO)session.getAttribute("login");
+//		System.out.println("login :: " + vo + "!!!!!!");
+//		//////////////////////////////////////////////
+//		List<MainVO> mlist=bringService.mainListAll();
+//		for(MainVO nvo:mlist) {
+//			System.out.println(nvo);
+//		}//enhanced-for
+//		model.addAttribute("mlist", mlist);		
+//		return "main";		
+//	}//main
 		
 	@GetMapping("/login")
 	public String loginGet() throws Exception {		
@@ -92,7 +92,7 @@ public class MainController {
 			log.info("login success!!!!!!!!!");
 			HttpSession session = request.getSession();
 			session.setAttribute("login", vo);			
-			return "redirect:/main";
+			return "redirect:/";
 		}//if
 		
 	}//login
@@ -101,7 +101,7 @@ public class MainController {
 	public String logout(HttpSession session) {
 		log.info("로그아웃!!");
 		session.removeAttribute("login");
-		return "redirect:/main";
+		return "redirect:/";
 	}//logout
 	
 	

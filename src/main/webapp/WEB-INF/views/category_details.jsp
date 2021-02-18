@@ -41,12 +41,13 @@
           <a href="/category/greate?ct_num=300" class="list-group-item">도서/문구</a>
           <a href="/category/greate?ct_num=400" class="list-group-item">생활가구</a>
           <a href="/category/greate?ct_num=500" class="list-group-item">차량/오토바이</a>
+          <a href="/category/greate?ct_num=2200" class="list-group-item">기타/특수</a>
         </div>
       </div>
       <!-- /.col-lg-3 -->
 
 	  <!-- center body -->      
-      <div class="col-lg-9">
+      <div class="col-lg-9 ct_body">
 
         <div class="detail__header">
           <h2> ${CData.ct_main} 카테고리 페이지</h2>
@@ -58,7 +59,9 @@
         	<c:forEach items="${list1}" var="list" begin="0" end="10">
 		      <div class="col-lg-3 col-md-6 mb-4">
 		        <div class="card h-100">
-		          <a href="/sale/detail?num=${list.sb_num}" class="a__pic"><img class="card-img-top" src="/resources/upload_data/${list.sb_view}" alt="${list.sb_view}"></a>          
+		          <a href="/sale/detail?num=${list.sb_num}" class="a__pic">
+		          	<img class="card-img-top two" src="/resources/upload_data/${list.sb_view}" alt="${list.sb_view}">
+		          </a>          
 		          <div class="card-body1">
 		            <h7 class="card-title1">${list.sb_name}</h7>            
 		            <hr>

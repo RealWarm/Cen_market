@@ -68,7 +68,9 @@
 			<c:forEach items="${mlist}" var="list" begin="0" end="10">
 		      <div class="col-lg-3 col-md-6 mb-4">
 		        <div class="card h-100">
-		          <a href="/sale/detail?num=${list.sb_num}" class="a__pic"><img class="card-img-top" src="/resources/upload_data/${list.sb_view}" alt="${list.sb_view}"></a>          
+		          <a href="/sale/detail?num=${list.sb_num}" class="a__pic">
+		          	<img class="card-img-top ffix" src="/resources/upload_data/${list.sb_view}" alt="${list.sb_view}">
+		          </a>          
 		          <div class="card-body1">
 		            <h7 class="card-title1">${list.sb_name}</h7>            
 		            <hr>
