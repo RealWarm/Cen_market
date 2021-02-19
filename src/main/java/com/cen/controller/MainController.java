@@ -36,8 +36,8 @@ public class MainController {
 	
 	// 메인페이지 호출
 	@GetMapping("/")
-	public String main1(HttpServletRequest request, Model model) throws Exception {		
-		log.info("MainController :: public String main() invoked!!!!");
+	public String mainPage(HttpServletRequest request, Model model) throws Exception {		
+		log.info("MainController :: public String mainPage() invoked!!!!");
 		HttpSession session = request.getSession();
 		MemberVO vo = (MemberVO)session.getAttribute("login");
 		System.out.println("login :: " + vo + "!!!!!!");
@@ -50,52 +50,38 @@ public class MainController {
 		return "main";		
 	}//main
 	
-//	// 메인페이지 호출
-//	@GetMapping("/main")
-//	public String main(HttpServletRequest request, Model model) throws Exception {		
-//		log.info("MainController :: public String main() invoked!!!!");
-//		HttpSession session = request.getSession();
-//		MemberVO vo = (MemberVO)session.getAttribute("login");
-//		System.out.println("login :: " + vo + "!!!!!!");
-//		//////////////////////////////////////////////
-//		List<MainVO> mlist=bringService.mainListAll();
-//		for(MainVO nvo:mlist) {
-//			System.out.println(nvo);
-//		}//enhanced-for
-//		model.addAttribute("mlist", mlist);		
-//		return "main";		
-//	}//main
-		
+	
 	@GetMapping("/login")
 	public String loginGet() throws Exception {		
 		log.info("MainController :: public String main() invoked!!!!");		
 		return "login";		
 	}//main
 
-	
+		
 	@PostMapping("/login_Post")
-	public String loginPost(HttpServletRequest request, LoginDTO dto) throws Exception{		
+	public void loginPost(Model model, LoginDTO dto) throws Exception{		
 		log.info("MainController :: public String login_Post() invoked!!!!");
 		
-		System.out.println("+++++++before :: " + dto);
+		System.out.println("+++++++ before :: " + dto);
 		String encryPassword = Sha256.encrypt(dto.getUserpw()); // 비번 암호화		
 		dto.setUserpw(encryPassword);	
-		System.out.println("+++++++after :: " + dto);
+		System.out.println("+++++++ after :: " + dto);
 		MemberVO vo= loginService.login(dto);
-		System.out.println("+++++++" + vo);
+		System.out.println("+++++++ " + vo);
 		
 		if(vo==null) {
 			// 첫 로그인 실패때 경고문이 안뜨는데 여기가 문제인가????
 			log.info("login fail!!!!!!!!");
-			return "redirect:/login";
+			// return "redirect:/login";
+			// return "login";
 		}else {
-			log.info("login success!!!!!!!!!");
-			HttpSession session = request.getSession();
-			session.setAttribute("login", vo);			
-			return "redirect:/";
-		}//if
-		
+			log.info("login success!!!!!!!!!");			
+			model.addAttribute("MemberVO", vo);
+			// return "redirect:/";
+			// return "/";
+		}//if		
 	}//login
+	
 	
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {

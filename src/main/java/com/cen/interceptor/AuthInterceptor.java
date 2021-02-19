@@ -16,7 +16,7 @@ public class AuthInterceptor implements HandlerInterceptor{
 
 	private final String loginkey ="login";
 	  
-	  // 원래 가려고 했던 URI 저장하기위한 메소드
+	// 원래 가려고 했던 URI 저장하기위한 메소드
 	private void saveOriginalRequestURI(HttpServletRequest request) {
 		
 		log.info("::saveOriginalRequestURI::");
@@ -28,24 +28,25 @@ public class AuthInterceptor implements HandlerInterceptor{
 		}else {
 			queryString= "?"+queryString;
 			log.info("queryString:" + queryString);
-		} //if-else
+		}//if-else
 		
-		   //최종적인 원래의 Request URI 저장 
-        	String originalRequestURI = requestURI + queryString;
+		//최종적인 원래의 Request URI 저장 
+        String originalRequestURI = requestURI + queryString;
         	
-        	System.out.println("requestURI :" + requestURI);
-        	System.out.println("queryString:" + queryString);
-        	System.out.println("originalRequestURI:::::" + originalRequestURI);
+        System.out.println("requestURI : " + requestURI);
+        System.out.println("queryString: " + queryString);
+        System.out.println("originalRequestURI:::::" + originalRequestURI);
         	
         	
-        	HttpSession session = request.getSession();           
-        	session.setAttribute("originalRequestURI", originalRequestURI); 
+        HttpSession session = request.getSession();           
+        session.setAttribute("originalRequestURI", originalRequestURI); 
         	
 	}//saveOriginalRequestURI
 	
 	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-			throws Exception {
+	public boolean preHandle(HttpServletRequest request, 
+							 HttpServletResponse response, 
+							 Object handler) throws Exception {			
 		 log.info("preHandle invoked");
 		 
 		 HttpSession session = request.getSession();
@@ -56,31 +57,29 @@ public class AuthInterceptor implements HandlerInterceptor{
 	              
 		 saveOriginalRequestURI(request);  // 원래 들어갈려고 했던 (로그인이 필요한페이지) 원래의 URI 저장 !! 
 		
-		 response.sendRedirect("/member/login");     // 로그인 화면으로 이동시킴 !! 왜냐 .. 아직 로그인 안했으니까.. 
-	       return false; //다음 동작 false    
+		 response.sendRedirect("/login");     // 로그인 화면으로 이동시킴 !! 왜냐 .. 아직 로그인 안했으니까.. 
+	     return false; //다음 동작 false    
 	    }//if
 	
-              return true ;  // 로그인이 되어있다면 다음동작 true
-
+        return true ;  // 로그인이 되어있다면 다음동작 true
 	} //preHandle
 
 	
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		// TODO Auto-generated method stub
 		HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
-	}
+	}//postHandle
 
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
-		// TODO Auto-generated method stub
 		HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
-	}
+	}//afterCompletion
 
-	
-	
-	
-	
-}
+		
+}//end class
+
+
+
+

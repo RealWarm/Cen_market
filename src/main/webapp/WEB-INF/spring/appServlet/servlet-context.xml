@@ -31,6 +31,23 @@
 	
 	<context:component-scan base-package="com.cen.controller" />
 	
+	<!-- Interceptor -->
+	<beans:bean id="loginInterceptor" class="com.cen.interceptor.LoginInterceptor"/>
+	<beans:bean id="authInterceptor" class="com.cen.interceptor.AuthInterceptor"/>
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/login_Post"/>
+			<beans:ref bean="loginInterceptor"/>
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/sale/*"/>
+			<mapping path="/member/mypage"/>
+			<beans:ref bean="authInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
 	
 	
 </beans:beans>
