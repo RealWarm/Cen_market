@@ -27,7 +27,7 @@
 </head>
 <body>
 
-	<jsp:include page="navbar.jsp" flush="false"/>  
+	<jsp:include page="navbar.jsp" flush="false"/>
 
 	  <!-- Page Content -->
 	  <div class="container center">
@@ -87,7 +87,7 @@
 	  </div>
 	  <!-- /.container -->
 
-  <jsp:include page="footer.jsp" flush="false"/>
+	<jsp:include page="footer.jsp" flush="false"/>
 
   
 
