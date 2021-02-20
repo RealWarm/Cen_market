@@ -82,6 +82,9 @@
                 <p class="detail_top"><span class="detail_in">가 격</span> : ${detail.total_price} 원 </p>
               </li>
               <li>
+                <p class="detail_top"><span class="detail_in">거래방식</span> : ${detail.trade_shape} </p>
+              </li>
+              <li>
                 <p class="detail_top"><span class="detail_in">거래지역</span> : ${detail.trade_area} </p>
               </li>
               <li>
@@ -100,7 +103,7 @@
 
         <div class="card card-outline-secondary my-4">
           <div class="card-header">
-            	상품문의 댓글
+            ${detail.sb_writer}에게 상품문의 댓글
           </div>
           <div class="card-body">
           	<c:forEach items="${reply}" var="rlist" begin="0" end="10">

@@ -27,6 +27,7 @@ public class Dao_test {
 	
 	@Test
 	public void testConection() throws Exception {
+		
 		try(Connection con = ds.getConnection()){
 				log.info("++++++ "+ con);
 		}catch(Exception e) {

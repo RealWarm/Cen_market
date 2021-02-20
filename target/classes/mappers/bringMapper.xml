@@ -12,6 +12,8 @@
 			*
 		from
 			tbl_sboard
+		where			
+			(trade_progress = "판매중" OR trade_progress="예약중")
 		order by
 			sb_regdate desc
 		limit
