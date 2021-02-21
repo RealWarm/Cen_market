@@ -14,10 +14,11 @@
 	<title>나라중고장터</title>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">     
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">    
+    <link rel="icon" type="image/jpg" href="/resources/img/shopping.png">
+     
     <!-- Bootstrap core CSS -->
-	<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	
+	<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">	
 	<!-- Custom styles for this template -->   
     <!-- <link rel="stylesheet" href="/resources/css/style1.css"> -->
     <link rel="stylesheet" href="/resources/css/join.css">

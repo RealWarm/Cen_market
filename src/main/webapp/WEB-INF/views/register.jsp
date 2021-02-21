@@ -15,6 +15,7 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/jpg" href="/resources/img/shopping.png">
     
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="/resources/css/join.css">
@@ -107,11 +108,11 @@
                             <th scope="row"><label for="email">*이메일</label></th>
                             <td>
                                 <input type="email" id="email" name="email">
-                                <input type="button" value="인증" id="emailAuthentiCation">
+                                <!-- <input type="button" value="인증" id="emailAuthentiCation"> -->
                                 <span class="error-message" id="emailMessage" role="alert" style="display:none"></span>
                             </td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <th scope="row"><label for="number">*인증번호</label></th>
                             <td>
                                 <input type="text" id="CertiFicationNumber">
@@ -119,7 +120,7 @@
                                 <span class="error-message" id="CertiFicationMessage" role="alert"
                                     style="display:none"></span>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div> <!-- 입력양식 -->

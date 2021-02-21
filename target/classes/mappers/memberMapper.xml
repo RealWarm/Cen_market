@@ -90,7 +90,7 @@
 	<!-- 북마크 하기 -->
 	<insert id="bookMark"
 			parameterType="java.util.HashMap">
-		insert into tbl_bookmark(
+		insert into tbl_bookMark(
 			sb_num, sb_writer
 		)value(
 			#{sb_num}, #{sb_writer}
@@ -116,7 +116,7 @@
 					count(*)
 				end as numb
 		from
-			tbl_bookmark
+			tbl_bookMark
 		where
 			sb_num=#{sb_num} and
 		    sb_writer=#{sb_writer};
