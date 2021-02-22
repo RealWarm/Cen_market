@@ -38,19 +38,19 @@ public class SaleServiceImpl implements SaleService{
 
 	@Override
 	public String getOrgName(String id) throws Exception {
-		log.info("SaleServiceImpl:: insertImage() invoked!!");
+		log.info("SaleServiceImpl:: getOrgName() invoked!!");
 		return saledao.getOrgName(id);
 	}//getOrgName
 
 	@Override
 	public String getRecentAddress(String id) throws Exception {
-		log.info("SaleServiceImpl:: insertImage() invoked!!");
+		log.info("SaleServiceImpl:: getRecentAddress() invoked!!");
 		return saledao.getRecentAddress(id);
 	}//getRecentAddress
 
 	@Override
 	public void updateRecentAddress(String id, String recent_address) throws Exception {
-		log.info("SaleServiceImpl:: insertImage() invoked!!");
+		log.info("SaleServiceImpl:: updateRecentAddress() invoked!!");
 		saledao.updateRecentAddress(id, recent_address);
 	}//updateRecentAddress
 

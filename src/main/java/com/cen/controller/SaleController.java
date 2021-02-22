@@ -158,7 +158,8 @@ public class SaleController {
 		
 	
 	@ResponseBody
-	@PostMapping("/getorg")
+	// @PostMapping("/getorg")
+	@RequestMapping(value= "/getorg", method = RequestMethod.POST, produces = "application/text; charset=UTF-8")	
 	public String getOrg(HttpSession session) throws Exception{
 		log.info("SaleController :: public String getOrg() invoked!!!");
 		MemberVO vo = (MemberVO)session.getAttribute("login");
@@ -166,7 +167,8 @@ public class SaleController {
 	}//getOrg
 	
 	@ResponseBody
-	@PostMapping("/getrecentaddress")
+	// @PostMapping("/getrecentaddress")
+	@RequestMapping(value= "/getrecentaddress", method = RequestMethod.POST, produces = "application/text; charset=UTF-8")
 	public String getRecentAddress(HttpSession session) throws Exception{
 		log.info("SaleController :: public String getRecentAddress() invoked!!!");
 		MemberVO vo = (MemberVO)session.getAttribute("login");

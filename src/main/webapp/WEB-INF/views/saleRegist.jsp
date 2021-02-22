@@ -227,10 +227,44 @@
                 $("#quantity").val("");
                 return false;
             }//if
-        })//quantity        
+        })//quantity
+
+        $(".org__address").on("click", function(event){
+
+            $.ajax({
+                url: "/sale/getorg",
+                type : "POST",
+                dataType: "text", // 이상하게 여기가 문제였음
+                success: function(orgname){
+                    console.log("orgname : " , orgname);
+                    $(".address__detail").attr('value', orgname);
+                },
+                error: function (orgname) {
+                	console.log("++++++orgname : " , orgname);
+                    console.log("기관주소 가져오기 실패");
+                } //end-error
+            });//ajax
+
+        });//org__address-click
+
+        $(".recent__address").on("click", function(event){
+            $.ajax({
+                url: "/sale/getrecentaddress",
+                type: "POST",
+                datType:"json",
+                success: function(recentaddress){
+                    console.log("recentaddress : ", recentaddress);
+                    if(recentaddress!==null){
+                        $(".address__detail").attr('value', recentaddress);
+                    }
+                },
+                error: function () {
+                    console.log("최근주소 가져오기 실패");
+                } //end-error
+            });//ajax
+        });//recent__address-click
+        
 
     });//document
-    
 </script>
-
 </html>
