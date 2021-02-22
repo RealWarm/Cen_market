@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.cen.domain.MemberVO;
@@ -46,7 +48,7 @@ public class SaleController {
 		
 	@RequestMapping(value ="/saleregist",
 			method = RequestMethod.POST)
-	public String registPost(SaleRegisterDTO dto, ViewDTO viewdto,
+	public String registPost(SaleRegisterDTO dto, ViewDTO viewdto, HttpServletRequest request,
 			@RequestParam("uploadFiles") MultipartFile[] uploadFiles,
 			HttpSession session) throws Exception {				
 		log.info("SaleController :: public String registPost() invoked!!!");		
@@ -83,23 +85,26 @@ public class SaleController {
 			log.info("\t\t* 8. isEmpty: "			+file.isEmpty());
 			
 			// 파일을 정해진 위치에 저장하기
-			String uploadTempPath = "C:\\App";
-			String uploadTaregtPath = "C:\\App\\eclipse-jee-2019-03-R-win32-x86_64\\eclipse\\workspace2\\cen_market\\src\\main\\webapp\\resources\\upload_data";
-			
-			File f = new File(uploadTempPath, file.getOriginalFilename());
-			f.deleteOnExit();  // **** 중요2 ****
-			
-			// 지정된 임시경로에 수신한 파일저장
+			String uploadTempPath = "C:\\App";			
+			String uploadTaregtPath = request.getSession().getServletContext().getRealPath("/")+"/resources/upload_data";
+//			System.out.println("+_+_+_+_+_+_+ "+request.getSession().getServletContext().getRealPath("/")); 
+			File f = new File(uploadTaregtPath, file.getOriginalFilename());
 			file.transferTo(f);
 			
-			// (**매우 중요 **)임시경로에 저장된 파일을 
-			// 최종 타겟 폴더에 저장
-			f.renameTo(
-				new File(
-						uploadTaregtPath, 
-						file.getOriginalFilename()
-					)
-			);//최종 타겟 폴더로 Move
+//			File f = new File(uploadTempPath, file.getOriginalFilename());
+//			f.deleteOnExit();  // **** 중요2 ****
+//			
+//			// 지정된 임시경로에 수신한 파일저장
+//			file.transferTo(f);
+//			
+//			// (**매우 중요 **)임시경로에 저장된 파일을 
+//			// 최종 타겟 폴더에 저장
+//			f.renameTo(
+//				new File(
+//						uploadTaregtPath, 
+//						file.getOriginalFilename()
+//					)
+//			);//최종 타겟 폴더로 Move
 			
 			// 이미지의 이름을 저장함 >> 확장자가 다양할수 있으므로 확장자까지 모두 저장한다.
 			// 게시글에 대표이미지 이름을 저장한다.
@@ -112,6 +117,9 @@ public class SaleController {
 			viewdto.setView_name(file.getOriginalFilename());			
 			saleservice.insertImage(viewdto);
 		}//enhanced for	
+		
+		// 사용자의 최근 거래지역을 갱신한다.
+		saleservice.updateRecentAddress(vo.getId(), dto.getTrade_area());		
 		System.out.println("SaleRegisterDTO :: " + dto);
 		return "redirect:/";
 	}//registPost
@@ -148,7 +156,22 @@ public class SaleController {
 		return "/product_detail";
 	}//registGet
 		
-
+	
+	@ResponseBody
+	@PostMapping("/getorg")
+	public String getOrg(HttpSession session) throws Exception{
+		log.info("SaleController :: public String getOrg() invoked!!!");
+		MemberVO vo = (MemberVO)session.getAttribute("login");
+		return saleservice.getOrgName(vo.getId());
+	}//getOrg
+	
+	@ResponseBody
+	@PostMapping("/getrecentaddress")
+	public String getRecentAddress(HttpSession session) throws Exception{
+		log.info("SaleController :: public String getRecentAddress() invoked!!!");
+		MemberVO vo = (MemberVO)session.getAttribute("login");
+		return saleservice.getRecentAddress(vo.getId());
+	}//getOrg
 	
 	
 	

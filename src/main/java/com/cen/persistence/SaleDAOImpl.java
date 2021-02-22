@@ -1,5 +1,8 @@
 package com.cen.persistence;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -39,6 +42,35 @@ public class SaleDAOImpl implements SaleDAO {
 		log.info("SaleDAOImpl::public void insertImage(ViewDTO dto) invked!!!");
 		sqlSession.insert(namespace+".insertImage", dto);
 	}//insertImage
+
+	@Override
+	public String getOrgName(String id) throws Exception {
+		log.info("SaleDAOImpl::public void getOrgName() invked!!!");
+		String orgName=sqlSession.selectOne(namespace+".getOrgName", id);
+		if(orgName==null) {
+			orgName="";
+		}//if
+		return orgName;
+	}//getOrgName
+
+	@Override
+	public String getRecentAddress(String id) throws Exception {
+		log.info("SaleDAOImpl::public void getRecentAddress() invked!!!");
+		String recentAddress=sqlSession.selectOne(namespace+".getRecentAddress", id);
+		if(recentAddress==null) {
+			recentAddress="";
+		}//if
+		return recentAddress;
+	}//getRecentAddress
+
+	@Override
+	public void updateRecentAddress(String id, String recent_address) throws Exception {
+		log.info("SaleDAOImpl::public void updateRecentAddress() invked!!!");
+		Map<String, String> dMap = new HashMap<>();		
+		dMap.put("id", id);
+		dMap.put("recent_address", recent_address);
+		sqlSession.update(namespace+".updateRecentAddress", dMap);
+	}//updateRecentAddress
 
 }//end class
 

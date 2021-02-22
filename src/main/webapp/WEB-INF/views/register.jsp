@@ -39,8 +39,7 @@
             </div>
             <!-- 입력양식 -->
             <div class="join-insert-wrap">
-                <table class="join-table">
-                    <caption class="blind">회원가입 정보입력</caption>
+                <table class="join-table">                    
                     <colgroup>
                         <col style="width:20%">
                     </colgroup>

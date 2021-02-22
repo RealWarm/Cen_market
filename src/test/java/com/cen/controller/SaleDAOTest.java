@@ -59,5 +59,21 @@ public class SaleDAOTest {
 		saledao.insertImage(dto);
 	}//testCreate
 	
+	@Test
+	public void testgetOrgName() throws Exception{
+		String org = saledao.getOrgName("qwe123");
+		System.out.println("org :: " + org);
+	}//testCreate
+	
+	@Test
+	public void testgetRecentAddress() throws Exception{
+		String recent_address = saledao.getRecentAddress("qwe123");
+		System.out.println("recent_address :: " + recent_address);
+	}//testCreate
+	
+	@Test
+	public void testUpdateRecentAddress() throws Exception{
+		saledao.updateRecentAddress("qwe123", "강남구 역삼동");
+	}//test
 	
 }//end class

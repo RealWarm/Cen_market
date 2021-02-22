@@ -43,7 +43,8 @@
                             <th class="tag"><label for="upload__box">상품이미지<span class="tag__star">*</span></label></th>
                             <th class="inner">
                                 <div class="upload__box">
-                                    <input type="file" class="btn__upload" name="uploadFiles" multiple="multiple">
+                                    <input type="file" class="btn__upload" name="uploadFiles" multiple="multiple"
+                                     accept=".jpg, .jpeg, .png" required>
                                     <!-- <img src="/resources/img/btn_upload.PNG" alt="선택버튼" class="btn__upload__img"> -->
 
                                     <div class="how">
@@ -53,7 +54,7 @@
                                             - 이미지를 클릭 할 경우 원본이미지를 확인할 수 있습니다. <br>
                                             - 이미지를 클릭 후 이동하여 등록순서를 변경할 수 있습니다. <br>
                                             - 큰 이미지일경우 이미지가 깨지는 경우가 발생할 수 있습니다. <br>
-                                            최대 지원 사이즈인 500x325 으로 리사이즈 해서 올려주세요. <br>
+                                            	최대 지원 사이즈인 500x325 으로 리사이즈 해서 올려주세요. <br>
                                             (개당 이미지 최대 10M)
                                         </p>
                                     </div>
@@ -108,7 +109,7 @@
                                 <div class="address__info">
                                     <div class="btn__area">
                                         <button type="button" class="org__address">내 기관 주소</button>
-                                        <button type="button" class="recent__address">최근지역</button>
+                                        <button type="button" class="recent__address">최근 거래지역</button>
                                     </div>                                    
                                     <br>
                                     <input type="text" class="address__detail" name="trade_area">
@@ -144,4 +145,92 @@
     </div> <!-- Top Title -->
 	<jsp:include page="footer.jsp" flush="false"/>
 </body>
+<script>
+    $(document).ready(function () {
+
+        var numReg= /^[0-9]*$/;
+
+        $('.sale__regist__submit').on('click', function(event){
+
+            // 제 목
+            var valtitle = $("#title__input");
+            if(valtitle.val()==""){
+                alert("제목을 입력해주세요!!");
+                valtitle.focus();
+                return false;
+            }
+
+            // 가 격
+            var valprice = $("#price");
+            if($("#price").val()==""){
+                alert("가격을 입력해주세요!!");
+                $("#price").focus();
+                return false;
+            }
+
+            if(!numReg.test($("#price").val())){
+                alert("가격은 숫자만 입력해주세요.");
+                $("#price").focus();
+                $("#price").val("");
+                return false;
+            }
+
+            // 수량
+            if($("#quantity").val()==""){
+                alert("수량을 입력해주세요");
+                $("#quantity").focus();
+                return false;
+            }
+
+            if(!numReg.test($("#quantity").val())){
+                alert("수량은 숫자만 입력해주세요.");
+                $("#quantity").focus();
+                $("#quantity").val("");
+                return false;
+            }
+
+            
+            if($(".address__detail").val()==""){
+                alert("거래지역을 입력해주세요.")
+                $("address__detail").focus();
+                return false;                
+            }
+
+            
+            if($("input:radio[name=ct_num]").is(':checked')==false){
+                alert("카테고리를 선택해주세요!");
+                return false;
+            }
+
+
+            if($("input:radio[name=trade_shape]").is(':checked')==false){
+                alert("거래 방법을 선택해주세요!");
+                return false;
+            }
+
+
+        });//.sale__regist__submit
+        
+        $("#price").on('blur', function(event){
+            if(!numReg.test($("#price").val())){
+                alert("가격은 숫자만 입력해주세요.");
+                $("#price").focus();
+                $("#price").val("");
+                return false;
+            }//if
+        });//price
+        
+        $("#quantity").on("blur", function(event){
+            if(!numReg.test($("#quantity").val())){
+                alert("수량은 숫자만 입력해주세요.");
+                $("#quantity").focus();
+                $("#quantity").val("");
+                return false;
+            }//if
+        })//quantity        
+
+    });//document
+    
+</script>
+
 </html>

@@ -41,5 +41,57 @@
  			(#{sb_num}, #{view_name}); 			
  	</insert>
  	
+ 	<!-- 나의 소속기관을 가져온다. -->
+ 	<select id = "getOrgName"
+ 			resultType="String">
+ 		select
+			org_name
+		from
+			tbl_member
+		where
+			id=#{id};
+ 	</select>
+ 	
+ 	
+ 	<!-- 나의 최근 거래지역을 가져온다. -->	
+ 	<select id = "getRecentAddress"
+ 			resultType="String">
+ 		select
+			recent_address
+		from
+			tbl_member
+		where
+			id=#{id};
+ 	</select>
+ 	
+ 	<!-- 나의 최근 거래지역을 업데이트한다. -->
+ 	<update id ="updateRecentAddress"
+ 			parameterType="java.util.HashMap">
+ 		update 
+			tbl_member
+		set 
+			recent_address=#{recent_address}
+		where 
+			id=#{id};
+ 	</update>
+ 	
+ 	
+ 	<!-- 게시글의 판매여부를 바꾼다. -->
+  	<update id="updatePorgress"
+  			parameterType="java.util.HashMap">
+  		update tbl_sboard
+		set trade_progress="${trade_progress}"
+		where sb_num=${sb_num};
+   	</update>
+  	
+  	<!-- 등록한 게시물 삭제하기 -->
+  	<delete id="deleteBoard"
+  			parameterType="java.lang.String">
+  		delete from	tbl_sboard
+		where sb_num=${sb_num};
+  	</delete>
  	
  </mapper>
+ 
+ 
+ 
