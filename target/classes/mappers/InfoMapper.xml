@@ -10,24 +10,46 @@
   	<update id="updatePorgress"
   			parameterType="java.util.HashMap">
   		update tbl_sboard
-		set trade_progress="${trade_progress}"
-		where sb_num=${sb_num};
+		set trade_progress=#{trade_progress}
+		where sb_num=#{sb_num};
    	</update>
   	
   	<!-- 등록한 게시물 삭제하기 -->
   	<delete id="deleteBoard"
   			parameterType="java.lang.String">
   		delete from	tbl_sboard
-		where sb_num=${sb_num};
+		where sb_num=#{sb_num};
   	</delete>
   	
   	<!-- 자신이 찜한 내역 삭제하기 -->
   	<delete id="deleteBook"
   			parameterType="java.util.HashMap">
   		delete from	tbl_bookMark
-		where sb_num=${sb_num} and 
-			  sb_writer="${sb_writer}";
+		where sb_num=#{sb_num} and 
+			  sb_writer=#{sb_writer};
   	</delete>
   			
-  
+  			
+  	<!-- 회원정보를 업데이트한다. -->
+  	<update id="memberUpdate"
+  			parameterType="com.cen.domain.MemberVO"
+  			flushCache="true">
+  		update tbl_member
+		set 
+			password=#{password},
+		    nickname=#{nickname},
+		    phnum=#{phnum},
+		    email=#{email},
+		    org_name=#{org_name}
+		where 
+			id=#{id};  			
+    </update>
+    
+    <!-- 회원탈퇴 -->
+    <delete id="deleteMember">
+    	delete from	tbl_member
+		where id=#{id};    
+    </delete>
+    	
+  	
   </mapper>

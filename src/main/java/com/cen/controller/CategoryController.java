@@ -25,22 +25,22 @@ public class CategoryController {
 	@Inject
 	BringService bringService;
 	
-	
+	// 카테고리 상세페이
+	// 대분류에 따른 카테고리 분류를 하고, 게시글들으 가져온다.
 	@GetMapping("/greate")
 	public String categoryGet(@RequestParam("ct_num") String ct_num, Model model) throws Exception {
 		log.info("SaleController :: public void registGet() invoked!!!");
 		List<MainVO> list1=bringService.cateListAll(ct_num);
 		CategoryVO CData=bringService.categoryData(ct_num);
-		for(MainVO vo:list1) {
-			System.out.println(">>>>>>>>> " +vo);
-		}//enhanced-for
+//		for(MainVO vo:list1) {
+//			System.out.println(">>>>>>>>> " +vo);
+//		}//enhanced-for
 		model.addAttribute("list1", list1);
 		model.addAttribute("CData", CData);
 		return "/category_details";
-	}//categoryGet
-	
-	
-	
-	
+	}//categoryGet	
 
 }//end class
+
+
+

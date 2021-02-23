@@ -8,6 +8,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.cen.domain.MemberVO;
+
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -45,6 +47,19 @@ public class MypageDAOImpl implements MypageDAO{
 		System.out.println("@@@@@@@@@@@ " + upMap);
 		sqlSession.delete(namespace+".deleteBook", upMap);
 	}//deleteBook
+
+	@Override
+	public void memberUpdate(MemberVO vo) throws Exception {
+		log.info("MypageDAOImpl :: memberUpdate() invoiked!!");
+		System.out.println("@@@@ MypageDAOImpl vo : " + vo);
+		sqlSession.update(namespace+".memberUpdate", vo);
+	}//memberUpdate
+
+	@Override
+	public void memberDelete(String id) throws Exception {
+		log.info("MypageDAOImpl :: memberDelete() invoiked!!");
+		sqlSession.delete(namespace+".deleteMember", id);
+	}//memberDelete
 	
 	
 

@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Repository;
 
+import com.cen.domain.MemberVO;
 import com.cen.persistence.MypageDAO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -32,5 +33,18 @@ public class MypageServiceImpl implements MypageService{
 		log.info("MypageServiceImpl :: deleteBook() invoked!!");
 		dao.deleteBook(sb_num, sb_writer);
 	}//deleteBook
+
+	@Override
+	public void memberUpdate(MemberVO vo) throws Exception {
+		log.info("MypageServiceImpl :: memberUpdate() invoked!!");
+		System.out.println("@@@@ MypageServiceImpl vo : " + vo);
+		dao.memberUpdate(vo);
+	}//memberUpdate
+
+	@Override
+	public void memberDelete(String id) throws Exception {
+		log.info("MypageServiceImpl :: memberUpdate() invoked!!");
+		dao.memberDelete(id);
+	}//memberDelete
 
 }//end-class

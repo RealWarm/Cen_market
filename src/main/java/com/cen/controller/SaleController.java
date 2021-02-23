@@ -2,6 +2,7 @@ package com.cen.controller;
 
 import java.io.File;
 import java.util.List;
+import java.util.UUID;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -84,13 +85,17 @@ public class SaleController {
 			log.info("\t\t* 7. byte[]: "			+file.getBytes().length);
 			log.info("\t\t* 8. isEmpty: "			+file.isEmpty());
 			
-			// 파일을 정해진 위치에 저장하기
-			String uploadTempPath = "C:\\App";			
+			// 파일을 정해진 위치에 저장하기		
 			String uploadTaregtPath = request.getSession().getServletContext().getRealPath("/")+"/resources/upload_data";
-//			System.out.println("+_+_+_+_+_+_+ "+request.getSession().getServletContext().getRealPath("/")); 
-			File f = new File(uploadTaregtPath, file.getOriginalFilename());
+			System.out.println("+_+_+_+_+_+_+ "+request.getSession().getServletContext().getRealPath("/"));
+			UUID uid = UUID.randomUUID();		
+			String savedName = uid.toString() + "_" + file.getOriginalFilename();	
+			File f = new File(uploadTaregtPath, savedName);
 			file.transferTo(f);
 			
+			
+//			String uploadTempPath = " ";			
+//			String uploadTaregtPath = " ";
 //			File f = new File(uploadTempPath, file.getOriginalFilename());
 //			f.deleteOnExit();  // **** 중요2 ****
 //			
@@ -108,13 +113,15 @@ public class SaleController {
 			
 			// 이미지의 이름을 저장함 >> 확장자가 다양할수 있으므로 확장자까지 모두 저장한다.
 			// 게시글에 대표이미지 이름을 저장한다.
+			// 이미지에 고유한 번호를 등록한다.
+					
 			if(flag==0) {
 				flag=1;
-				dto.setSb_view(file.getOriginalFilename());
+				dto.setSb_view(savedName);
 				// 게시글을 등록합니다. 
 				saleservice.insertBoard(dto);
 			}//if
-			viewdto.setView_name(file.getOriginalFilename());			
+			viewdto.setView_name(savedName);			
 			saleservice.insertImage(viewdto);
 		}//enhanced for	
 		
@@ -143,10 +150,10 @@ public class SaleController {
 		
 		System.out.println("SboardVO :: " + bvo);
 		System.out.println("imglist :: ===================== ");
-		for(ViewVO vv : imglist) {
-			System.out.println("==================================");
-			System.out.println(vv);
-		}//enhanced-for
+//		for(ViewVO vv : imglist) {
+//			System.out.println("==================================");
+//			System.out.println(vv);
+//		}//enhanced-for
 		
 		model.addAttribute("detail", bvo);
 		model.addAttribute("imglist", imglist);	

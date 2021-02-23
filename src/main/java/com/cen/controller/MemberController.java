@@ -44,8 +44,7 @@ public class MemberController {
 		
 		// 판매중인 게시글
 		List<SboardVO> list1=bringService.bringSaling(sb_writer);
-		System.out.println("list1 :: " + list1);
-		
+		// System.out.println("list1 :: " + list1);		
 		
 		// 판매완료 게시글
 		List<SboardVO> list2=bringService.bringSaleComplete(sb_writer);
@@ -102,7 +101,7 @@ public class MemberController {
 		System.out.println("ReplyDTO :: " + dto + "!!!!!");
 		return "redirect:/sale/detail"+"?num="+dto.getSb_num();	
 	}//replyPost
-	
+		
 	// 찜하기
 	@GetMapping("/bookmark")
 	public String bookmarkGet(HttpSession session,  

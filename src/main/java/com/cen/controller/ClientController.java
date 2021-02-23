@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cen.domain.MemberVO;
+import com.cen.security.Sha256;
 import com.cen.service.MypageService;
 import com.cen.service.RegisterService;
 
@@ -64,6 +65,21 @@ public class ClientController {
 		return "redirect:/member/mypage";
 	}//bookCancel
 
+	// 회원정보를 업데이트한다.
+	@PostMapping("/mypage/modify")
+	public String updateMember(MemberVO vo) throws Exception{
+		log.info("ClientController :: updateMember() invoked!!!");
+		System.out.println("@@@@ ClientController : " + vo);
+		String encryPassword = Sha256.encrypt(vo.getPassword()); // 비번 암호화
+		vo.setPassword(encryPassword);
+		mypageService.memberUpdate(vo);
+		/////////////////////////////////////////////
+		// 수정된 로드인 정보 최신화
+		
+		
+		return "redirect:/member/mypage"; 
+	}//updateMember
+	
 }//end class
 
 
