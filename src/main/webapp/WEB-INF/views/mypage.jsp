@@ -232,8 +232,8 @@
 
 			$(".modify").on("click", function(){
 				if (confirm("수정하시겠습니까?! ")) { //alert창					
-					formObj.attr("action", "/info/mypage/modify");
-					formObj.attr("method", "POST");
+					formObj.attr("action", "/sale/detailmodify");
+					formObj.attr("method", "GET");
 					console.log("formObj :: ", formObj);
 					formObj.submit();
 				}				

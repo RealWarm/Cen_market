@@ -162,7 +162,57 @@ public class SaleController {
 		
 		return "/product_detail";
 	}//registGet
+	
+	
+	//게시글 수정을 위한 데이터를 가져온다.
+	@GetMapping("/detailmodify")
+	public String detailmodify(@RequestParam("sb_num") Integer num, Model model) throws Exception{
+				
+		// 게시글 상세내용 가져오기
+		SboardVO bvo = bringService.detail(num);
 		
+		// 게시글 이미지 모두 가져오기
+		List<ViewVO> imglist=bringService.viewAll(num);
+				
+		model.addAttribute("detail", bvo);
+		model.addAttribute("imglist", imglist);
+		
+		return "detailmodify";
+	}//detailmodify
+	
+	
+//	System.out.println("uploadFiles :: " + uploadFiles);	
+//	System.out.println("sb_num :: " + num);
+//	System.out.println("SboardVO :: " + vo);		
+	
+	//게시글 수정을 위한 데이터를 가져온다.
+	@PostMapping("/detailmodify")
+	public String Postdetailmodify(@RequestParam("uploadFiles") MultipartFile[] uploadFiles,
+			@RequestParam("sb_num") Integer num, SboardVO vo, ViewDTO viewdto,
+			HttpServletRequest request) throws Exception{
+		viewdto.setSb_num(num);
+		
+		// 추가할 사진이 한장이 이라도 잇다면.
+		if(uploadFiles.length>0) {
+			String uploadTaregtPath = request.getSession().getServletContext().getRealPath("/")+"/resources/upload_data";			
+			for(MultipartFile file : uploadFiles) {
+				// 파일을 정해진 위치에 저장하기						
+				UUID uid = UUID.randomUUID();		
+				String savedName = uid.toString() + "_" + file.getOriginalFilename();	
+				File f = new File(uploadTaregtPath, savedName);
+				file.transferTo(f);
+				
+				viewdto.setView_name(savedName);			
+				saleservice.insertImage(viewdto);
+			}//enhanced-for
+		}//if
+		
+		// 입력 받은 나머지 내용들을 업데이트 한다.
+//		
+		return "redirect:/sale/detail"+"?num="+num;
+	}//detailmodify
+	
+	
 	
 	@ResponseBody
 	// @PostMapping("/getorg")

@@ -83,7 +83,7 @@
 	            <tr>
 	              <th><label for="org_name">*기관명</label></th>
 	              <td>
-	                <input type="text" title="기관명" id="org_name" name="org_name" value=${login.org_name}>
+	                <input type="text" title="기관명" id="org_name" name="org_name" value="${login.org_name}">
 	                <span class="error-message" id="org_nameMessage" role="alert" style="display:none"></span>
 	              </td>
 	            </tr>
@@ -91,7 +91,7 @@
 	            <tr>
 	              <th><label for="phnum">*휴대폰</label></th>
 	              <td>
-	                <input type="text" title="닉네임" id="phnum" name="phnum" value=${login.phnum}>
+	                <input type="text" title="닉네임" id="phnum" name="phnum" value="${login.phnum}">
 	                <span class="error-message" id="phnumMessage" role="alert" style="display:none"></span>
 	              </td>
 	            </tr>
@@ -99,7 +99,7 @@
 	            <tr>
 	              <th scope="row"><label for="email">*이메일</label></th>
 	              <td>
-	                <input type="email" id="email" name="email" value=${login.email}>
+	                <input type="email" id="email" name="email" value="${login.email}">
 	                <span class="error-message" id="emailMessage" role="alert" style="display:none"></span>
 	              </td>
 	            </tr>
