@@ -208,7 +208,8 @@ public class SaleController {
 		}//if
 		
 		// 입력 받은 나머지 내용들을 업데이트 한다.
-//		
+		saleservice.updateSaleBorad(vo);
+		
 		return "redirect:/sale/detail"+"?num="+num;
 	}//detailmodify
 	

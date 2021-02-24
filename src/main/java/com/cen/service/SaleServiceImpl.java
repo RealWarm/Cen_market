@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Repository;
 
+import com.cen.domain.SboardVO;
 import com.cen.model.SaleRegisterDTO;
 import com.cen.model.ViewDTO;
 import com.cen.persistence.SaleDAO;
@@ -53,6 +54,12 @@ public class SaleServiceImpl implements SaleService{
 		log.info("SaleServiceImpl:: updateRecentAddress() invoked!!");
 		saledao.updateRecentAddress(id, recent_address);
 	}//updateRecentAddress
+
+	@Override
+	public void updateSaleBorad(SboardVO vo) throws Exception {
+		log.info("SaleServiceImpl:: updateSaleBorad() invoked!!");
+		saledao.updateSaleBorad(vo);
+	}//updateSaleBorad
 
 }//end class
 

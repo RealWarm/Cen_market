@@ -38,8 +38,11 @@ public class ClientController {
 	
 	// 회원정보를 업데이트한다.
 	@PostMapping("/mypage/modify")
-	public String updateMember(MemberVO vo) throws Exception{
+	public String updateMember(MemberVO vo, HttpSession session) throws Exception{		
 		log.info("ClientController :: updateMember() invoked!!!");
+		
+		MemberVO svo = (MemberVO)session.getAttribute("login");
+		vo.setId(svo.getId());
 		System.out.println("@@@@ ClientController : " + vo);
 		String encryPassword = Sha256.encrypt(vo.getPassword()); // 비번 암호화
 		vo.setPassword(encryPassword);

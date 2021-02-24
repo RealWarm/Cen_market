@@ -80,7 +80,28 @@ public class SaleDAOTest {
 	@Test
 	public void testupdateSaleBorad() throws Exception{
 		SboardVO vo = new SboardVO();
-//		vo.set
+		vo.setSb_num(8);
+		vo.setSb_name("indao");
+		vo.setSb_detail("indao");
+		vo.setTotal_price(78787878);
+		vo.setTotal_quantity(1);
+		vo.setCt_num(100);
+		vo.setTrade_area("indao");
+		vo.setTrade_shape("찾아갈게요");
+		saledao.updateSaleBorad(vo);
+		
 	}//test
 	
 }//end class
+
+
+
+
+
+
+
+
+
+
+
+

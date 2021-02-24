@@ -76,7 +76,8 @@
 	            <tr>
 	              <th><label for="nickname">*닉네임</label></th>
 	              <td>
-	                ${login.nickname}
+	                <input type="text" title="닉네임" id="nickname" name="nickname" value=${login.nickname}>
+	                <span class="error-message" id="nicknameMessage" role="alert" style="display:none"></span>
 	              </td>
 	            </tr>
 	            <!-- 기관명 -->
