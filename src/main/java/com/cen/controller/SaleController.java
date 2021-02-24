@@ -47,8 +47,7 @@ public class SaleController {
 		return "/saleregist";
 	}//registGet
 		
-	@RequestMapping(value ="/saleregist",
-			method = RequestMethod.POST)
+	@RequestMapping(value ="/saleregist", method = RequestMethod.POST)
 	public String registPost(SaleRegisterDTO dto, ViewDTO viewdto, HttpServletRequest request,
 			@RequestParam("uploadFiles") MultipartFile[] uploadFiles,
 			HttpSession session) throws Exception {				
@@ -190,6 +189,7 @@ public class SaleController {
 	public String Postdetailmodify(@RequestParam("uploadFiles") MultipartFile[] uploadFiles,
 			@RequestParam("sb_num") Integer num, SboardVO vo, ViewDTO viewdto,
 			HttpServletRequest request) throws Exception{
+		vo.setSb_num(num);
 		viewdto.setSb_num(num);
 		
 		// 추가할 사진이 한장이 이라도 잇다면.

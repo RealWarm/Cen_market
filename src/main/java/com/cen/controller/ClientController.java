@@ -29,12 +29,27 @@ public class ClientController {
 	MypageService mypageService;
 	
 	// 정보수정 페이지로 이동!
-	@GetMapping("/update")
+	@GetMapping("/mypage/update")
 	public String infoUpdate() throws Exception{
 		log.info("ClientController :: public String infoUpdate() invoked!!!");
 		
-		return"member_modify";
+		return "member_modify";
 	}//infoUpdate
+	
+	// 회원정보를 업데이트한다.
+	@PostMapping("/mypage/modify")
+	public String updateMember(MemberVO vo) throws Exception{
+		log.info("ClientController :: updateMember() invoked!!!");
+		System.out.println("@@@@ ClientController : " + vo);
+		String encryPassword = Sha256.encrypt(vo.getPassword()); // 비번 암호화
+		vo.setPassword(encryPassword);
+		mypageService.memberUpdate(vo);
+		/////////////////////////////////////////////
+		// 수정된 로드인 정보 최신화
+		
+		
+		return "redirect:/member/mypage"; 
+	}//updateMember
 	
 	// 게시글의 판매진행을 변경한다.
 	@PostMapping("/mypage/progress")
@@ -65,20 +80,7 @@ public class ClientController {
 		return "redirect:/member/mypage";
 	}//bookCancel
 
-	// 회원정보를 업데이트한다.
-	@PostMapping("/mypage/modify")
-	public String updateMember(MemberVO vo) throws Exception{
-		log.info("ClientController :: updateMember() invoked!!!");
-		System.out.println("@@@@ ClientController : " + vo);
-		String encryPassword = Sha256.encrypt(vo.getPassword()); // 비번 암호화
-		vo.setPassword(encryPassword);
-		mypageService.memberUpdate(vo);
-		/////////////////////////////////////////////
-		// 수정된 로드인 정보 최신화
-		
-		
-		return "redirect:/member/mypage"; 
-	}//updateMember
+	
 	
 }//end class
 

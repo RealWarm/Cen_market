@@ -1,5 +1,6 @@
 package com.cen.persistence;
 
+import com.cen.domain.SboardVO;
 import com.cen.model.SaleRegisterDTO;
 import com.cen.model.ViewDTO;
 
@@ -23,6 +24,7 @@ public interface SaleDAO {
 	// 나의 최근 거래지역을 업대이트한다.
 	public void updateRecentAddress(String id, String recent_address) throws Exception;
 	
-	
+	// 게시글의 정보를 없데이트 한다.
+	public void updateSaleBorad(SboardVO vo) throws Exception;
 
 }//saleDAO

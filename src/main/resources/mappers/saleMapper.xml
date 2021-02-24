@@ -90,6 +90,22 @@
   		delete from	tbl_sboard
 		where sb_num=${sb_num};
   	</delete>
+  	
+  	<!-- 게시글의 내용을 업데이트한다. -->
+  	<update id ="updateSaleBorad"
+ 			parameterType="com.cen.domain.SboardVO">
+ 		update tbl_sboard
+		set 
+			sb_name=#{sb_name},
+		    sb_detail=#{sb_detail},
+		    Total_price=#{Total_price},
+		    Total_quantity=#{Total_quantity},
+		    ct_num=#{ct_num},
+		    trade_shape=#{trade_shape},
+		    trade_area=#{trade_area}
+		where 
+			sb_num=#{sb_num};
+ 	</update>
  	
  </mapper>
  

@@ -65,7 +65,7 @@
 					</tbody>
 				</table>
 			</div>
-			<a href="/info/update" class="member-modify-btn">회원정보수정</a>
+			<a href="/info/mypage/update" class="member-modify-btn">회원정보수정</a>
 		</div>
 		<div class="ticket-history-wrap">			
 

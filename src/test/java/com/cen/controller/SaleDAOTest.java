@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.cen.domain.SboardVO;
 import com.cen.model.SaleRegisterDTO;
 import com.cen.model.ViewDTO;
 import com.cen.persistence.SaleDAO;
@@ -74,6 +75,12 @@ public class SaleDAOTest {
 	@Test
 	public void testUpdateRecentAddress() throws Exception{
 		saledao.updateRecentAddress("qwe123", "강남구 역삼동");
+	}//test
+	
+	@Test
+	public void testupdateSaleBorad() throws Exception{
+		SboardVO vo = new SboardVO();
+//		vo.set
 	}//test
 	
 }//end class

@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.cen.domain.SboardVO;
 import com.cen.model.SaleRegisterDTO;
 import com.cen.model.ViewDTO;
 
@@ -71,6 +72,12 @@ public class SaleDAOImpl implements SaleDAO {
 		dMap.put("recent_address", recent_address);
 		sqlSession.update(namespace+".updateRecentAddress", dMap);
 	}//updateRecentAddress
+
+	@Override
+	public void updateSaleBorad(SboardVO vo) throws Exception {
+		log.info("SaleDAOImpl::public void updateRecentAddress() invked!!!");
+		sqlSession.update(namespace+".updateSaleBorad", vo);
+	}//updateSaleBorad
 
 }//end class
 
