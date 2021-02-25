@@ -23,10 +23,10 @@ import lombok.extern.log4j.Log4j;
 public class ClientController {
 	
 	@Inject
-	RegisterService registerService;
+	private RegisterService registerService;
 	
 	@Inject
-	MypageService mypageService;
+	private MypageService mypageService;
 	
 	// 정보수정 페이지로 이동!
 	@GetMapping("/mypage/update")

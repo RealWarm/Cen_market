@@ -23,7 +23,7 @@ import lombok.extern.log4j.Log4j;
 public class CategoryController {
 	
 	@Inject
-	BringService bringService;
+	private BringService bringService;
 	
 	// 카테고리 상세페이
 	// 대분류에 따른 카테고리 분류를 하고, 게시글들으 가져온다.

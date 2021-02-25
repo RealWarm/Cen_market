@@ -36,10 +36,10 @@ import lombok.extern.log4j.Log4j;
 public class SaleController {
 	
 	@Inject
-	SaleService saleservice;
+	private SaleService saleservice;
 	
 	@Inject
-	BringService bringService;
+	private BringService bringService;
 		
 	@GetMapping("/saleregist")
 	public String registGet() throws Exception {

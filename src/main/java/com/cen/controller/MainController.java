@@ -29,10 +29,10 @@ import lombok.extern.log4j.Log4j;
 public class MainController {
 
 	@Inject
-	LoginService loginService;	
+	private LoginService loginService;	
 	
 	@Inject
-	BringService bringService;
+	private BringService bringService;
 	
 	// 메인페이지 호출
 	@GetMapping("/")

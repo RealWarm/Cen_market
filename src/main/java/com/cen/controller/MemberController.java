@@ -30,10 +30,10 @@ import lombok.extern.log4j.Log4j;
 public class MemberController {
 	
 	@Inject
-	RegisterService registerService;
+	private RegisterService registerService;
 	
 	@Inject
-	BringService bringService;
+	private BringService bringService;
 	
 	@GetMapping("/mypage")
 	public String mypageGet(HttpServletRequest request, Model model) throws Exception{
