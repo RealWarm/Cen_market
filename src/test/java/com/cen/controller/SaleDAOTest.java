@@ -1,9 +1,12 @@
 package com.cen.controller;
 
 import javax.inject.Inject;
+import javax.mail.internet.MimeMessage;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -88,9 +91,12 @@ public class SaleDAOTest {
 		vo.setCt_num(100);
 		vo.setTrade_area("indao");
 		vo.setTrade_shape("찾아갈게요");
-		saledao.updateSaleBorad(vo);
-		
+		saledao.updateSaleBorad(vo);		
 	}//test
+	
+	
+	
+	
 	
 }//end class
 
