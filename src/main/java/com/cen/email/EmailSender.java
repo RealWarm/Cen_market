@@ -12,6 +12,7 @@ public class EmailSender {
 	
 	 @Autowired
      protected JavaMailSender mailSender;
+	 
 	 public void SendEmail(Email email) throws Exception {
          
          MimeMessage msg = mailSender.createMimeMessage();
@@ -23,13 +24,15 @@ public class EmailSender {
          }catch(MessagingException e) {
              System.out.println("MessagingException");
              e.printStackTrace();
-         }
+         }//try-catch
+         
          try {
              mailSender.send(msg);
          }catch(MailException e) {
              System.out.println("MailException발생");
              e.printStackTrace();
-         }
-     }
+         }//try-catch
+         
+     }//SendEmail
 
-}
+}//end-class

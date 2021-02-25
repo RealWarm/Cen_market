@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.cen.mapper.FindMapper">
+  
+	  <!-- find id -->
+	  <select id="findId"
+	  		  parameterType="com.cen.domain.MemberVO"
+	  		  resultType="java.lang.String">
+		  	select
+				id
+			from
+				tbl_member
+			where
+				name=#{name} AND
+			    email=#{email};
+	  </select>
+  
+ 	  <select id="findPw"
+	  		  parameterType="com.cen.domain.MemberVO"
+	  		  resultType="java.lang.String">
+		  	select
+				password
+			from
+				tbl_member
+			where
+				id=#{id} AND
+			    email=#{email};
+	  </select>
+  
+  
+	  <update id="updatePw"
+	  		  parameterType="com.cen.domain.MemberVO">
+		  update tbl_member
+		  set password= #{password}
+		  WHERE id= #{id} AND email= #{email} 
+	  </update>
+  
+  
+  
+  
+  </mapper>
