@@ -42,9 +42,9 @@ public class AuthController {
 	@PostMapping("/find_id")         
     public String idfind_POST(MemberVO vo) throws Exception {
 		log.info("AuthController :: idfind_POST() invoked!!!");	
-		System.out.println("아이디 찾기 페이지에서 받은 값 :: " + vo);
-		
+		System.out.println("아이디 찾기 페이지에서 받은 값 :: " + vo);		
 		String id = findservice.findId(vo);
+		System.out.println("찾은 아이디 :: " + id);
 		vo.setId(id);
 		String mail=vo.getEmail();
 		String name=vo.getName();
@@ -57,8 +57,7 @@ public class AuthController {
 			log.info(mail +"로아이디값 전송 !");
 		}else {
 			return "redirect:/find/find_id";
-		}//if-else
-				
+		}//if-else				
 		return "/login";	
 	} //find_id
 	
@@ -70,7 +69,11 @@ public class AuthController {
 	
 	@PostMapping("/find_pw")
 	public String Post_findPw(MemberVO vo) throws Exception {
-		log.info("AuthController :: Post_findPw() invoked!!!");   	
+		log.info("AuthController :: Post_findPw() invoked!!!");
+		
+		String mail=vo.getEmail();
+    	String id=vo.getId();
+    	String password = findservice.findPw(vo);
     	
     	// 새로운 비밀번호 6자리 생성
     	String newPassword = EmailAuthenNum.AuthenNum();    
@@ -78,13 +81,8 @@ public class AuthController {
     	
     	// 새로운 비밀번호 6자리를 암호화한다.
     	String encryPassword = Sha256.encrypt(newPassword);    	
-    	vo.setPassword(encryPassword);                    
+    	vo.setPassword(encryPassword);
     	
-    	String password = findservice.findPw(vo);
-    	
-    	String mail=vo.getEmail();
-    	String id=vo.getId();
-    	    	
     	if(password!=null) {    		
     		email.setContent("임시 비밀번호는 "+newPassword+" 입니다");
     		email.setReceiver(mail);
@@ -94,8 +92,7 @@ public class AuthController {
     		findservice.updatePw(vo);    		
     	}else {
     		return "redirect:/find/find_pw";
-    	}//if-else
-    	
+    	}//if-else    	
     	return "/login";    	
 	}//Post_findPw
 	
