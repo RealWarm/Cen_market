@@ -32,8 +32,7 @@ public class AuthController {
 	private EmailSender emailSender;
 	
 	
-	// 아이디 찾기
-	
+	// 아이디 찾기	
 	@GetMapping("/find_id")
     public String idfind() {    	
 		log.info("AuthController :: GET::idfind() invoked!!!");		

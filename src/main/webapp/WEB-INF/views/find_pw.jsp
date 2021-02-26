@@ -28,76 +28,91 @@
 <body>
 
 	<jsp:include page="navbar.jsp" flush="false"/>
+	
 	<div class="main-findid-wrap">
-        <div class="findid-title-main">
-            <p class="findid_title">아이디 찾기</p>
-        </div>
-        <div class="find_id_input_wrap">
-            <form action="/find/find_id" method="POST">
-                <div class="find-form">                    
-                    <input type="text" placeholder="이름" id="insertId" name="name"> <br>                    
-                    <input type="email" placeholder="메일을 입력해주세요." 
-                            id="insertEmail" name="email">
-                </div>
-                <div class="find-btn">
-                    <input type="submit" class="find-btn" value="확인">
-                </div>
-            </form>
-        </div>
-        <div id="findLoginpw" class="find_another">
-            	혹시 비밀번호를 찾으시나요? <a href="/find/find_pw" class="link_find">비밀번호 찾기</a>
-        </div>
-    </div>	
+       <div class="findid-title-main">
+           <p class="findid_title">비밀번호 찾기</p>
+       </div>
+       <div class="find_id_input_wrap">
+           <form action="/find/find_pw" method="POST">
+               <div class="find-form">
+                   <input type="text" placeholder="아이디를 입력해주세요." id="insertId" name="id"> <br>
+                   <input type="email" placeholder="메일을 입력해주세요.(비밀번호 재설정 인증 메일을 발송합니다.)" name="email" id="insertEmail">
+               </div>
+               <div class="find-btn">
+                   <input type="submit" class="find-btn" value="확인">
+               </div>
+           </form>
+       </div>
+       <div id="findLoginpw" class="find_another">
+           	혹시 아이디를 찾으시나요? <a href="/find/find_id" class="link_find">아이디 찾기</a>
+       </div>
+   </div>
+
 	<jsp:include page="footer.jsp" flush="false"/>
 
 </body>
 <script>
-
     $(document).ready(function () {
 
-        var nameReg = /^[가-힣]+$/;
+        var idReg = /^[a-zA-Z0-9]{6,10}$/;
         var emailReg = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
 
         $(".find-btn").on('click', function (event) {
-            
-            // 이름이 빈칸이면 경고
-            if($("#insertId").val()==""){
-                alert("이름을 입력해주세요.");
-                $("#insertId").focus();
-                $("#insertId").val("");
-                return false;
-            }//if
 
-            // 이름이 형식에 맞지않으면 경고 >> reset
-            if(!nameReg.test($("#insertId").val())){
-                alert("이름의 형식에 맞게 입력해주세요");
+            // 아이디가 빈칸이면 경고
+            if ($("#insertId").val() == "") {
+                alert("아이디를 입력해주세요.");
                 $("#insertId").focus();
                 $("#insertId").val("");
                 return false;
-            }//if
+            } //if
+
+            // 아이디가 형식에 맞지않으면 경고 >> reset
+            if (!idReg.test($("#insertId").val())) {
+                alert("아이디를 형식에 맞게 입력해주세요");
+                $("#insertId").focus();
+                $("#insertId").val("");
+                return false;
+            } //if
 
             // 이메일이 빈칸이라면 경고            
-            if($("#insertEmail").val()==""){
+            if ($("#insertEmail").val() == "") {
                 alert("이메일을 입력해주세요.");
                 $("#insertEmail").focus();
                 $("#insertEmail").val("");
                 return false;
-            }//if
+            } //if
 
             // 이메일이 형식에 맞지않으면 경고
-            if(!emailReg.test($("#insertEmail").val())){
+            if (!emailReg.test($("#insertEmail").val())) {
                 alert("이메일 형식에 맞게 입력해주세요.");
                 $("#insertEmail").focus();
                 $("#insertEmail").val("");
                 return false;
-            }//if
+            } //if
 
 
 
         }); //submit
 
-    });//document
-
+    }); //document
 </script>
 
+
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
