@@ -17,11 +17,13 @@
     <link rel="icon" type="image/jpg" href="/resources/img/shopping.png">
     <!-- Bootstrap core CSS -->
 	<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   	<!-- Bootstrap core JavaScript -->
   	<script src="/resources/vendor/jquery/jquery.min.js"></script>
   	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   	<!-- Custom styles for this template -->
   	<link href="/resources/css/shop-homepage.css" rel="stylesheet">
+  	<link rel="stylesheet" href="/resources/css/notice.css">
 </head>
 <body>
 	<jsp:include page="navbar.jsp" flush="false"/>  
@@ -76,6 +78,20 @@
 
         </div>
         <!-- /.row -->
+        
+        <div class="notice_bottom">
+	      	<tr class="trnotice" >         	         
+	          <c:if test="${pageMaker.prev}">
+	          	<a href="${path}/board/mainlistAll?page=${pageMaker.startPage-1}">&laquo;</a>
+	          </c:if> 
+	          <c:forEach begin="${pageMaker.startPage}" end = "${pageMaker.endPage}" var = "idx">          	
+	           	<a href="${path}/board/mainlistAll?page=${idx}">${idx}</a>	          
+	          </c:forEach>
+	        	<c:if test = "${pageMaker.next && pageMaker.endPage > 0}">
+	          	<a href="${path}/board/mainlistAll?page=${pageMaker.endPage+1}">&raquo;</a>
+	          </c:if>       
+	        </tr>
+        </div>
 
       </div>
       <!-- /.col-lg-9 -->

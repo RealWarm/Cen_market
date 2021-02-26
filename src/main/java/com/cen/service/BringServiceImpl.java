@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.cen.domain.BookMarkVO;
 import com.cen.domain.CategoryVO;
+import com.cen.domain.Criteria;
 import com.cen.domain.MainVO;
 import com.cen.domain.ReplyVO;
 import com.cen.domain.SboardVO;
@@ -84,6 +85,18 @@ public class BringServiceImpl implements BringService{
 		log.info("BringServiceImpl::categoryData() invoked!!");		
 		return dao.categoryData(ct_num);
 	}//categoryData
+
+	@Override
+	public List<MainVO> pagingBringCategory(Criteria cri) throws Exception {
+		log.info("BringServiceImpl::pagingBringCategory() invoked!!");
+		return dao.pagingBringCategory(cri);
+	}//pagingBringCategory
+
+	@Override
+	public int countCategory(Criteria cri) throws Exception {
+		log.info("BringServiceImpl::pagingBringCategory() invoked!!");
+		return dao.countCategory(cri);
+	}//countCategory
 
 	
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.cen.domain.BookMarkVO;
 import com.cen.domain.CategoryVO;
+import com.cen.domain.Criteria;
 import com.cen.domain.MainVO;
 import com.cen.domain.ReplyVO;
 import com.cen.domain.SboardVO;
@@ -40,5 +41,12 @@ public interface BringService {
 	
 	// 카테고리의 정보를 가져온다.
 	public CategoryVO categoryData(String ct_num) throws Exception;
+	
+	// 페이징 처리 : 판매중인 카테고리별 데이터를 가져온다.
+	public List<MainVO> pagingBringCategory(Criteria cri) throws Exception;
+	
+	// 페이징 처리 : 판매중인 카테고리별 게시글 숫자를 가져온다.
+	public int countCategory(Criteria cri) throws Exception;
+	
 	
 }//end interface

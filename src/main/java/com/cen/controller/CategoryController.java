@@ -7,11 +7,10 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cen.domain.CategoryVO;
+import com.cen.domain.Criteria;
 import com.cen.domain.MainVO;
 import com.cen.service.BringService;
 
@@ -27,20 +26,39 @@ public class CategoryController {
 	
 	// 카테고리 상세페이
 	// 대분류에 따른 카테고리 분류를 하고, 게시글들으 가져온다.
-	@GetMapping("/greate")
-	public String categoryGet(@RequestParam("ct_num") String ct_num, Model model) throws Exception {
-		log.info("SaleController :: public void registGet() invoked!!!");
-		List<MainVO> list1=bringService.cateListAll(ct_num);
-		CategoryVO CData=bringService.categoryData(ct_num);
-		for(MainVO vo:list1) {
-			String[] sp = vo.getSb_view().split("_");
-			vo.setSb_view(sp[1]);
-			System.out.println(sp[1]);
-		}//enhanced-for
-		model.addAttribute("list1", list1);
-		model.addAttribute("CData", CData);
-		return "/category_details";
-	}//categoryGet	
+//	@GetMapping("/greate")
+//	public String categoryGet(@RequestParam("ct_num") String ct_num, Model model) throws Exception {
+//		log.info("SaleController :: public void registGet() invoked!!!");
+//		List<MainVO> list1=bringService.cateListAll(ct_num);
+//		CategoryVO CData=bringService.categoryData(ct_num);
+////		for(MainVO vo:list1) {
+////			String[] sp = vo.getSb_view().split("_");
+////			vo.setSb_view(sp[1]);
+////			System.out.println(sp[1]);			
+////			int st=vo.getSb_view().indexOf("_")+1;
+////			vo.setSb_view(vo.getSb_view().substring(st));	
+////		}//enhanced-for
+//		model.addAttribute("list1", list1);
+//		model.addAttribute("CData", CData);
+//		return "/category_details";
+//	}//categoryGet	
+	
+//	@GetMapping("/greate")
+//	public String categoryGet(Criteria cri, Model model) throws Exception {
+//		log.info("SaleController :: public void registGet() invoked!!!");
+//		List<MainVO> list1=bringService.cateListAll(cri.getCt_num().toString());
+//		CategoryVO CData=bringService.categoryData(cri.getCt_num());
+////		for(MainVO vo:list1) {
+////			String[] sp = vo.getSb_view().split("_");
+////			vo.setSb_view(sp[1]);
+////			System.out.println(sp[1]);			
+////			int st=vo.getSb_view().indexOf("_")+1;
+////			vo.setSb_view(vo.getSb_view().substring(st));	
+////		}//enhanced-for
+//		model.addAttribute("list1", list1);
+//		model.addAttribute("CData", CData);
+//		return "/category_details";
+//	}//categoryGet	
 
 }//end class
 

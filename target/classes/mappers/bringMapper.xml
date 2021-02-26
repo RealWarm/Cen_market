@@ -133,7 +133,40 @@
 			ct_num=${ct_num};  			
   	</select> 
   	
+  	<!-- 카테고리 페이징처리 -->
+  	<select id="pagingBringCategory"
+  			parameterType="com.cen.domain.Criteria"
+  			resultType="com.cen.domain.MainVO">
+  		<![CDATA[
+  			select
+				* 
+			from
+				tbl_sboard
+			where
+				ct_num=#{ct_num} AND    
+				(trade_progress = "판매중" OR trade_progress="예약중")				    
+			order by
+				sb_regdate desc
+			limit
+				#{pageStart}, #{perPageNum};  		
+  		]]>	
+    </select>
     
+    
+    <!-- 판매중인 카테고리별 게시글 숫자를 가져온다 -->
+    <select id="countCategory"
+    		parameterType="com.cen.domain.Criteria"
+  			resultType="int">
+  		<![CDATA[
+  			select
+				count(*)
+			from
+				tbl_sboard
+			where
+				ct_num=#{ct_num} AND    
+				(trade_progress = "판매중" OR trade_progress="예약중");
+  		]]>
+  	</select>
   
   </mapper>
   

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.cen.domain.BookMarkVO;
 import com.cen.domain.CategoryVO;
+import com.cen.domain.Criteria;
 import com.cen.domain.MainVO;
 import com.cen.domain.ReplyVO;
 import com.cen.domain.SboardVO;
@@ -86,7 +87,20 @@ public class BringDAOImpl implements BringDAO{
 	public CategoryVO categoryData(String ct_num) throws Exception {
 		log.info("BringDAOImpl:: cateListAll() invoked!!!");
 		return session.selectOne(namespace+".bringCateData", ct_num);
-	}
+	}//categoryData
+
+	@Override
+	public List<MainVO> pagingBringCategory(Criteria cri) throws Exception {
+		log.info("BringDAOImpl:: pagingBringCategory() invoked!!!");
+		System.out.println("indao :: cri :: "+cri);
+		return session.selectList(namespace+".pagingBringCategory", cri);
+	}//pagingBringCategory
+
+	@Override
+	public int countCategory(Criteria cri) throws Exception {
+		log.info("BringDAOImpl:: countCategory() invoked!!!");		
+		return session.selectOne(namespace+".countCategory", cri);
+	}//countCategory
 
 	
 }//endclass

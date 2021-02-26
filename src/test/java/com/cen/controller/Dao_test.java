@@ -26,13 +26,12 @@ public class Dao_test {
 	private SqlSessionFactory sqlFactory;
 	
 	@Test
-	public void testConection() throws Exception {
-		
+	public void testConection() throws Exception {		
 		try(Connection con = ds.getConnection()){
 				log.info("++++++ "+ con);
 		}catch(Exception e) {
 			e.printStackTrace();
-		}
+		}//try-catch
 	}//test
 	
 	@Test
@@ -48,6 +47,17 @@ public class Dao_test {
 			e.printStackTrace();
 		}//try			
 	}//testSession
+	
+	@Test
+	public void testString() {
+		String tmp="1f6865_apple_pen1.png";
+		int inx=tmp.indexOf("_")+1;
+		System.out.println("tmp :: "+tmp.indexOf("_"));
+		String tmp2=tmp.substring(inx);
+		System.out.println("tmp2 :: " + tmp2 );
+	}//testSession
 
 }//end class
+
+
 

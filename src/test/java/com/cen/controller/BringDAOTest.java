@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.cen.domain.BookMarkVO;
 import com.cen.domain.CategoryVO;
+import com.cen.domain.Criteria;
 import com.cen.domain.MainVO;
 import com.cen.domain.ReplyVO;
 import com.cen.domain.SboardVO;
@@ -126,6 +127,38 @@ public class BringDAOTest {
 		CategoryVO vo=dao.categoryData("100");
 		System.out.println("+++ vo" + vo);
 	}//test
+
+	@Test
+	public void testPaging() throws Exception {
+		log.info("BringDAOTest::testPaging() invoked!!");
+		Criteria cri = new Criteria();
+		cri.setPage(2);
+		cri.setPerPageNum(16);	
+		cri.setCt_num(100);
+		List<MainVO> list = dao.pagingBringCategory(cri);
+		
+		int cnt=0;
+		for(MainVO vv:list) {
+			cnt++;
+			System.out.println("++ " + vv.getSb_num());			
+		}//for-enhaced	
+		System.out.println("cnt :: " + cnt);
+	}//test
+	
+	@Test
+	public void testcount() throws Exception {
+		Criteria cri = new Criteria();
+		cri.setPage(2);
+		cri.setPerPageNum(16);	
+		cri.setCt_num(100);
+		int cnt=dao.countCategory(cri);
+		System.out.println("cnt:::"+cnt);
+	}//testcount
+	
 	
 
 }//endclass
+
+
+
+

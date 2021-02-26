@@ -12,19 +12,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PageMaker {
 	
-	private int totalCount;
-	private int startPage;
+	private int totalCount;	// sql의 결과로 나온 데이터의 전체 갯수
+	private int startPage;	
 	private int endPage;
 	private boolean prev;
 	private boolean next;
 	
-	private int displayPageNum = 5;
+	private int displayPageNum = 5; // 화면에 보여지는 페이지 번호의 숫자(아래 막대기)
 	
 	private Criteria cri;
 	
 	public void setCri(Criteria cri) {
 		this.cri = cri;
-	}
+	}//init
 	
 	public void setTotalCount(int totalCount) {
 		this.totalCount = totalCount;

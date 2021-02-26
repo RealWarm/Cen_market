@@ -57,9 +57,9 @@ public class AuthController {
 			log.info(mail +"로아이디값 전송 !");
 		}else {
 //			return "redirect:/find/find_id";
-			return "/login";
+			return "redirect:/login";
 		}//if-else				
-		return "/login";	
+		return "redirect:/login";	
 	} //find_id
 	
 	// 비밀번호 찾기
@@ -94,9 +94,9 @@ public class AuthController {
     		findservice.updatePw(vo);    		
     	}else {
 //    		return "redirect:/find/find_pw";
-    		return "/login";
+    		return "redirect:/login";
     	}//if-else    	
-    	return "/login";    	
+    	return "redirect:/login";    	
 	}//Post_findPw
 	
 	
