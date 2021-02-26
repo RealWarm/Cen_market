@@ -11,38 +11,64 @@ $(document).ready(function () {
   $('.join-submit').on('click', function (event) {
     // event.preventDefault();
 
-    // //아아디
-    // if ($("#id").val() == "") {
-    //   alert("아이디를 입력해주세요!!");
-    //   $("#id").focus();
-    //   return false;
-    // }
-
-    //아이디 테스트
+	// 아아디 비어있으면 안된다.
+    if ($("#id").val() == "") {
+      alert("아이디를 입력해주세요!!");
+      $("#id").focus();
+      return false;
+    }
+    
+    // 아이디 형식 검사
     if (!idReg.test($("#id").val())) {
       alert("아이디를 다시 입력해주세요!!");
       $("#id").focus();
       return false;
     }
 
-    //비밀번호
+
+    // 비밀번호 
+    if($("#password").val()==""){
+      alert("비밀번호를 입력해주세요!!");
+      $("#password").foucus();
+      return false;
+    }//if
+
+    // 비밀번호 형식검사
     if (!pwReg.test($("#password").val())) {
       alert("비밀번호를 입력해주세요!!");
       $("#password").focus();
       return false;
     }
-    //비밀번호 확인
+
+    //비밀번호 확인 빈칸 검사
+    if($("#passwordCheck").val()==""){
+      alert("비밀번호 확인을 입력해주세요!");
+      $("#passwordCheck").focus();
+      return false;
+    }    
+
+    // 비밀번호 재확인
     if ($("#password").val() !== $("#passwordCheck").val()) {
       alert("비밀번호 확인을 다시 입력해주세요!!!");
       $("#passwordCheck").focus();
       return false;
     }
-    // 아이디랑 비밀번호랑 같은지
-    if ($("#id").val() == ($("#password").val())) {
-      $("#password").focus();
+
+    // // 아이디랑 비밀번호랑 같은지
+    // if ($("#id").val() == ($("#password").val())) {
+    //   $("#password").focus();
+    //   return false;
+    // }
+
+
+    // 이름
+    if($("#name").val()==""){
+      alert("이름을 입력해주세요.");
+      $("#name").focus();
       return false;
-    }
-    //이름
+    }//if
+
+    // 이름 형식 검사
     if (!nameReg.test($("#name").val())) {
       alert("이름을 다시 입력해주세요!!");
       $("#name").focus();
@@ -50,6 +76,13 @@ $(document).ready(function () {
     }
 
     // 닉네임
+    if($("#nickname").val()==""){
+      alert("닉네임을 입력해주세요.")
+      $("#nickname").focus();
+      return false;
+    }//if
+
+    // 닉네임 형식 검사
     if(!nicknameReg.test($("#nickname").val())){
       alert("닉네임을 다시 입력해주세요!!");
       return false;
@@ -62,7 +95,14 @@ $(document).ready(function () {
       return false;
     }
 
-    // 휴대폰 번호
+    // 휴대폰 번호 빈칸 검사
+    if($("#phnum").val()==""){
+      alert("휴대폰 번호를 입력해주세요!");
+      $("#phnum").focus();
+      return false;
+    }//if
+
+    // 휴대폰 번호 형식 검사
     if (!phnumReg.test($("#phnum").val())) {
       alert("휴대폰 번호를 입력해주세요!!");
       $("#phnum").focus();
@@ -70,6 +110,13 @@ $(document).ready(function () {
     }
 
     //이메일
+    if($("#email").val()==""){
+      alert("이메일을 입력해주세요!!");
+      $("#email").focus();
+      return false;      
+    }//if
+
+
     if (!emailReg.test($("#email").val())) {
       alert("이메일을 다시 입력해주세요!!");
       $("#email").focus()
