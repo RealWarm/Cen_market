@@ -32,9 +32,11 @@ public class CategoryController {
 		log.info("SaleController :: public void registGet() invoked!!!");
 		List<MainVO> list1=bringService.cateListAll(ct_num);
 		CategoryVO CData=bringService.categoryData(ct_num);
-//		for(MainVO vo:list1) {
-//			System.out.println(">>>>>>>>> " +vo);
-//		}//enhanced-for
+		for(MainVO vo:list1) {
+			String[] sp = vo.getSb_view().split("_");
+			vo.setSb_view(sp[1]);
+			System.out.println(sp[1]);
+		}//enhanced-for
 		model.addAttribute("list1", list1);
 		model.addAttribute("CData", CData);
 		return "/category_details";

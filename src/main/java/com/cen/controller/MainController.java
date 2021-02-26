@@ -43,9 +43,11 @@ public class MainController {
 		System.out.println("login :: " + vo + "!!!!!!");
 		//////////////////////////////////////////////
 		List<MainVO> mlist=bringService.mainListAll();
-//		for(MainVO nvo:mlist) {
-//			System.out.println(nvo);
-//		}//enhanced-for
+		for(MainVO nvo:mlist) {
+			String[] sp = nvo.getSb_view().split("_");
+			nvo.setSb_view(sp[1]);
+			System.out.println(sp[1]);
+		}//enhanced-for
 		model.addAttribute("mlist", mlist);		
 		return "main";		
 	}//main
