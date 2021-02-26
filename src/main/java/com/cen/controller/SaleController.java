@@ -87,8 +87,11 @@ public class SaleController {
 			// 파일을 정해진 위치에 저장하기		
 			String uploadTaregtPath = request.getSession().getServletContext().getRealPath("/")+"/resources/upload_data";
 			System.out.println("+_+_+_+_+_+_+ "+request.getSession().getServletContext().getRealPath("/"));
-			UUID uid = UUID.randomUUID();		
-			String savedName = uid.toString() + "_" + file.getOriginalFilename();	
+			
+			String uuid = UUID.randomUUID().toString().replaceAll("-", ""); // -를 제거해 주었다.
+	        uuid = uuid.substring(0,6); //uuid를 앞에서부터 6자리 잘라줌.			
+			
+			String savedName = uuid.toString() + "_" + file.getOriginalFilename();	
 			File f = new File(uploadTaregtPath, savedName);
 			file.transferTo(f);
 			
