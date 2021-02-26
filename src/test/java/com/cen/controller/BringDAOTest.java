@@ -134,7 +134,7 @@ public class BringDAOTest {
 		Criteria cri = new Criteria();
 		cri.setPage(2);
 		cri.setPerPageNum(16);	
-		cri.setCt_num(100);
+		cri.setCt_num("100");
 		List<MainVO> list = dao.pagingBringCategory(cri);
 		
 		int cnt=0;
@@ -150,7 +150,7 @@ public class BringDAOTest {
 		Criteria cri = new Criteria();
 		cri.setPage(2);
 		cri.setPerPageNum(16);	
-		cri.setCt_num(100);
+		cri.setCt_num("100");
 		int cnt=dao.countCategory(cri);
 		System.out.println("cnt:::"+cnt);
 	}//testcount

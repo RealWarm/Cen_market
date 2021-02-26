@@ -43,7 +43,7 @@
 		          	</li>
 		          	<li class="nav-item">
 		            	<!-- <a class="nav-link" href="/sale/category">카테고리</a> -->
-		            	<a class="nav-link" href="/category/greate?ct_num=100">카테고리</a>
+		            	<a class="nav-link" href="/category/greate?ct_num=100&page=1">카테고리</a>
 		          	</li>
 		          	<li class="nav-item">
 		            	<a class="nav-link" href="/member/mypage">${login.nickname}님 안녕하세요!</a>

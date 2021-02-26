@@ -4,13 +4,13 @@ public class Criteria {
 
   private int page;			// 현재 페이지번호
   private int perPageNum; 	// 한 페이지당 출력하는 데이터의 수 
-  private int ct_num;		// 카테고리번호
+  private String ct_num;		// 카테고리번호
 
-  public int getCt_num() {
+  public String getCt_num() {
 	return ct_num;
   }//getCt_num
 
-  public void setCt_num(int ct_num) {
+  public void setCt_num(String ct_num) {
 	  this.ct_num = ct_num;
   }//setCt_num
 	
