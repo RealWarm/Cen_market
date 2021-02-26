@@ -42,9 +42,9 @@ public class MypageServiceImpl implements MypageService{
 	}//memberUpdate
 
 	@Override
-	public void memberDelete(String id) throws Exception {
+	public void memberDelete(MemberVO vo) throws Exception {
 		log.info("MypageServiceImpl :: memberUpdate() invoked!!");
-		dao.memberDelete(id);
+		dao.memberDelete(vo);
 	}//memberDelete
 
 }//end-class

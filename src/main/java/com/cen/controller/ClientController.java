@@ -84,6 +84,25 @@ public class ClientController {
 	}//bookCancel
 
 	
+	@GetMapping("/withdrawal")
+	public String GetWithdrawal() throws Exception{
+		log.info("ClientController :: public String GetWithdrawal() invoked!!!");
+		return "withdrawal_member";
+	}//GetWithdrawal
+	
+	@PostMapping("/withdrawal")
+	public String PostWithdrawal(MemberVO vo, HttpSession session) throws Exception{
+		log.info("ClientController :: public String PostWithdrawal() invoked!!!");
+		MemberVO vo1 = (MemberVO)session.getAttribute("login");
+		vo.setId(vo1.getId());
+		String encryPassword = Sha256.encrypt(vo.getPassword()); // 비번 암호화
+		vo.setPassword(encryPassword);
+		System.out.println("회원탈퇴 :: "+ vo);
+		session.removeAttribute("login");
+		mypageService.memberDelete(vo);
+		return "redirect:/";
+	}//GetWithdrawal
+	
 	
 }//end class
 

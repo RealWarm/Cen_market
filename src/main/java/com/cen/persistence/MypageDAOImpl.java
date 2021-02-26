@@ -56,9 +56,9 @@ public class MypageDAOImpl implements MypageDAO{
 	}//memberUpdate
 
 	@Override
-	public void memberDelete(String id) throws Exception {
+	public void memberDelete(MemberVO vo) throws Exception {
 		log.info("MypageDAOImpl :: memberDelete() invoiked!!");
-		sqlSession.delete(namespace+".deleteMember", id);
+		sqlSession.delete(namespace+".deleteMember", vo);
 	}//memberDelete
 	
 	

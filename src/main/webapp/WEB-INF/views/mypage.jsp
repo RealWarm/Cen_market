@@ -66,6 +66,7 @@
 				</table>
 			</div>
 			<a href="/info/mypage/update" class="member-modify-btn">회원정보수정</a>
+			<a href="/info/withdrawal" class="member-modify-btn">회원탈퇴</a>
 		</div>
 		<div class="ticket-history-wrap">			
 

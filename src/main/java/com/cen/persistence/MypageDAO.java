@@ -17,7 +17,7 @@ public interface MypageDAO {
 	public void memberUpdate(MemberVO vo) throws Exception;
 	
 	// 회원 탈퇴를 한다.
-	public void memberDelete(String id) throws Exception;
+	public void memberDelete(MemberVO vo) throws Exception;
 	
 	
 }//end-interface

@@ -46,9 +46,10 @@
     </update>
     
     <!-- 회원탈퇴 -->
-    <delete id="deleteMember">
-    	delete from	tbl_member
-		where id=#{id};    
+    <delete id="deleteMember"
+    		parameterType="com.cen.domain.MemberVO">
+		delete from	tbl_member
+		where id=#{id} and password=#{password} and name=#{name};   
     </delete>
     	
   	

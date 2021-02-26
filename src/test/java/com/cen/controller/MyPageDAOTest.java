@@ -74,7 +74,11 @@ public class MyPageDAOTest {
 	
 	@Test
 	public void testdeleteMember() throws Exception{
-		dao.memberDelete("start");
+		MemberVO vo=new MemberVO();
+		vo.setId("start");		
+		vo.setPassword("b2938805d70faeffb2446698ebabc6c1c33e06a90d966e815ab58b72716eb3cb");
+		vo.setName("startname");
+		dao.memberDelete(vo);
 	}//test
 
 	
