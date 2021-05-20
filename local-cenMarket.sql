@@ -7,18 +7,17 @@ drop table tbl_bookMark;
 show tables;
 
 create table tbl_member(
-    id varchar(50) not null unique,  
-    password varchar(150) not null,
-    name varchar(20) not null,
-    nickname varchar(20) not null unique,
-    email varchar(50) not null unique,
+    id nvarchar2(50) primary key,  
+    password nvarchar2(150) not null,
+    name nvarchar2(20) not null,
+    nickname nvarchar2(20) not null unique,
+    email nvarchar2(50) not null unique,
     -- phnum varchar(50) not null unique,
-    phnum varchar(50) not null,
-    org_name varchar(50),							/* 소속기관 이름 */ 
-    recent_address varchar(150), 					/* 최근 배송지 */    
-    regdate timestamp default now(),				/* 회원 가입일 */
-    updatedate timestamp DEFAULT NULL, 				/* 정보수정일 */
-    primary key(id)
+    phnum nvarchar2(50) not null,
+    org_name nvarchar2(50),							/* 소속기관 이름 */ 
+    recent_address nvarchar2(150), 					/* 최근 배송지 */    
+    regdate date default sysdate,				/* 회원 가입일 */
+    updatedate date DEFAULT NULL 				/* 정보수정일 */    
 );
 
 

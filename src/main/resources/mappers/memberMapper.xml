@@ -17,7 +17,7 @@
  			tbl_member
  		where
  			id=#{userid} AND
- 			password=#{userpw};			
+ 			password=#{userpw}		
  	</select> 	
  	
  	<select id="logincheck"
@@ -34,7 +34,7 @@
  			tbl_member
  		where
  			id=#{userid} AND
- 			password=#{userpw};		
+ 			password=#{userpw}
  	</select>
  	 	
  	<!-- 회원가입 -->
@@ -42,9 +42,9 @@
 			parameterType="com.cen.domain.MemberVO">
 		insert into tbl_member 
 			(id, password, name, nickname, email, phnum, org_name, recent_address)
-		value
+		values
 			(#{id}, #{password}, #{name}, #{nickname}, #{email}, #{phnum}, 
-			 #{org_name}, #{recent_address});	
+			 #{org_name}, #{recent_address})
 	</insert>
  
  	<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ id Ckeck(id 중복검사)ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ  -->    
@@ -82,7 +82,7 @@
 			parameterType="com.cen.domain.MemberVO">
 		insert into tbl_reply(
 			sb_num, sb_writer, sb_nickname, sb_detail
-		)value(
+		)values(
 			#{sb_num}, #{sb_writer}, #{sb_nickname}, #{sb_detail}
 		);			
 	</insert>
@@ -92,9 +92,9 @@
 			parameterType="java.util.HashMap">
 		insert into tbl_bookMark(
 			sb_num, sb_writer
-		)value(
+		)values(
 			#{sb_num}, #{sb_writer}
-		);		
+		)
 	</insert>
 	
 	<!-- 북마크 취소하기 -->

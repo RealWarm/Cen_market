@@ -16,27 +16,32 @@
 		<appender-ref ref="consoleAppender" />
 	</logger>
 	
-    <logger name="jdbc.sqltiming"      	level="INFO">
+    <logger name="jdbc.sqltiming"      	
+    		level="INFO">
     	<appender-ref ref="consoleAppender" />
     </logger>
     
-    <logger name="jdbc.audit"          	level="WARN">
+    <logger name="jdbc.audit"          	
+    		level="WARN">
     	<appender-ref ref="consoleAppender" />
     </logger>
     
-    <logger name="jdbc.resultset"      	level="ERROR">
+    <logger name="jdbc.resultset"      	
+    		level="ERROR">
     	<appender-ref ref="consoleAppender" />
     </logger>
     
-    <logger name="jdbc.resultsettable" 	level="ERROR">
+    <logger name="jdbc.resultsettable" 	
+    		level="ERROR">
     	<appender-ref ref="consoleAppender" />
     </logger>
     
-    <logger name="jdbc.connection"     	level="INFO">
+    <logger name="jdbc.connection"     	
+    		level="INFO">
     	<appender-ref ref="consoleAppender" />
     </logger>
     
-    <root level="WARN">
+    <root level="INFO">
 		<appender-ref ref="consoleAppender" />
 	</root>
     

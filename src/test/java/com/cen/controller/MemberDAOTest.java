@@ -28,15 +28,15 @@ public class MemberDAOTest {
 	
 	@Test
 	public void testLogin1() throws Exception{
-		LoginDTO dto = new LoginDTO("test12", "tttt");
+		LoginDTO dto = new LoginDTO("test2", "tttt");
 		int num = logindao.login_chk(dto);
 		System.out.println("num : " + num);
 	}//testCreate
 	
 	@Test
 	public void testRegister() throws Exception{		
-		MemberVO vo = new MemberVO("test2", "tttt", "testName2", "testNickName", "test2@naver.com", "010-8957-4929",
-						"신림동 동사무서", "");
+		MemberVO vo = new MemberVO("eeeeeewww", "eeeeeewww", "eeeeeewww", "eeeeeewww", "test2@eeeeeewww.com", "010-v-4929",
+						"신림동 eeeeeewww", "qwerqwer");
 		registerdao.register(vo);
 	}//testCreate
 	
