@@ -48,7 +48,7 @@ public class SaleDAOTest {
 	
 	@Test
 	public void testinsertBoard() throws Exception{
-		SaleRegisterDTO dto = new SaleRegisterDTO(1, "test1", "test", "사무용 책상 팝니다.",  "사무용 의자 책상팝니다. ㅇㅇㅇㅇ팝니다. ㅇㅇㅇㅇ팝니다. ㅇㅇㅇㅇ팝니다. ㅇㅇㅇㅇ",
+		SaleRegisterDTO dto = new SaleRegisterDTO(12, "qwer12", "test", "사무용 책상 팝니다.",  "사무용 의자 책상팝니다. ㅇㅇㅇㅇ팝니다. ㅇㅇㅇㅇ팝니다. ㅇㅇㅇㅇ팝니다. ㅇㅇㅇㅇ",
 				100000, 1, 100, "직거래", "main_banner11_1200x350.png", "신관동");
 		int bd_num=saleservice.boardCnt()+1;		
 		dto.setSb_num(bd_num);

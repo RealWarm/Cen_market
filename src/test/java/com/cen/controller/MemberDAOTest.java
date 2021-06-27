@@ -28,7 +28,7 @@ public class MemberDAOTest {
 	
 	@Test
 	public void testLogin1() throws Exception{
-		LoginDTO dto = new LoginDTO("test12", "tttt");
+		LoginDTO dto = new LoginDTO("test2", "tttt");
 		int num = logindao.login_chk(dto);
 		System.out.println("num : " + num);
 	}//testCreate
