@@ -1,4 +1,5 @@
-.class
-
+classes/
 target/
-src/test
+*/src/*/java/META-INF
+*/src/META-INF/
+*/src/*/java/META-INF/

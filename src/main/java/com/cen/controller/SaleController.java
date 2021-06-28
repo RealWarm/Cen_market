@@ -91,7 +91,8 @@ public class SaleController {
 			String uuid = UUID.randomUUID().toString().replaceAll("-", ""); // -를 제거해 주었다.
 	        uuid = uuid.substring(0,6); //uuid를 앞에서부터 6자리 잘라줌.			
 			
-			String savedName = uuid.toString() + "_" + file.getOriginalFilename();	
+			// String savedName = uuid.toString() + "_" + file.getOriginalFilename();
+			String savedName = file.getOriginalFilename();
 			File f = new File(uploadTaregtPath, savedName);
 			file.transferTo(f);
 			

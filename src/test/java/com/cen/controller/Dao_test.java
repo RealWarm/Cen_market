@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -26,6 +27,14 @@ public class Dao_test {
 	@Inject
 	private SqlSessionFactory sqlFactory;
 	
+	@Value("${db.url}")
+	String dburl;
+	
+	@Value("${db.username}")
+	String dbusername;
+	
+	@Value("${db.password}")
+	String dbpassword;
 	
 	@Before
 	public void testprofile() {
@@ -36,6 +45,11 @@ public class Dao_test {
 	@Test
 	public void testConection() throws Exception {
 //		System.setProperty("spring.profiles.active", "dev");
+		
+		System.out.println("@@@@@@++++++++++++++++++ " + dburl);
+		System.out.println("@@@@@@@@++++++++++++++++++ " + dbusername);
+		System.out.println("@@@@@@++++++++++++++++++ " + dbpassword);
+		
 		try(Connection con = ds.getConnection()){
 				log.info("++++++ "+ con);
 		}catch(Exception e) {
