@@ -7,6 +7,7 @@ import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -25,8 +26,16 @@ public class Dao_test {
 	@Inject
 	private SqlSessionFactory sqlFactory;
 	
+	
+	@Before
+	public void testprofile() {
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@Dao_test :: before testprofile() !!!!! ");
+//		System.setProperty("spring.profiles.active", "dev");
+	}//testprofile
+	
 	@Test
-	public void testConection() throws Exception {		
+	public void testConection() throws Exception {
+//		System.setProperty("spring.profiles.active", "dev");
 		try(Connection con = ds.getConnection()){
 				log.info("++++++ "+ con);
 		}catch(Exception e) {
