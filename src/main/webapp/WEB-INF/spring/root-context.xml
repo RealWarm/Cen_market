@@ -20,7 +20,7 @@
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
        <property name="locations">
              <list>
-                    <value>classpath:database-${spring.profiles.active}.properties</value>
+                    <value>classpath:database-dev.properties</value>
              </list>
        </property>
 	</bean>   

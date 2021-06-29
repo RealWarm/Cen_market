@@ -8,10 +8,14 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cen.controller.CategoryController;
+
 import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 
-@Log4j
+//@Log4j
+@Slf4j
 public class LoginInterceptor 
 	implements HandlerInterceptor {
 	

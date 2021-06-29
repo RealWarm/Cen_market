@@ -13,11 +13,14 @@ import com.cen.domain.CategoryVO;
 import com.cen.domain.Criteria;
 import com.cen.domain.MainVO;
 import com.cen.domain.PageMaker;
+import com.cen.persistence.BoardDAOImpl;
 import com.cen.service.BringService;
 
 import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
-@Log4j
+// @Log4j
+@Slf4j
 @Controller
 @RequestMapping("/category")
 public class CategoryController {

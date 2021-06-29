@@ -21,9 +21,11 @@ import com.cen.service.BringService;
 import com.cen.service.LoginService;
 
 import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 
-@Log4j
+//@Log4j
+@Slf4j
 @Controller
 //@RequestMapping("/")
 public class MainController {

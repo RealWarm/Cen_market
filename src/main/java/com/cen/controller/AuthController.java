@@ -12,12 +12,15 @@ import com.cen.domain.MemberVO;
 import com.cen.email.Email;
 import com.cen.email.EmailAuthenNum;
 import com.cen.email.EmailSender;
+import com.cen.persistence.BoardDAOImpl;
 import com.cen.security.Sha256;
 import com.cen.service.FindService;
 
 import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
-@Log4j
+// @Log4j
+@Slf4j
 @Controller
 @RequestMapping("/find")
 public class AuthController {
